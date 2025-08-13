@@ -96,15 +96,15 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-poppins font-bold text-gray-900 mb-6">
-            Get In{" "}
+            Get In
             <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               Touch
             </span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto mb-8"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Have a project in mind or just want to chat? I'd love to hear from
-            you. Let's create something amazing together!
+            {` Have a project in mind or just want to chat? I'd love to hear from
+            you. Let's create something amazing together!`}
           </p>
         </div>
 
@@ -217,12 +217,12 @@ export default function Contact() {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-poppins font-bold text-gray-900 mb-8">
-                Let's connect
+                {` Let's connect`}
               </h3>
               <p className="text-gray-600 leading-relaxed mb-8">
-                I'm always open to discussing new opportunities, creative
+                {` I'm always open to discussing new opportunities, creative
                 projects, or just having a friendly chat about technology and
-                development.
+                development.`}
               </p>
             </div>
 

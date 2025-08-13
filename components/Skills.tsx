@@ -122,9 +122,9 @@ export default function Skills() {
               Always Learning, Always Growing
             </h3>
             <p className="text-lg opacity-90 max-w-3xl mx-auto">
-              Technology evolves rapidly, and so do I. I'm constantly exploring
+              {`Technology evolves rapidly, and so do I. I'm constantly exploring
               new frameworks, tools, and best practices to stay at the forefront
-              of web development and deliver cutting-edge solutions.
+              of web development and deliver cutting-edge solutions.`}
             </p>
           </div>
         </div>

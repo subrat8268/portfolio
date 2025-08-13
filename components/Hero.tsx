@@ -70,30 +70,29 @@ export default function Hero() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const typedRef = useRef<HTMLSpanElement>(null);
+
   useEffect(() => {
-    // Typed.js effect
     const roles = [
       "Full Stack Developer",
       "Creative Designer",
       "Frontend Specialist",
       "Problem Solver",
     ];
-
     let currentRole = 0;
     let currentChar = 0;
     let isDeleting = false;
 
-    const typeElement = document.querySelector(".typed-text");
-    if (!typeElement) return;
-
     function type() {
+      if (!typedRef.current) return;
+
       const current = roles[currentRole];
 
       if (isDeleting) {
-        typeElement.textContent = current.substring(0, currentChar - 1);
+        typedRef.current.textContent = current.substring(0, currentChar - 1);
         currentChar--;
       } else {
-        typeElement.textContent = current.substring(0, currentChar + 1);
+        typedRef.current.textContent = current.substring(0, currentChar + 1);
         currentChar++;
       }
 
@@ -126,14 +125,17 @@ export default function Hero() {
           {/* Main heading */}
           <div className="space-y-4">
             <h1 className="text-5xl md:text-7xl font-poppins font-bold text-gray-900 leading-tight">
-              Hi, I'm{" "}
+              {`Hi, I'm`}
               <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">
                 Subrat Jena
               </span>
             </h1>
             <div className="text-2xl md:text-4xl font-poppins font-medium text-gray-700">
-              I'm a{" "}
-              <span className="typed-text text-purple-600 border-r-2 border-purple-600 pr-1"></span>
+              {`I'm a`}
+              <span
+                ref={typedRef}
+                className="typed-text text-purple-600 border-r-2 border-purple-600 pr-1"
+              ></span>
             </div>
           </div>
 

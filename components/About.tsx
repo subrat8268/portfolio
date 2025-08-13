@@ -51,23 +51,23 @@ export default function About() {
             </h3>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                I'm a passionate Full Stack Developer with a keen eye for design
+                {` I'm a passionate Full Stack Developer with a keen eye for design
                 and a love for creating meaningful digital experiences. With
                 expertise spanning from frontend technologies like React and
                 JavaScript to backend solutions with Node.js and MongoDB, I
-                bring ideas to life through code.
+                bring ideas to life through code.`}
               </p>
               <p>
-                My journey in web development has been driven by curiosity and a
+                {` My journey in web development has been driven by curiosity and a
                 constant desire to learn. I believe in writing clean,
                 maintainable code and creating interfaces that not only look
-                great but also provide exceptional user experiences.
+                great but also provide exceptional user experiences.`}
               </p>
               <p>
-                When I'm not coding, you'll find me exploring new technologies,
-                contributing to open-source projects, or sharing knowledge with
-                the developer community. I'm always excited to take on new
-                challenges and collaborate on innovative projects.
+                {`When I'm not coding, you'll find me exploring new technologies,
+              contributing to open-source projects, or sharing knowledge with
+              the developer community. I'm always excited to take on new
+              challenges and collaborate on innovative projects.`}
               </p>
             </div>
           </div>

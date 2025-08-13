@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Projects() {
   const [currentProject, setCurrentProject] = useState(0);
@@ -101,7 +102,7 @@ export default function Projects() {
           <div className="grid lg:grid-cols-2 gap-0">
             {/* Project Image */}
             <div className="relative h-64 lg:h-full min-h-[400px] overflow-hidden">
-              <img
+              <Image
                 src={currentProj.image}
                 alt={currentProj.title}
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
@@ -210,7 +211,7 @@ export default function Projects() {
                 onClick={() => setCurrentProject(index)}
               >
                 <div className="relative h-48 overflow-hidden">
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
