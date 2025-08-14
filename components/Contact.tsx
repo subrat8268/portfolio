@@ -56,8 +56,8 @@ export default function Contact() {
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
-      value: "+91 XXX XXX XXXX",
-      link: "tel:+91XXXXXXXXXX",
+      value: "+91 8268017431",
+      link: "tel:+918268017431",
     },
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -80,12 +80,6 @@ export default function Contact() {
       url: "https://www.linkedin.com/in/subrat-jena-8a69a8194/",
       color: "hover:text-blue-600",
     },
-    {
-      icon: <Twitter className="w-6 h-6" />,
-      name: "Twitter",
-      url: "#",
-      color: "hover:text-blue-400",
-    },
   ];
 
   return (
@@ -96,7 +90,7 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-poppins font-bold text-gray-900 mb-6">
-            Get In
+            Get In{" "}
             <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               Touch
             </span>
@@ -132,7 +126,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all duration-300"
-                    placeholder="John Doe"
+                    placeholder="Your Name"
                   />
                 </div>
                 <div>
@@ -150,7 +144,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all duration-300"
-                    placeholder="john@example.com"
+                    placeholder="Your Email"
                   />
                 </div>
               </div>
@@ -187,7 +181,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={6}
+                  rows={3}
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all duration-300 resize-none"
                   placeholder="Tell me about your project..."
                 ></textarea>
