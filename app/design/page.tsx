@@ -14,6 +14,7 @@ export default function DesignPage() {
 
       <main className="max-w-5xl mx-auto px-4">
         <section className="pt-28 max-w-4xl">
+          <h1 className="sr-only">Design as a second language.</h1>
           <p className="text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
             Visual Design Work
           </p>

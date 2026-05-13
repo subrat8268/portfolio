@@ -5,7 +5,8 @@ import Link from "next/link";
 
 const navItems = [
   { href: "#about", label: "About" },
-  { href: "/design", label: "Gallery" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/design", label: "Design Work" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -92,7 +93,7 @@ export default function Navbar() {
 
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 border-t border-[var(--color-border)] bg-[var(--color-bg)]/90 backdrop-blur-sm">
         <div className="mx-auto flex h-10 max-w-6xl items-center justify-between px-4 text-[11px] tracking-[0.08em] text-[var(--color-text-muted)] uppercase [font-family:var(--font-body)]">
-          <span>Designer &amp; Developer</span>
+          <span>Frontend Developer · React · Next.js</span>
           <span>{new Date().getFullYear()}</span>
         </div>
       </div>

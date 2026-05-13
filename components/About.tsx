@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 
 import DisplayHeading from "@/components/DisplayHeading";
@@ -17,16 +15,16 @@ export default function About() {
           </DisplayHeading>
           <div className="mt-6 space-y-5 text-[15px] leading-[1.7] text-[var(--color-text)] [font-family:var(--font-body)]">
             <p>
-              I build modern web interfaces and also design the visual assets
-              that support them. My workflow blends frontend engineering with
-              practical design decisions so products feel consistent from first
-              click to final launch.
+              Frontend developer with 2 years building production React and
+              Next.js applications for BFSI clients — including AU Small
+              Finance Bank and ICRA. I focus on performance, accessibility, and
+              clean component architecture.
             </p>
-            <p>
-              Most client work starts with strategy and structure, then moves
-              into UI execution, campaign graphics, and identity refinements. I
-              focus on clarity, hierarchy, and details that make a brand feel
-              intentional.
+            <p className="mt-4">
+              I also bring design sensibility to every interface I ship. Logos,
+              banners, and social graphics are a side skill — built for real
+              clients using Canva. Both disciplines inform how I think about
+              UI.
             </p>
           </div>
         </div>

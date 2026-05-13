@@ -3,12 +3,14 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import type { CSSProperties } from "react";
-
-import DisplayHeading from "@/components/DisplayHeading";
-import { designItems } from "@/lib/design-work";
+import Link from "next/link";
 
 export default function Hero() {
-  const heroImages = designItems.slice(0, 3);
+  const heroImages = [
+    "/projects/au-bank-mockup.png",
+    "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "/projects/icra-mockup.png",
+  ];
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -49,13 +51,13 @@ export default function Hero() {
 
               return (
                 <div
-                  key={item.id}
+                  key={`${item}-${index}`}
                   className={`absolute h-[300px] w-[220px] overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] shadow-2xl ${rotates[index] ?? "rotate-0"} ${offsets[index] ?? "left-0 top-0"}`}
                   style={animationStyle}
                 >
                   <Image
-                    src={item.images[0] ?? item.thumbnail}
-                    alt={item.title}
+                    src={item}
+                    alt={`Project preview ${index + 1}`}
                     fill
                     className="object-cover"
                     priority={index === 1}
@@ -84,12 +86,33 @@ export default function Hero() {
           </div>
 
           <div className="-mt-10 text-center">
-            <DisplayHeading className="text-[clamp(5rem,9vw,8rem)]">
-              Creative
-            </DisplayHeading>
-            <DisplayHeading className="-mt-3 text-[clamp(5.5rem,10vw,8.8rem)]">
-              Portfolio
-            </DisplayHeading>
+            <p className="mb-2 text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+              Based in Mumbai · Available for hire
+            </p>
+            <h1 className="[font-family:var(--font-body)] text-[clamp(2.75rem,6vw,4.5rem)] font-semibold leading-none text-[var(--color-text)]">
+              Subrat Jena
+            </h1>
+            <p className="mt-1 text-[clamp(1.5rem,3vw,2.5rem)] text-[var(--color-accent)] [font-family:var(--font-display)]">
+              Frontend Developer.
+            </p>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--color-text-muted)]">
+              2 yrs building production React &amp; Next.js interfaces for BFSI
+              clients. I also bring design sensibility to every UI I ship.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <Link
+                href="#projects"
+                className="inline-flex items-center gap-1.5 bg-[var(--color-accent)] px-5 py-2.5 text-sm text-white transition-colors duration-200 hover:bg-[var(--color-accent-hover)]"
+              >
+                View Projects
+              </Link>
+              <Link
+                href="/design"
+                className="inline-flex items-center gap-1.5 border border-[var(--color-border)] px-5 py-2.5 text-sm text-[var(--color-text-muted)] transition-all duration-200 hover:border-white/40 hover:text-white"
+              >
+                Design Work →
+              </Link>
+            </div>
           </div>
         </div>
       </div>

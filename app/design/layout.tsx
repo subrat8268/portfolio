@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Visual Design Work — Subrat Jena",
   description:
     "Logos, event banners, invitations, and social media graphics by Subrat Jena — a Mumbai-based frontend developer with a strong visual design side.",
+  alternates: {
+    canonical: "/design",
+  },
   openGraph: {
     title: "Visual Design Work — Subrat Jena",
     description: "Logos, event banners, invitations, and social media graphics.",

@@ -6,18 +6,12 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "images.pexels.com",
+        // Used in: components/Projects.tsx (SNOX project thumbnail)
       },
       {
         protocol: "https",
         hostname: "res.cloudinary.com",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-      {
-        protocol: "https",
-        hostname: "picsum.photos",
+        // Used in: lib/design-work.ts (all design thumbnails)
       },
     ],
   },

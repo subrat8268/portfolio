@@ -14,23 +14,37 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Subrat Jena — Frontend Developer & Designer",
+  metadataBase: new URL("https://mysjportfolio.vercel.app"),
+  title: "Subrat Jena — Frontend Developer",
   description:
-    "Frontend developer with BFSI enterprise experience at AU Small Finance Bank and ICRA. Based in Mumbai. Also a visual designer.",
+    "Frontend developer with 2 years building production React and Next.js interfaces for BFSI clients at AU Small Finance Bank and ICRA. Based in Mumbai.",
+  alternates: {
+    canonical: "/",
+  },
+  themeColor: "#0a0a0a",
   openGraph: {
-    title: "Subrat Jena — Frontend Developer & Designer",
+    title: "Subrat Jena — Frontend Developer",
     description:
       "Frontend developer with BFSI enterprise experience. Based in Mumbai.",
-    url: "https://subratjena.com",
+    url: "https://mysjportfolio.vercel.app",
     siteName: "Subrat Jena",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Subrat Jena — Frontend Developer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Subrat Jena — Frontend Developer & Designer",
+    title: "Subrat Jena — Frontend Developer",
     description:
       "Frontend developer with BFSI enterprise experience. Based in Mumbai.",
+    images: ["/og-image.png"],
   },
 };
 

@@ -1,13 +1,8 @@
-"use client";
-
-import { ArrowUp } from "lucide-react";
 import Link from "next/link";
 
-export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
+export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
@@ -39,8 +34,10 @@ export default function Footer() {
               Subrat Jena
             </Link>
             <p className="mt-4 max-w-md leading-relaxed text-[var(--color-text-muted)]">
-              Frontend developer and designer focused on building practical,
-              high-quality digital experiences for real business use cases.
+              Frontend Developer — React · Next.js · TypeScript
+            </p>
+            <p className="mt-2 max-w-md leading-relaxed text-[var(--color-text-muted)]">
+              Building production interfaces for BFSI clients. Based in Mumbai.
             </p>
             <div className="mt-6">
               <Link
@@ -90,13 +87,9 @@ export default function Footer() {
             © {currentYear} by Subrat Jena
           </div>
 
-          <button
-            onClick={scrollToTop}
-            className="mt-4 border border-[var(--color-border)] px-3 py-2 text-[var(--color-text)] transition-all duration-200 hover:border-white/40 md:mt-0"
-            aria-label="Back to top"
-          >
-            <ArrowUp className="h-5 w-5" />
-          </button>
+          <div className="mt-4 md:mt-0">
+            <ScrollToTopButton />
+          </div>
         </div>
       </div>
     </footer>
