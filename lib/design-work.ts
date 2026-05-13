@@ -15,7 +15,7 @@ export type DesignItem = {
 export const designItems: DesignItem[] = [
   {
     id: "ussepp-logo",
-    title: "USSEPP Programme Identity",
+    title: "Education Programme — Emblem Identity",
     type: "Logo",
     clientOrEvent:
       "University Student's Skill Enhancement & Placement Programme",
@@ -33,13 +33,18 @@ export const designItems: DesignItem[] = [
   },
   {
     id: "ekadant-banner-2024",
-    title: "Kumbharwadyacha Ekadant — Festival Banner 2024",
+    title: "Festival Mandal — Event Banner 2024",
     type: "Banner",
     clientOrEvent:
       "Kumbharwadyacha Ekadant Sarvajanik Ganeshotsav Mandal, Mumbai",
     year: "2024",
     tools: ["Canva"],
-    tags: ["Festival", "Marathi Typography", "Photo Composite", "Print & Digital"],
+    tags: [
+      "Festival",
+      "Marathi Typography",
+      "Photo Composite",
+      "Print & Digital",
+    ],
     thumbnail:
       "https://res.cloudinary.com/drmgqakwr/image/upload/v1778689107/Ekdant_diwali_23_cvewav.png",
     images: [
@@ -51,7 +56,7 @@ export const designItems: DesignItem[] = [
   },
   {
     id: "ekadant-banner-2023",
-    title: "Kisan Pahilwan Mitra Mandal — Festival Banner",
+    title: "Festival Mandal — Event Banner 2023",
     type: "Banner",
     clientOrEvent: "Kumbharwadyacha Ekadant Ganeshotsav Mandal, Mumbai",
     year: "2023",
@@ -64,11 +69,11 @@ export const designItems: DesignItem[] = [
     ],
     featured: false,
     description:
-      "Alternative edition of the festival banner in a deep purple and gold palette, featuring two deity forms flanking the mandal name. Ornamental Mandala watermarks add depth to the background while keeping the main hierarchy — name, location, and devotional message — immediately readable.",
+      "Alternative edition of the festival banner in a deep purple and gold palette, featuring two deity forms flanking the mandal name. Ornamental mandala watermarks add depth to the background while keeping the main hierarchy — name, location, and devotional message — immediately readable.",
   },
   {
     id: "laxmi-global-impex-logo",
-    title: "Laxmi Global Impex — Corporate Logo",
+    title: "Import-Export Firm — Corporate Identity",
     type: "Logo",
     clientOrEvent: "Laxmi Global Impex",
     year: "2024",
@@ -84,13 +89,13 @@ export const designItems: DesignItem[] = [
       "Wordmark + lettermark combination for an import-export business. The interlocked L-G monogram in navy and red sits inside a bold rectangular block, suggesting solidity and international scale. A globe wireframe to the right reinforces global trading identity. Clean, legible, and confident at any scale.",
   },
   {
-    id: "ritika-birthday-invite",
-    title: "Ritika's 1st Birthday Invitation",
+    id: "birthday-invitation-card",
+    title: "First Birthday — Celebration Invite",
     type: "Invitation",
-    clientOrEvent: "Private — Birthday Event, Mumbai",
+    clientOrEvent: "Private Event, Mumbai",
     year: "2024",
     tools: ["Canva"],
-    tags: ["Print", "Invitation", "Pastel", "Kids"],
+    tags: ["Print", "Invitation", "Pastel", "Watercolour", "Botanical"],
     thumbnail:
       "https://res.cloudinary.com/drmgqakwr/image/upload/v1778688651/Green_Watercolor_Cute_1st_Birthday_Invitation_ywxrbm.png",
     images: [
@@ -98,6 +103,23 @@ export const designItems: DesignItem[] = [
     ],
     featured: false,
     description:
-      "Soft watercolour invitation card for a first birthday celebration in Mumbai. Loose botanical wreath frames a circular photo cutout, with a hand-script heading and clean serif body type. Pastel mint and dusty white palette creates warmth without being loud. Designed for both print and digital sharing.",
+      "Soft watercolour invitation card for a first birthday celebration. Loose botanical wreath frames a circular photo cutout, with a hand-script heading and clean serif body type. Pastel mint and dusty white palette creates warmth without being loud. Designed for both print and digital sharing.",
+  },
+  {
+    id: "epls-event-banner",
+    title: "Campus Event — Promotional Banner",
+    type: "Banner",
+    clientOrEvent: "EPLS — Event & Programme, Mumbai",
+    year: "2024",
+    tools: ["Canva"],
+    tags: ["Campus", "Event", "Banner", "Print & Digital"],
+    thumbnail:
+      "https://res.cloudinary.com/drmgqakwr/image/upload/v1778688950/EPLS1Banner_gdbyj3.jpg",
+    images: [
+      "https://res.cloudinary.com/drmgqakwr/image/upload/v1778688950/EPLS1Banner_gdbyj3.jpg",
+    ],
+    featured: false,
+    description:
+      "Promotional banner designed for a campus-level event or programme. Bold headline typography anchors the layout, supported by structured information hierarchy for date, venue, and branding. Balanced colour use ensures readability at both large print and digital display sizes.",
   },
 ];
