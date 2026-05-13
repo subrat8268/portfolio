@@ -90,7 +90,7 @@ export const designItems: DesignItem[] = [
     clientOrEvent: "Private Event, Mumbai",
     year: "2024",
     tools: ["Canva"],
-    tags: ["Print", "Invitation", "Pastel", "Watercolour"],
+    tags: ["Print", "Invitation", "Pastel", "Watercolour", "Botanical"],
     thumbnail:
       "https://res.cloudinary.com/drmgqakwr/image/upload/v1778688651/Green_Watercolor_Cute_1st_Birthday_Invitation_ywxrbm.png",
     images: [
@@ -101,20 +101,20 @@ export const designItems: DesignItem[] = [
       "Soft watercolour invitation card for a first birthday celebration. Loose botanical wreath frames a circular photo cutout, with a hand-script heading and clean serif body type. Pastel mint and dusty white palette creates warmth without being loud. Designed for both print and digital sharing.",
   },
   {
-    id: "birthday-invitation-card-2",
-    title: "Birthday Celebration — Print Invite",
-    type: "Invitation",
-    clientOrEvent: "Private Event, Mumbai",
+    id: "epls-event-banner",
+    title: "Campus Event — Promotional Banner",
+    type: "Banner",
+    clientOrEvent: "EPLS — Event & Programme, Mumbai",
     year: "2024",
     tools: ["Canva"],
-    tags: ["Print", "Invitation", "Pastel", "Kids", "Botanical"],
+    tags: ["Campus", "Event", "Banner", "Print & Digital"],
     thumbnail:
-      "https://res.cloudinary.com/drmgqakwr/image/upload/v1778688651/Green_Watercolor_Cute_1st_Birthday_Invitation_ywxrbm.png",
+      "https://res.cloudinary.com/drmgqakwr/image/upload/v1778688950/EPLS1Banner_gdbyj3.jpg",
     images: [
-      "https://res.cloudinary.com/drmgqakwr/image/upload/v1778688651/Green_Watercolor_Cute_1st_Birthday_Invitation_ywxrbm.png",
+      "https://res.cloudinary.com/drmgqakwr/image/upload/v1778688950/EPLS1Banner_gdbyj3.jpg",
     ],
     featured: false,
     description:
-      "Delicate invitation design built around a watercolour floral theme. Circular portrait frame anchors the layout, with layered typography balancing a playful script headline against a clean serif for event details. Mint greens and soft whites keep the tone celebratory yet refined.",
+      "Promotional banner designed for a campus-level event or programme. Bold headline typography anchors the layout, supported by structured information hierarchy for date, venue, and branding. Balanced colour use ensures readability at both large print and digital display sizes.",
   },
 ];
