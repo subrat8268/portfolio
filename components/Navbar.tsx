@@ -1,84 +1,101 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+
+const navItems = [
+  { href: "#about", label: "About" },
+  { href: "/design", label: "Gallery" },
+  { href: "#contact", label: "Contact" },
+];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 80);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navItems = [
-    { href: "#about", label: "About" },
-    { href: "#projects", label: "Projects" },
-    { href: "#skills", label: "Skills" },
-    { href: "/design", label: "Design" },
-    { href: "#contact", label: "Contact" },
-  ];
-
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/90 backdrop-blur-md shadow-lg" : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 border-b border-transparent transition-all duration-200 ${
+          isScrolled ? "bg-black/20 backdrop-blur-md" : "bg-transparent"
+        }`}
+      >
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
           <Link
             href="/"
-            className="font-poppins font-bold text-2xl bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent"
+            className="text-sm text-white/95 [font-family:var(--font-body)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
           >
             Subrat Jena
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <nav className="hidden items-center gap-10 sm:flex">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium"
+                className="text-[13px] uppercase tracking-[0.1em] text-white [font-family:var(--font-body)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
                 {item.label}
               </Link>
             ))}
-          </div>
+          </nav>
 
-          {/* Mobile menu button */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-purple-600 transition-colors"
+            type="button"
+            aria-label="Open navigation menu"
+            onClick={() => setIsMobileOpen(true)}
+            className="sm:hidden text-2xl leading-none text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            ☰
           </button>
         </div>
+      </header>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-md rounded-lg mt-2 p-4 shadow-lg">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="block py-2 text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
+      {isMobileOpen ? (
+        <div className="fixed inset-0 z-[60] bg-[var(--color-bg)]">
+          <div className="mx-auto flex h-full max-w-6xl flex-col px-4 py-6">
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-white [font-family:var(--font-body)]">
+                Subrat Jena
+              </span>
+              <button
+                type="button"
+                aria-label="Close navigation menu"
+                onClick={() => setIsMobileOpen(false)}
+                className="text-2xl leading-none text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
-                {item.label}
-              </Link>
-            ))}
+                ×
+              </button>
+            </div>
+
+            <nav className="mt-16 flex flex-1 flex-col justify-center gap-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMobileOpen(false)}
+                  className="text-2xl uppercase tracking-[0.1em] text-white [font-family:var(--font-display)]"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
           </div>
-        )}
+        </div>
+      ) : null}
+
+      <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 border-t border-[var(--color-border)] bg-[var(--color-bg)]/90 backdrop-blur-sm">
+        <div className="mx-auto flex h-10 max-w-6xl items-center justify-between px-4 text-[11px] tracking-[0.08em] text-[var(--color-text-muted)] uppercase [font-family:var(--font-body)]">
+          <span>Designer &amp; Developer</span>
+          <span>2025</span>
+        </div>
       </div>
-    </nav>
+    </>
   );
 }
