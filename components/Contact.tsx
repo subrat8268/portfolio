@@ -8,7 +8,6 @@ import {
   Send,
   Github,
   Linkedin,
-  Twitter,
 } from "lucide-react";
 import Link from "next/link";
 
