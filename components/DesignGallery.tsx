@@ -116,6 +116,7 @@ export function DesignGallery({ items }: DesignGalleryProps) {
   const [activeFilter, setActiveFilter] = useState<FilterValue>("All");
   const [activeItem, setActiveItem] = useState<DesignItem | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [isModalImageLoading, setIsModalImageLoading] = useState(false);
   const [isModalMounted, setIsModalMounted] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -146,6 +147,7 @@ export function DesignGallery({ items }: DesignGalleryProps) {
 
     setActiveItem(item);
     setActiveImageIndex(0);
+    setIsModalImageLoading(true);
     setIsModalMounted(true);
     requestAnimationFrame(() => setIsModalVisible(true));
   }, []);
@@ -171,6 +173,7 @@ export function DesignGallery({ items }: DesignGalleryProps) {
     setActiveImageIndex((current) =>
       current === 0 ? activeItem.images.length - 1 : current - 1
     );
+    setIsModalImageLoading(true);
   }, [activeItem]);
 
   const goToNextImage = useCallback(() => {
@@ -181,6 +184,7 @@ export function DesignGallery({ items }: DesignGalleryProps) {
     setActiveImageIndex((current) =>
       current === activeItem.images.length - 1 ? 0 : current + 1
     );
+    setIsModalImageLoading(true);
   }, [activeItem]);
 
   useEffect(() => {
@@ -355,12 +359,16 @@ export function DesignGallery({ items }: DesignGalleryProps) {
               <div className="grid max-h-[calc(100vh-2rem)] overflow-y-auto lg:grid-cols-[1.2fr_0.8fr]">
                 <div className="relative border-b border-slate-800/70 bg-slate-950 lg:border-b-0 lg:border-r">
                   <div className="relative aspect-[4/3] w-full lg:aspect-[5/6]">
+                    {isModalImageLoading ? (
+                      <div className="absolute inset-0 animate-pulse bg-slate-800/70" />
+                    ) : null}
                     <Image
                       src={modalImage ?? activeItem.thumbnail}
                       alt={activeItem.title}
                       fill
                       sizes="(max-width: 1024px) 100vw, 60vw"
                       className="object-cover"
+                      onLoad={() => setIsModalImageLoading(false)}
                     />
                   </div>
 

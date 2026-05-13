@@ -6,18 +6,18 @@ import DisplayHeading from "@/components/DisplayHeading";
 const contactItems = [
   {
     label: "Email",
-    value: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
-    href: `mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? ""}`,
+    value: "subrato8268@gmail.com",
+    href: "mailto:subrato8268@gmail.com",
   },
   {
     label: "WhatsApp",
     value: "+91 82680 17431",
-    href: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? ""}`,
+    href: "https://wa.me/918268017431",
   },
   {
     label: "Instagram",
-    value: `@${process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE ?? ""}`,
-    href: `https://instagram.com/${process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE ?? ""}`,
+    value: "@subrat.jena",
+    href: "https://instagram.com/subrat.jena",
   },
 ];
 
@@ -60,7 +60,7 @@ export default function Contact() {
           <div className="bg-[var(--color-accent)] p-0">
             <div className="relative h-full min-h-[420px] w-full overflow-hidden">
               <Image
-                src="/contact/contact-visual.svg"
+                src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=800"
                 alt="Contact visual"
                 fill
                 className="object-cover shadow-[-30px_0_50px_rgba(0,0,0,0.45)]"

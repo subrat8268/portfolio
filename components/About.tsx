@@ -34,8 +34,8 @@ export default function About() {
             {/* TODO: Replace with real personal photo */}
             <div className="relative aspect-[6/7] w-full overflow-hidden">
               <Image
-                src="/about/photo-1.svg"
-                alt="About photo one"
+                src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Subrat Jena"
                 fill
                 className="object-cover"
               />
@@ -46,8 +46,8 @@ export default function About() {
             {/* TODO: Replace with real personal photo */}
             <div className="relative aspect-[6/7] w-full overflow-hidden border border-white/20">
               <Image
-                src="/about/photo-2.svg"
-                alt="About photo two"
+                src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Working on a project"
                 fill
                 className="object-cover"
               />

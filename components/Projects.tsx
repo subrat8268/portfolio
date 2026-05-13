@@ -30,7 +30,8 @@ const projects: Project[] = [
       "HTML/CSS",
       "Internal Design System",
     ],
-    image: "/projects/au-bank-mockup.png",
+    image:
+      "https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg?auto=compress&cs=tinysrgb&w=1200",
     liveUrl: null,
     githubUrl: null,
     featured: true,
@@ -48,7 +49,8 @@ const projects: Project[] = [
       "Print CSS",
       "Accessibility",
     ],
-    image: "/projects/icra-mockup.png",
+    image:
+      "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1200",
     liveUrl: null,
     githubUrl: null,
     featured: false,
@@ -127,9 +129,14 @@ export default function Projects() {
                   Live Demo
                 </Link>
               ) : (
-                <span className="text-xs italic text-[var(--color-text-muted)]">
-                  Internal — NDA
-                </span>
+                <div>
+                  <span className="text-xs italic text-[var(--color-text-muted)]">
+                    Internal — NDA
+                  </span>
+                  <span className="mt-1 block text-[0.65rem] italic text-[var(--color-text-muted)]">
+                    Screenshots withheld — enterprise NDA
+                  </span>
+                </div>
               )}
               {featured.githubUrl ? (
                 <Link
@@ -192,9 +199,14 @@ export default function Projects() {
                       Live Demo
                     </Link>
                   ) : (
-                    <span className="text-xs italic text-[var(--color-text-muted)]">
-                      Internal — NDA
-                    </span>
+                    <div>
+                      <span className="text-xs italic text-[var(--color-text-muted)]">
+                        Internal — NDA
+                      </span>
+                      <span className="mt-1 block text-[0.65rem] italic text-[var(--color-text-muted)]">
+                        Screenshots withheld — enterprise NDA
+                      </span>
+                    </div>
                   )}
                   {project.githubUrl ? (
                     <Link

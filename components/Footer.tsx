@@ -13,11 +13,11 @@ export default function Footer() {
       { name: "Contact", href: "#contact" },
     ],
     social: [
-      { name: "GitHub", href: "https://github.com/subrat8268" },
       {
         name: "LinkedIn",
         href: "https://www.linkedin.com/in/subrat-jena-8a69a8194/",
       },
+      { name: "GitHub", href: "https://github.com/subrat8268" },
       { name: "Email", href: "mailto:subrato8268@gmail.com" },
     ],
   };

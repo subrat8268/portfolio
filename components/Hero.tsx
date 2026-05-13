@@ -7,9 +7,18 @@ import Link from "next/link";
 
 export default function Hero() {
   const heroImages = [
-    "/projects/au-bank-mockup.png",
-    "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "/projects/icra-mockup.png",
+    {
+      src: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
+      alt: "Frontend project preview",
+    },
+    {
+      src: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800",
+      alt: "BFSI interface preview",
+    },
+    {
+      src: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
+      alt: "Dashboard preview",
+    },
   ];
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
@@ -27,9 +36,10 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[100dvh] overflow-hidden bg-[var(--color-bg)] pt-20">
-      <div className="mx-auto flex min-h-[100dvh] max-w-5xl items-center justify-center px-4 pb-24">
-        <div className="relative flex w-full flex-col items-center">
-          <div className="relative h-[340px] w-[320px] sm:h-[420px] sm:w-[420px]">
+      <div className="mx-auto flex min-h-[100dvh] max-w-6xl items-center px-4 pb-24">
+        <div className="grid w-full gap-10 lg:grid-cols-[60%_40%] lg:items-center">
+          <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
+            <div className="relative h-[240px] w-[320px] sm:h-[340px] sm:w-[380px] lg:h-[420px] lg:w-[420px]">
             {heroImages.map((item, index) => {
               const rotates = ["-rotate-6", "rotate-0", "rotate-6"];
               const offsets = ["left-0 top-12", "left-[48px] top-0", "left-[108px] top-16"];
@@ -51,41 +61,49 @@ export default function Hero() {
 
               return (
                 <div
-                  key={`${item}-${index}`}
+                  key={`${item.src}-${index}`}
                   className={`absolute h-[300px] w-[220px] overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] shadow-2xl ${rotates[index] ?? "rotate-0"} ${offsets[index] ?? "left-0 top-0"}`}
                   style={animationStyle}
                 >
                   <Image
-                    src={item}
-                    alt={`Project preview ${index + 1}`}
+                    src={item.src}
+                    alt={item.alt}
                     fill
+                    sizes="(max-width: 640px) 160px, 220px"
                     className="object-cover"
-                    priority={index === 1}
+                    priority={index === 0}
                   />
                 </div>
               );
             })}
 
-            <svg
-              viewBox="0 0 100 100"
-              className="absolute -right-14 top-6 h-[60px] w-[60px] text-white"
-              aria-hidden="true"
-              style={
-                prefersReducedMotion
-                  ? undefined
-                  : {
-                      animation: "heroSpin 20s linear infinite",
-                    }
-              }
-            >
-              <path
-                d="M50 6 L58 34 L86 22 L66 44 L94 50 L66 56 L86 78 L58 66 L50 94 L42 66 L14 78 L34 56 L6 50 L34 44 L14 22 L42 34 Z"
-                fill="currentColor"
-              />
-            </svg>
+            <div className="group absolute -right-14 top-6">
+              <svg
+                viewBox="0 0 100 100"
+                className="h-[60px] w-[60px] text-white"
+                aria-label="Available for hire"
+                role="img"
+                style={
+                  prefersReducedMotion
+                    ? undefined
+                    : {
+                        animation: "heroSpin 20s linear infinite",
+                      }
+                }
+              >
+                <path
+                  d="M50 6 L58 34 L86 22 L66 44 L94 50 L66 56 L86 78 L58 66 L50 94 L42 66 L14 78 L34 56 L6 50 L34 44 L14 22 L42 34 Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span className="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap border border-[var(--color-border)] bg-[var(--color-surface)] px-2 py-1 text-[0.65rem] text-[var(--color-text-muted)] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                Available for hire ✓
+              </span>
+            </div>
+            </div>
           </div>
 
-          <div className="-mt-10 text-center">
+          <div className="order-2 text-left lg:order-1">
             <p className="mb-2 text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
               Based in Mumbai · Available for hire
             </p>
@@ -99,7 +117,7 @@ export default function Hero() {
               2 yrs building production React &amp; Next.js interfaces for BFSI
               clients. I also bring design sensibility to every UI I ship.
             </p>
-            <div className="mt-6 flex flex-wrap items-center gap-3">
+            <div className="mt-6 flex flex-wrap items-center justify-start gap-3">
               <Link
                 href="#projects"
                 className="inline-flex items-center gap-1.5 bg-[var(--color-accent)] px-5 py-2.5 text-sm text-white transition-colors duration-200 hover:bg-[var(--color-accent-hover)]"

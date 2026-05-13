@@ -34,6 +34,11 @@ const skillGroups = [
 ];
 
 export default function Skills() {
+  const totalSkillCount = skillGroups.reduce(
+    (acc, group) => acc + group.skills.length,
+    0
+  );
+
   return (
     <section id="skills" className="bg-[var(--color-bg)] py-[clamp(5rem,8vw,9rem)]">
       <div className="mx-auto max-w-6xl px-4">
@@ -44,22 +49,39 @@ export default function Skills() {
           What I work with.
         </DisplayHeading>
 
+        <p className="mt-2 mb-8 text-[0.65rem] text-[var(--color-text-muted)]">
+          {totalSkillCount} technologies &amp; tools
+        </p>
+
         <dl className="mt-12 grid grid-cols-1 gap-x-16 gap-y-10 md:grid-cols-2">
-          {skillGroups.map(({ group, skills }) => (
+          {skillGroups.map(({ group, skills }, index) => (
             <div key={group}>
               <dt className="mb-3 text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
                 {group}
               </dt>
               <dd className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-sm border border-[var(--color-border)] px-2.5 py-1 text-xs text-[var(--color-text-muted)]"
-                  >
-                    {skill}
-                  </span>
-                ))}
+                {skills.map((skill) => {
+                  const isFrontendPrimary =
+                    group === "Frontend" &&
+                    ["React", "Next.js", "TypeScript"].includes(skill);
+
+                  return (
+                    <span
+                      key={skill}
+                      className={`rounded-sm border px-3 py-1.5 text-xs text-[var(--color-text-muted)] ${
+                        isFrontendPrimary
+                          ? "border-white/30"
+                          : "border-[var(--color-border)]"
+                      }`}
+                    >
+                      {skill}
+                    </span>
+                  );
+                })}
               </dd>
+              {index < skillGroups.length - 1 ? (
+                <hr className="my-2 border-[var(--color-border)]" />
+              ) : null}
             </div>
           ))}
         </dl>
