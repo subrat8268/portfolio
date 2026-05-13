@@ -7,6 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function DesignPage() {
+  const featuredItems = designItems.filter((item) => item.featured);
+  const otherItems = designItems.filter((item) => !item.featured);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-50">
       <Navbar />
@@ -64,48 +67,114 @@ export default function DesignPage() {
       </section>
 
       {/* Gallery */}
+      <section className="max-w-6xl mx-auto px-4 pb-10">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-sm font-semibold tracking-[0.2em] uppercase text-slate-400">
+            Featured work
+          </h2>
+          <p className="text-xs text-slate-500">
+            Featured pieces shown larger with multiple views when available.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {featuredItems.map((item) => (
+            <article
+              key={item.id}
+              className="group border border-slate-800/70 bg-slate-900/40 rounded-2xl overflow-hidden flex flex-col hover:border-slate-500/80 hover:bg-slate-900/80 transition-colors duration-200"
+            >
+              <div className="relative w-full h-72 bg-slate-900">
+                <Image
+                  src={item.images[0] ?? item.thumbnail}
+                  alt={item.title}
+                  fill
+                  className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                />
+              </div>
+              <div className="p-5 flex-1 flex flex-col">
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <p className="text-[0.65rem] uppercase tracking-[0.18em] text-slate-500">
+                    {item.type}
+                  </p>
+                </div>
+                <h3 className="text-base font-medium text-slate-50 line-clamp-2">
+                  {item.title}
+                </h3>
+                <p className="mt-1 text-xs uppercase tracking-[0.18em] text-slate-500">
+                  {item.clientOrEvent} • {item.year}
+                </p>
+                <p className="mt-3 text-sm text-slate-300 line-clamp-3">
+                  {item.description}
+                </p>
+                {item.images.length > 1 ? (
+                  <div className="mt-4 grid grid-cols-3 gap-2">
+                    {item.images.slice(1, 4).map((image, index) => (
+                      <div
+                        key={`${item.id}-${image}-${index}`}
+                        className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-950"
+                      >
+                        <Image
+                          src={image}
+                          alt={`${item.title} view ${index + 2}`}
+                          fill
+                          className="object-cover opacity-80"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {item.tags.slice(0, 3).map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-slate-700 px-2.5 py-1 text-[0.65rem] text-slate-400"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="max-w-6xl mx-auto px-4 pb-16">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-sm font-semibold tracking-[0.2em] uppercase text-slate-400">
-            Selected work
+            Other work
           </h2>
           <p className="text-xs text-slate-500">
-            Placeholders for now — replace thumbnails with your real Canva
-            exports.
+            Compact cards for the remaining pieces.
           </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {designItems.map((item) => (
+          {otherItems.map((item) => (
             <article
               key={item.id}
               className="group border border-slate-800/70 bg-slate-900/40 rounded-xl overflow-hidden flex flex-col hover:border-slate-500/80 hover:bg-slate-900/80 transition-colors duration-200"
             >
               <div className="relative w-full h-44 bg-slate-900">
                 <Image
-                  src={item.thumbnail}
+                  src={item.images[0] ?? item.thumbnail}
                   alt={item.title}
                   fill
                   className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                 />
               </div>
               <div className="p-4 flex-1 flex flex-col">
-                <div className="flex items-center justify-between gap-2 mb-1">
-                  <p className="text-[0.65rem] uppercase tracking-[0.18em] text-slate-500">
-                    {item.type}
-                  </p>
-                  <p className="text-[0.65rem] text-slate-500">
-                    {item.tags.slice(0, 2).join(" • ")}
-                  </p>
-                </div>
-                <h3 className="text-sm font-medium text-slate-50 line-clamp-2">
+                <p className="text-[0.65rem] uppercase tracking-[0.18em] text-slate-500">
+                  {item.type} • {item.year}
+                </p>
+                <h3 className="mt-1 text-sm font-medium text-slate-50 line-clamp-2">
                   {item.title}
                 </h3>
+                <p className="mt-2 text-xs text-slate-400 line-clamp-2">
+                  {item.clientOrEvent}
+                </p>
                 <p className="mt-2 text-xs text-slate-400 line-clamp-3">
                   {item.description}
-                </p>
-                <p className="mt-3 text-[0.65rem] text-slate-500">
-                  Tools: {item.tools.join(", ")}
                 </p>
               </div>
             </article>
