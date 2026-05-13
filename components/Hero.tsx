@@ -1,12 +1,27 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import type { CSSProperties } from "react";
 
 import DisplayHeading from "@/components/DisplayHeading";
 import { designItems } from "@/lib/design-work";
 
 export default function Hero() {
   const heroImages = designItems.slice(0, 3);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setPrefersReducedMotion(mediaQuery.matches);
+
+    update();
+    mediaQuery.addEventListener("change", update);
+
+    return () => {
+      mediaQuery.removeEventListener("change", update);
+    };
+  }, []);
 
   return (
     <section className="relative min-h-[100dvh] overflow-hidden bg-[var(--color-bg)] pt-20">
@@ -16,11 +31,27 @@ export default function Hero() {
             {heroImages.map((item, index) => {
               const rotates = ["-rotate-6", "rotate-0", "rotate-6"];
               const offsets = ["left-0 top-12", "left-[48px] top-0", "left-[108px] top-16"];
+              const animationDelays = ["0s", "0.12s", "0.24s"];
+              const startRotates = ["-18deg", "8deg", "20deg"];
+              const finalRotates = ["-6deg", "0deg", "6deg"];
+              const animationStyle: (CSSProperties & Record<string, string>) | undefined =
+                prefersReducedMotion
+                  ? undefined
+                  : {
+                      animationName: "cardSettle",
+                      animationDuration: "0.7s",
+                      animationTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+                      animationFillMode: "both",
+                      animationDelay: animationDelays[index] ?? "0s",
+                      "--start-rotate": startRotates[index] ?? "0deg",
+                      "--final-rotate": finalRotates[index] ?? "0deg",
+                    };
 
               return (
                 <div
                   key={item.id}
                   className={`absolute h-[300px] w-[220px] overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] shadow-2xl ${rotates[index] ?? "rotate-0"} ${offsets[index] ?? "left-0 top-0"}`}
+                  style={animationStyle}
                 >
                   <Image
                     src={item.images[0] ?? item.thumbnail}
@@ -37,6 +68,13 @@ export default function Hero() {
               viewBox="0 0 100 100"
               className="absolute -right-14 top-6 h-[60px] w-[60px] text-white"
               aria-hidden="true"
+              style={
+                prefersReducedMotion
+                  ? undefined
+                  : {
+                      animation: "heroSpin 20s linear infinite",
+                    }
+              }
             >
               <path
                 d="M50 6 L58 34 L86 22 L66 44 L94 50 L66 56 L86 78 L58 66 L50 94 L42 66 L14 78 L34 56 L6 50 L34 44 L14 22 L42 34 Z"
@@ -55,6 +93,25 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes cardSettle {
+          0% {
+            opacity: 0;
+            transform: translate3d(0, -40px, 0) rotate(var(--start-rotate));
+          }
+          100% {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) rotate(var(--final-rotate));
+          }
+        }
+
+        @keyframes heroSpin {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      `}</style>
     </section>
   );
 }

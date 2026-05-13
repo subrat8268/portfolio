@@ -14,31 +14,23 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Subrat Jena - Full Stack Developer & Creative Designer",
+  title: "Subrat Jena — Frontend Developer & Designer",
   description:
-    "Innovative Full Stack Developer specializing in React, Node.js, and modern web technologies. Creating digital experiences that matter.",
-  keywords:
-    "Subrat Jena, Full Stack Developer, React Developer, Web Developer, Frontend Developer, Portfolio, JavaScript, Node.js, MongoDB, Web Design",
-  authors: [{ name: "Subrat Jena" }],
-  creator: "Subrat Jena",
+    "Frontend developer with BFSI enterprise experience at AU Small Finance Bank and ICRA. Based in Mumbai. Also a visual designer.",
   openGraph: {
-    title: "Subrat Jena - Full Stack Developer & Creative Designer",
+    title: "Subrat Jena — Frontend Developer & Designer",
     description:
-      "Innovative Full Stack Developer creating digital experiences that matter.",
+      "Frontend developer with BFSI enterprise experience. Based in Mumbai.",
     url: "https://subratjena.com",
-    siteName: "Subrat Jena Portfolio",
-    locale: "en_US",
+    siteName: "Subrat Jena",
+    locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Subrat Jena - Full Stack Developer & Creative Designer",
+    title: "Subrat Jena — Frontend Developer & Designer",
     description:
-      "Innovative Full Stack Developer creating digital experiences that matter.",
-  },
-  robots: {
-    index: true,
-    follow: true,
+      "Frontend developer with BFSI enterprise experience. Based in Mumbai.",
   },
 };
 

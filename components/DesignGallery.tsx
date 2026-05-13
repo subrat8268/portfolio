@@ -24,10 +24,12 @@ function GalleryCard({
   item,
   featured,
   onOpen,
+  priority = false,
 }: {
   item: DesignItem;
   featured: boolean;
   onOpen: (item: DesignItem) => void;
+  priority?: boolean;
 }) {
   return (
     <button
@@ -45,6 +47,12 @@ function GalleryCard({
           src={item.images[0] ?? item.thumbnail}
           alt={item.title}
           fill
+          sizes={
+            featured
+              ? "(max-width: 1024px) 100vw, 58vw"
+              : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          }
+          loading={priority ? "eager" : "lazy"}
           className="object-cover transition-all duration-200 group-hover:scale-[1.03]"
         />
       </div>
@@ -281,7 +289,7 @@ export function DesignGallery({ items }: DesignGalleryProps) {
             <div className="grid gap-6 lg:grid-cols-12 lg:auto-rows-[minmax(0,auto)]">
               {featuredItems.slice(0, 3).map((item, index) => (
                 <div key={item.id} className={featuredSpanClass(index)}>
-                  <GalleryCard item={item} featured onOpen={openModal} />
+                  <GalleryCard item={item} featured onOpen={openModal} priority={index === 0} />
                 </div>
               ))}
             </div>
@@ -351,6 +359,7 @@ export function DesignGallery({ items }: DesignGalleryProps) {
                       src={modalImage ?? activeItem.thumbnail}
                       alt={activeItem.title}
                       fill
+                      sizes="(max-width: 1024px) 100vw, 60vw"
                       className="object-cover"
                     />
                   </div>

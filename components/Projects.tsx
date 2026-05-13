@@ -1,238 +1,218 @@
 "use client";
 
-import { useState } from "react";
-import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { ExternalLink, Github } from "lucide-react";
+
+import DisplayHeading from "@/components/DisplayHeading";
+
+type Project = {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  technologies: string[];
+  image: string;
+  liveUrl: string | null;
+  githubUrl: string | null;
+  featured: boolean;
+};
+
+const projects: Project[] = [
+  {
+    id: 1,
+    title: "AU Small Finance Bank — Internal Tools",
+    category: "Enterprise · BFSI",
+    description:
+      "Built and maintained internal web interfaces for AU Small Finance Bank's operations team. Worked on form-heavy data-entry tools, report dashboards, and UI components used by branch staff across India. Focused on performance, accessibility, and browser compatibility under enterprise constraints.",
+    technologies: [
+      "React",
+      "JavaScript",
+      "REST APIs",
+      "HTML/CSS",
+      "Internal Design System",
+    ],
+    image: "/projects/au-bank-mockup.png",
+    liveUrl: null,
+    githubUrl: null,
+    featured: true,
+  },
+  {
+    id: 2,
+    title: "ICRA — Rating Report Interface",
+    category: "Enterprise · FinTech",
+    description:
+      "Developed UI components for ICRA's internal rating report generation workflow. Worked on data-dense table layouts, print-optimised stylesheets, and accessibility improvements for screen reader compatibility.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "CSS Modules",
+      "Print CSS",
+      "Accessibility",
+    ],
+    image: "/projects/icra-mockup.png",
+    liveUrl: null,
+    githubUrl: null,
+    featured: false,
+  },
+  {
+    id: 3,
+    title: "SNOX — E-commerce Platform",
+    category: "Full Stack",
+    description:
+      "Full-stack e-commerce platform with real-time inventory management, secure payment processing, and an admin dashboard built for a product business.",
+    technologies: ["React", "MongoDB", "Node.js", "Express", "Tailwind CSS"],
+    image:
+      "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
+    liveUrl: "https://snox.in",
+    githubUrl: "https://github.com/subrat8268/snox",
+    featured: false,
+  },
+];
 
 export default function Projects() {
-  const [currentProject, setCurrentProject] = useState(0);
-
-  const projects = [
-    {
-      id: 1,
-      title: "SNOX",
-      description:
-        "A modern e-commerce platform built with React and MongoDB, featuring real-time inventory management, secure payment processing, and an intuitive admin dashboard.",
-      longDescription:
-        "SNOX is a comprehensive e-commerce solution that combines modern web technologies with user-centric design. Built with React for the frontend and MongoDB for data management, it features real-time inventory tracking, secure payment integration, and a powerful admin dashboard for business management.",
-      technologies: [
-        "React",
-        "MongoDB",
-        "Node.js",
-        "Express",
-        "Tailwind CSS",
-        "Firebase",
-      ],
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
-      liveUrl: "https://snox.in",
-      githubUrl: "https://github.com/subrat8268/snox",
-      category: "Full Stack",
-    },
-    {
-      id: 2,
-      title: "Invoice Maker",
-      description:
-        "A sleek invoice generation tool with animated components, local storage capabilities, and professional PDF export functionality for small businesses.",
-      longDescription:
-        "Invoice Maker streamlines the billing process for freelancers and small businesses. Features include drag-and-drop invoice creation, automatic calculations, client management, and professional PDF generation with customizable templates.",
-      technologies: ["React", "Framer Motion", "IndexedDB", "PDF.js", "CSS3"],
-      image:
-        "https://images.pexels.com/photos/6863183/pexels-photo-6863183.jpeg?auto=compress&cs=tinysrgb&w=800",
-      liveUrl: "https://theinvoapp.netlify.app/",
-      githubUrl: "https://github.com/subrat8268/TheInvoApp",
-      category: "Frontend",
-    },
-    {
-      id: 3,
-      title: "Discord Clone",
-      description:
-        "A pixel-perfect recreation of Discord's interface, showcasing advanced CSS skills and responsive design principles with modern web standards.",
-      longDescription:
-        "This Discord clone demonstrates mastery of modern CSS techniques and responsive design. Built with pure HTML, CSS, and JavaScript, it replicates Discord's complex layout system while maintaining perfect responsiveness across all devices.",
-      technologies: [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "Tailwind CSS",
-        "Responsive Design",
-      ],
-      image:
-        "https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg?auto=compress&cs=tinysrgb&w=800",
-      liveUrl: "https://discordclonebysj.netlify.app/",
-      githubUrl: "https://github.com/subrat8268/discordClone",
-      category: "Frontend",
-    },
-  ];
-
-  const nextProject = () => {
-    setCurrentProject((prev) => (prev + 1) % projects.length);
-  };
-
-  const prevProject = () => {
-    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
-  };
-
-  const currentProj = projects[currentProject];
+  const featured = projects.find((project) => project.featured)!;
+  const rest = projects.filter((project) => !project.featured);
 
   return (
-    <section
-      id="projects"
-      className="py-20 bg-gradient-to-br from-slate-50 to-purple-50"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-poppins font-bold text-gray-900 mb-6">
-            Featured{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              Projects
+    <section id="projects" className="bg-[var(--color-bg)] py-[clamp(5rem,8vw,9rem)]">
+      <div className="mx-auto max-w-6xl px-4">
+        <p className="mb-3 text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+          Projects
+        </p>
+        <DisplayHeading className="text-[clamp(2.75rem,6vw,4rem)]">
+          Selected Work
+        </DisplayHeading>
+
+        <div className="mt-12 grid overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] lg:grid-cols-[1fr_1fr]">
+          <div className="relative aspect-video w-full overflow-hidden bg-[var(--color-surface-offset)]">
+            <Image
+              src={featured.image}
+              alt={featured.title}
+              fill
+              className="object-cover"
+            />
+            <span className="absolute left-3 top-3 bg-[var(--color-accent)] px-2 py-1 text-[0.6rem] uppercase tracking-[0.15em] text-white">
+              ★ Featured
             </span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore some of my recent work that showcases my skills in
-            full-stack development, creative problem-solving, and attention to
-            detail.
-          </p>
+          </div>
+
+          <div className="flex flex-col justify-center gap-4 p-8 lg:p-10">
+            <p className="text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+              {featured.category}
+            </p>
+            <h3 className="[font-family:var(--font-display)] text-[clamp(1.5rem,3vw,2rem)] leading-snug text-[var(--color-text)]">
+              {featured.title}
+            </h3>
+            <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">
+              {featured.description}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {featured.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-sm border border-[var(--color-border)] px-2 py-0.5 text-xs text-[var(--color-text-muted)]"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <div className="mt-2 flex items-center gap-4">
+              {featured.liveUrl ? (
+                <Link
+                  href={featured.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-text)] transition-colors duration-200 hover:border-white/40"
+                >
+                  <ExternalLink className="h-3.5 w-3.5" />
+                  Live Demo
+                </Link>
+              ) : (
+                <span className="text-xs italic text-[var(--color-text-muted)]">
+                  Internal — NDA
+                </span>
+              )}
+              {featured.githubUrl ? (
+                <Link
+                  href={featured.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-muted)] transition-colors duration-200 hover:text-[var(--color-text)]"
+                >
+                  <Github className="h-3.5 w-3.5" />
+                  Source
+                </Link>
+              ) : null}
+            </div>
+          </div>
         </div>
 
-        {/* Main Project Display */}
-        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden mb-12">
-          <div className="grid lg:grid-cols-2 gap-0">
-            {/* Project Image */}
-            <div className="relative h-64 lg:h-full min-h-[400px] overflow-hidden">
-              <Image
-                width={1000}
-                height={1000}
-                src={currentProj.image}
-                alt={currentProj.title}
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-              <div className="absolute top-4 left-4">
-                <span className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                  {currentProj.category}
-                </span>
+        <div className="mt-6 grid gap-6 sm:grid-cols-2">
+          {rest.map((project) => (
+            <div
+              key={project.id}
+              className="overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)]"
+            >
+              <div className="relative aspect-video w-full overflow-hidden bg-[var(--color-surface-offset)]">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
               </div>
-            </div>
-
-            {/* Project Details */}
-            <div className="p-8 lg:p-12 flex flex-col justify-center">
-              <h3 className="text-3xl lg:text-4xl font-poppins font-bold text-gray-900 mb-4">
-                {currentProj.title}
-              </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                {currentProj.longDescription}
-              </p>
-
-              {/* Technologies */}
-              <div className="mb-8">
-                <h4 className="font-semibold text-gray-900 mb-3">
-                  Technologies Used:
-                </h4>
+              <div className="flex flex-col gap-3 p-6">
+                <p className="text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+                  {project.category}
+                </p>
+                <h3 className="text-lg text-[var(--color-text)] [font-family:var(--font-display)]">
+                  {project.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
-                  {currentProj.technologies.map((tech, index) => (
+                  {project.technologies.map((tech) => (
                     <span
-                      key={index}
-                      className="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium"
+                      key={tech}
+                      className="rounded-sm border border-[var(--color-border)] px-2 py-0.5 text-xs text-[var(--color-text-muted)]"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex gap-4">
-                <Link
-                  href={currentProj.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  Live Demo
-                </Link>
-                <Link
-                  href={currentProj.githubUrl}
-                  className="flex items-center gap-2 border-2 border-purple-600 text-purple-600 px-6 py-3 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all duration-300"
-                >
-                  <Github className="w-4 h-4" />
-                  Source Code
-                </Link>
+                <div className="mt-1 flex items-center gap-4">
+                  {project.liveUrl ? (
+                    <Link
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-text)] transition-colors duration-200 hover:border-white/40"
+                    >
+                      <ExternalLink className="h-3.5 w-3.5" />
+                      Live Demo
+                    </Link>
+                  ) : (
+                    <span className="text-xs italic text-[var(--color-text-muted)]">
+                      Internal — NDA
+                    </span>
+                  )}
+                  {project.githubUrl ? (
+                    <Link
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-muted)] transition-colors duration-200 hover:text-[var(--color-text)]"
+                    >
+                      <Github className="h-3.5 w-3.5" />
+                      Source
+                    </Link>
+                  ) : null}
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Project Navigation */}
-        <div className="flex justify-center items-center gap-8">
-          <button
-            onClick={prevProject}
-            className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 text-purple-600"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-
-          {/* Project Indicators */}
-          <div className="flex gap-3">
-            {projects.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentProject(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentProject
-                    ? "bg-purple-600 scale-125"
-                    : "bg-gray-300 hover:bg-purple-300"
-                }`}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={nextProject}
-            className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 text-purple-600"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-        </div>
-
-        {/* All Projects Grid */}
-        <div className="mt-20">
-          <h3 className="text-2xl font-poppins font-bold text-center text-gray-900 mb-12">
-            All Projects
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={project.id}
-                className={`group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer ${
-                  index === currentProject ? "ring-2 ring-purple-600" : ""
-                }`}
-                onClick={() => setCurrentProject(index)}
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    width={500}
-                    height={500}
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="p-6">
-                  <h4 className="font-poppins font-bold text-xl text-gray-900 mb-2">
-                    {project.title}
-                  </h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </section>

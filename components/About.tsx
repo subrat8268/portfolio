@@ -36,7 +36,7 @@ export default function About() {
             {/* TODO: Replace with real personal photo */}
             <div className="relative aspect-[6/7] w-full overflow-hidden">
               <Image
-                src="https://picsum.photos/seed/about1/600/700"
+                src="/about/photo-1.svg"
                 alt="About photo one"
                 fill
                 className="object-cover"
@@ -48,7 +48,7 @@ export default function About() {
             {/* TODO: Replace with real personal photo */}
             <div className="relative aspect-[6/7] w-full overflow-hidden border border-white/20">
               <Image
-                src="https://picsum.photos/seed/about2/600/700"
+                src="/about/photo-2.svg"
                 alt="About photo two"
                 fill
                 className="object-cover"

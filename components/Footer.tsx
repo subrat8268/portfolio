@@ -1,7 +1,7 @@
 "use client";
 
+import { ArrowUp } from "lucide-react";
 import Link from "next/link";
-import { Heart, ArrowUp } from "lucide-react";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -28,43 +28,38 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand */}
+    <footer className="bg-[var(--color-bg)] text-[var(--color-text)] border-t border-[var(--color-border)]">
+      <div className="mx-auto max-w-6xl px-4 py-16">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <Link
               href="/"
-              className="font-poppins font-bold text-3xl bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
+              className="text-3xl [font-family:var(--font-display)] text-[var(--color-text)]"
             >
               Subrat Jena
             </Link>
-            <p className="mt-4 text-gray-400 leading-relaxed max-w-md">
-              Full Stack Developer passionate about creating exceptional digital
-              experiences through innovative web development and thoughtful
-              design.
+            <p className="mt-4 max-w-md leading-relaxed text-[var(--color-text-muted)]">
+              Frontend developer and designer focused on building practical,
+              high-quality digital experiences for real business use cases.
             </p>
             <div className="mt-6">
               <Link
                 href="mailto:subrato8268@gmail.com"
-                className="text-purple-400 hover:text-purple-300 transition-colors duration-300"
+                className="text-[var(--color-text-muted)] transition-colors duration-200 hover:text-[var(--color-text)]"
               >
                 subrato8268@gmail.com
               </Link>
             </div>
           </div>
 
-          {/* Navigation */}
           <div>
-            <h3 className="font-poppins font-semibold text-lg mb-4">
-              Navigation
-            </h3>
+            <h3 className="mb-4 text-lg [font-family:var(--font-display)]">Navigation</h3>
             <ul className="space-y-3">
               {footerLinks.navigation.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                    className="text-[var(--color-text-muted)] transition-colors duration-200 hover:text-[var(--color-text)]"
                   >
                     {link.name}
                   </Link>
@@ -73,15 +68,14 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social */}
           <div>
-            <h3 className="font-poppins font-semibold text-lg mb-4">Connect</h3>
+            <h3 className="mb-4 text-lg [font-family:var(--font-display)]">Connect</h3>
             <ul className="space-y-3">
               {footerLinks.social.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                    className="text-[var(--color-text-muted)] transition-colors duration-200 hover:text-[var(--color-text)]"
                   >
                     {link.name}
                   </Link>
@@ -91,19 +85,17 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center gap-2 text-gray-400">
-            <span>© {currentYear} Made with</span>
-            <Heart className="w-4 h-4 text-red-500 fill-current" />
-            <span>by Subrat Jena</span>
+        <div className="mt-12 flex flex-col items-center justify-between border-t border-[var(--color-border)] pt-8 md:flex-row">
+          <div className="text-[var(--color-text-muted)]">
+            © {currentYear} by Subrat Jena
           </div>
 
           <button
             onClick={scrollToTop}
-            className="mt-4 md:mt-0 p-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full hover:shadow-lg hover:scale-110 transition-all duration-300"
+            className="mt-4 border border-[var(--color-border)] px-3 py-2 text-[var(--color-text)] transition-all duration-200 hover:border-white/40 md:mt-0"
+            aria-label="Back to top"
           >
-            <ArrowUp className="w-5 h-5" />
+            <ArrowUp className="h-5 w-5" />
           </button>
         </div>
       </div>
