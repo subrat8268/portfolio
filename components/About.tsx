@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import DisplayHeading from "@/components/DisplayHeading";
 import RevealOnScroll from "@/components/RevealOnScroll";
 
@@ -9,7 +7,7 @@ export default function About() {
       id="about"
       className="bg-[var(--color-bg)] py-[clamp(5rem,8vw,9rem)]"
     >
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[40%_60%] lg:items-center">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[40%_60%] lg:items-start">
         <div>
           <RevealOnScroll direction="left">
             <DisplayHeading className="text-[clamp(2.75rem,6vw,4rem)]">
@@ -19,48 +17,77 @@ export default function About() {
           <div className="mt-6 space-y-5 text-[15px] leading-[1.7] text-[var(--color-text)] [font-family:var(--font-body)]">
             <RevealOnScroll delay={0.1}>
               <p>
-                Frontend developer with 2 years building production React and
-                Next.js applications for BFSI clients — including AU Small
-                Finance Bank and ICRA. I focus on performance, accessibility,
+                Frontend developer with 2+ years building production React and
+                Next.js applications for BFSI clients — AU Small Finance Bank,
+                IndiaFirst Life, and ICRA. I focus on performance, accessibility,
                 and clean component architecture.
               </p>
             </RevealOnScroll>
             <RevealOnScroll delay={0.2}>
-              <p className="mt-4">
-                I also bring design sensibility to every interface I ship.
-                Logos, banners, and social graphics are a side skill — built
-                for real clients using Canva. Both disciplines inform how I
-                think about UI.
+              <p>
+                Previously at DEPT® and Rejolut. I bring design sensibility to
+                every interface I ship — logos, banners, and motion are a side
+                skill that informs how I think about UI.
               </p>
             </RevealOnScroll>
           </div>
+
+          {/* Experience tags */}
+          <RevealOnScroll delay={0.3}>
+            <div className="mt-8 flex flex-wrap gap-2">
+              {["DEPT®", "Rejolut", "BFSI Enterprise", "Mumbai", "2+ yrs"].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-sm border border-[var(--color-border)] px-3 py-1.5 text-[0.68rem] uppercase tracking-[0.1em] text-[var(--color-text-muted)]"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </RevealOnScroll>
         </div>
 
+        {/* Code editor visual — replaces picsum placeholders */}
         <div className="grid gap-6 sm:grid-cols-2">
           <RevealOnScroll direction="right" delay={0.1}>
-            <div className="border border-[var(--color-border)] bg-white/5 p-3">
-              {/* TODO: Replace with real personal photo */}
-              <div className="relative aspect-[6/7] w-full overflow-hidden">
-                <Image
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Subrat Jena"
-                  fill
-                  className="object-cover"
-                />
+            <div className="overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)]">
+              <div className="flex h-7 items-center gap-1.5 border-b border-[var(--color-border)] bg-[var(--color-surface-offset)] px-3">
+                <span className="h-2 w-2 rounded-full bg-red-400/70" />
+                <span className="h-2 w-2 rounded-full bg-yellow-400/70" />
+                <span className="h-2 w-2 rounded-full bg-green-400/70" />
+                <span className="ml-2 text-[0.6rem] text-[var(--color-text-muted)]">Hero.tsx</span>
               </div>
+              <pre className="p-4 text-[0.62rem] leading-[1.7] text-[var(--color-text-muted)] overflow-hidden" aria-label="Code snippet">
+{`export default function Hero() {
+  return (
+    <section>
+      <h1>Subrat Jena</h1>
+      <p>Frontend Developer</p>
+      <Stack>
+        <Tag>React</Tag>
+        <Tag>Next.js</Tag>
+      </Stack>
+    </section>
+  );
+}`}
+              </pre>
             </div>
           </RevealOnScroll>
 
           <RevealOnScroll direction="right" delay={0.25}>
-            <div className="bg-[var(--color-accent)] p-3">
-              {/* TODO: Replace with real personal photo */}
-              <div className="relative aspect-[6/7] w-full overflow-hidden border border-white/20">
-                <Image
-                  src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Working on a project"
-                  fill
-                  className="object-cover"
-                />
+            <div className="bg-[var(--color-accent)] p-4 flex flex-col gap-4">
+              <p className="text-[0.65rem] uppercase tracking-[0.15em] text-white/60">Currently building</p>
+              <div className="space-y-2">
+                {[
+                  { name: "au.bank.in", desc: "AEM · React · WCAG" },
+                  { name: "XPharms Xchange", desc: "Next.js · SEO · JWT" },
+                  { name: "ICRA Copilot", desc: "React · Redux · APIs" },
+                ].map((p) => (
+                  <div key={p.name} className="border border-white/20 bg-white/5 px-3 py-2">
+                    <p className="text-[0.68rem] text-white font-medium">{p.name}</p>
+                    <p className="text-[0.6rem] text-white/50 mt-0.5">{p.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </RevealOnScroll>

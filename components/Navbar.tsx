@@ -5,7 +5,8 @@ import Link from "next/link";
 
 const navItems = [
   { href: "#about", label: "About" },
-  { href: "/#projects", label: "Projects" },
+  { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
   { href: "/design", label: "Design Work" },
   { href: "#contact", label: "Contact" },
 ];
@@ -35,7 +36,7 @@ export default function Navbar() {
             Subrat Jena
           </Link>
 
-          <nav className="hidden items-center gap-10 sm:flex">
+          <nav className="hidden items-center gap-8 sm:flex">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -45,6 +46,13 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
+            <a
+              href="/subrat-jena-cv.pdf"
+              download
+              className="inline-flex items-center gap-1 rounded-sm border border-[var(--color-border)] px-3 py-1.5 text-[12px] uppercase tracking-[0.1em] text-white/70 transition-colors duration-200 hover:border-white/40 hover:text-white"
+            >
+              ↓ CV
+            </a>
           </nav>
 
           <button
@@ -86,6 +94,13 @@ export default function Navbar() {
                   {item.label}
                 </Link>
               ))}
+              <a
+                href="/subrat-jena-cv.pdf"
+                download
+                className="text-2xl uppercase tracking-[0.1em] text-[var(--color-text-muted)]"
+              >
+                ↓ Download CV
+              </a>
             </nav>
           </div>
         </div>
@@ -93,7 +108,7 @@ export default function Navbar() {
 
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 border-t border-[var(--color-border)] bg-[var(--color-bg)]/90 backdrop-blur-sm">
         <div className="mx-auto flex h-10 max-w-6xl items-center justify-between px-4 text-[11px] tracking-[0.08em] text-[var(--color-text-muted)] uppercase [font-family:var(--font-body)]">
-          <span>Frontend Developer · React · Next.js</span>
+          <span>Frontend Developer · React · Next.js · React Native</span>
           <span>{new Date().getFullYear()}</span>
         </div>
       </div>

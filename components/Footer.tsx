@@ -10,12 +10,13 @@ export default function Footer() {
       { name: "About", href: "#about" },
       { name: "Projects", href: "#projects" },
       { name: "Skills", href: "#skills" },
+      { name: "Design Work", href: "/design" },
       { name: "Contact", href: "#contact" },
     ],
     social: [
       {
         name: "LinkedIn",
-        href: "https://www.linkedin.com/in/subrat-jena-8a69a8194/",
+        href: "https://www.linkedin.com/in/subrat8268",
       },
       { name: "GitHub", href: "https://github.com/subrat8268" },
       { name: "Email", href: "mailto:subrato8268@gmail.com" },
@@ -34,7 +35,7 @@ export default function Footer() {
               Subrat Jena
             </Link>
             <p className="mt-4 max-w-md leading-relaxed text-[var(--color-text-muted)]">
-              Frontend Developer — React · Next.js · TypeScript
+              Frontend Developer — React · Next.js · TypeScript · React Native
             </p>
             <p className="mt-2 max-w-md leading-relaxed text-[var(--color-text-muted)]">
               Building production interfaces for BFSI clients. Based in Mumbai.
@@ -72,6 +73,8 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-[var(--color-text-muted)] transition-colors duration-200 hover:text-[var(--color-text)]"
                   >
                     {link.name}
@@ -84,9 +87,8 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between border-t border-[var(--color-border)] pt-8 md:flex-row">
           <div className="text-[var(--color-text-muted)]">
-            © {currentYear} by Subrat Jena
+            &copy; {currentYear} Subrat Jena
           </div>
-
           <div className="mt-4 md:mt-0">
             <ScrollToTopButton />
           </div>

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import DisplayHeading from "@/components/DisplayHeading";
@@ -11,14 +10,19 @@ const contactItems = [
     href: "mailto:subrato8268@gmail.com",
   },
   {
+    label: "LinkedIn",
+    value: "linkedin.com/in/subrat8268",
+    href: "https://www.linkedin.com/in/subrat8268",
+  },
+  {
     label: "WhatsApp",
     value: "+91 82680 17431",
     href: "https://wa.me/918268017431",
   },
   {
-    label: "Instagram",
-    value: "@subrat.jena",
-    href: "https://instagram.com/subrat.jena",
+    label: "GitHub",
+    value: "github.com/subrat8268",
+    href: "https://github.com/subrat8268",
   },
 ];
 
@@ -36,8 +40,8 @@ export default function Contact() {
                 Contact
               </DisplayHeading>
               <p className="mt-4 max-w-md text-[15px] leading-[1.7] text-[var(--color-text)] [font-family:var(--font-body)]">
-                Let&apos;s build something meaningful where design direction and
-                frontend execution stay in sync from day one.
+                Open to frontend roles at BFSI companies and product startups.
+                Let&apos;s build something meaningful.
               </p>
 
               <ul className="mt-8 space-y-5 border-l-2 border-white/30 pl-5">
@@ -48,8 +52,8 @@ export default function Contact() {
                     </p>
                     <Link
                       href={item.href}
-                      target={item.href.startsWith("http") ? "_blank" : undefined}
-                      rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                      target="_blank"
+                      rel="noreferrer"
                       className="mt-1 inline-block text-[15px] text-[var(--color-text)] hover:text-white/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
                     >
                       {item.value}
@@ -60,20 +64,47 @@ export default function Contact() {
             </div>
           </RevealOnScroll>
 
+          {/* Availability card — replaces picsum contact image */}
           <RevealOnScroll direction="right" delay={0.15}>
-            <div className="bg-[var(--color-accent)] p-0">
-              <div className="relative h-full min-h-[420px] w-full overflow-hidden">
-                <Image
-                  src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Contact visual"
-                  fill
-                  className="object-cover shadow-[-30px_0_50px_rgba(0,0,0,0.45)]"
-                />
+            <div className="flex flex-col justify-between bg-[var(--color-accent)] p-8 md:p-12 min-h-[360px]">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="inline-block h-2 w-2 rounded-full bg-green-400" style={{ animation: "pulse 2s ease-in-out infinite" }} />
+                  <p className="text-[0.65rem] uppercase tracking-[0.18em] text-white/70">
+                    Available for hire
+                  </p>
+                </div>
+                <p className="mt-6 text-[clamp(1.6rem,3vw,2.2rem)] font-semibold leading-snug text-white [font-family:var(--font-display)]">
+                  Frontend Developer
+                </p>
+                <p className="mt-2 text-sm text-white/70">
+                  React · Next.js · TypeScript · React Native
+                </p>
+              </div>
+              <div className="mt-10 space-y-3">
+                {[
+                  { label: "Experience", value: "2+ years production" },
+                  { label: "Domain", value: "BFSI · Fintech · B2B SaaS" },
+                  { label: "Previous", value: "DEPT® · Rejolut" },
+                  { label: "Location", value: "Mumbai, India" },
+                ].map((row) => (
+                  <div key={row.label} className="flex items-baseline justify-between border-b border-white/10 pb-2">
+                    <span className="text-[0.65rem] uppercase tracking-[0.12em] text-white/50">{row.label}</span>
+                    <span className="text-sm text-white/90">{row.value}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </RevealOnScroll>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.4; }
+        }
+      `}</style>
     </section>
   );
 }
