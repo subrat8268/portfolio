@@ -40,7 +40,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-[13px] uppercase tracking-[0.1em] text-white [font-family:var(--font-body)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                className="relative text-[13px] uppercase tracking-[0.1em] text-white [font-family:var(--font-body)] after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
                 {item.label}
               </Link>

@@ -1,4 +1,5 @@
 import DisplayHeading from "@/components/DisplayHeading";
+import RevealOnScroll from "@/components/RevealOnScroll";
 
 const skillGroups = [
   {
@@ -42,20 +43,23 @@ export default function Skills() {
   return (
     <section id="skills" className="bg-[var(--color-bg)] py-[clamp(5rem,8vw,9rem)]">
       <div className="mx-auto max-w-6xl px-4">
-        <p className="mb-3 text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
-          Skills
-        </p>
-        <DisplayHeading className="text-[clamp(2.75rem,6vw,4rem)]">
-          What I work with.
-        </DisplayHeading>
+        <RevealOnScroll>
+          <p className="mb-3 text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+            Skills
+          </p>
+          <DisplayHeading className="text-[clamp(2.75rem,6vw,4rem)]">
+            What I work with.
+          </DisplayHeading>
 
-        <p className="mt-2 mb-8 text-[0.65rem] text-[var(--color-text-muted)]">
-          {totalSkillCount} technologies &amp; tools
-        </p>
+          <p className="mt-2 mb-8 text-[0.65rem] text-[var(--color-text-muted)]">
+            {totalSkillCount} technologies &amp; tools
+          </p>
+        </RevealOnScroll>
 
         <dl className="mt-12 grid grid-cols-1 gap-x-16 gap-y-10 md:grid-cols-2">
           {skillGroups.map(({ group, skills }, index) => (
-            <div key={group}>
+            <RevealOnScroll key={group} delay={index * 0.08}>
+              <div>
               <dt className="mb-3 text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
                 {group}
               </dt>
@@ -82,7 +86,8 @@ export default function Skills() {
               {index < skillGroups.length - 1 ? (
                 <hr className="my-2 border-[var(--color-border)]" />
               ) : null}
-            </div>
+              </div>
+            </RevealOnScroll>
           ))}
         </dl>
       </div>

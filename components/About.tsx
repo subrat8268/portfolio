@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import DisplayHeading from "@/components/DisplayHeading";
+import RevealOnScroll from "@/components/RevealOnScroll";
 
 export default function About() {
   return (
@@ -10,49 +11,59 @@ export default function About() {
     >
       <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[40%_60%] lg:items-center">
         <div>
-          <DisplayHeading className="text-[clamp(2.75rem,6vw,4rem)]">
-            About Me
-          </DisplayHeading>
+          <RevealOnScroll direction="left">
+            <DisplayHeading className="text-[clamp(2.75rem,6vw,4rem)]">
+              About Me
+            </DisplayHeading>
+          </RevealOnScroll>
           <div className="mt-6 space-y-5 text-[15px] leading-[1.7] text-[var(--color-text)] [font-family:var(--font-body)]">
-            <p>
-              Frontend developer with 2 years building production React and
-              Next.js applications for BFSI clients — including AU Small
-              Finance Bank and ICRA. I focus on performance, accessibility, and
-              clean component architecture.
-            </p>
-            <p className="mt-4">
-              I also bring design sensibility to every interface I ship. Logos,
-              banners, and social graphics are a side skill — built for real
-              clients using Canva. Both disciplines inform how I think about
-              UI.
-            </p>
+            <RevealOnScroll delay={0.1}>
+              <p>
+                Frontend developer with 2 years building production React and
+                Next.js applications for BFSI clients — including AU Small
+                Finance Bank and ICRA. I focus on performance, accessibility,
+                and clean component architecture.
+              </p>
+            </RevealOnScroll>
+            <RevealOnScroll delay={0.2}>
+              <p className="mt-4">
+                I also bring design sensibility to every interface I ship.
+                Logos, banners, and social graphics are a side skill — built
+                for real clients using Canva. Both disciplines inform how I
+                think about UI.
+              </p>
+            </RevealOnScroll>
           </div>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2">
-          <div className="border border-[var(--color-border)] bg-white/5 p-3">
-            {/* TODO: Replace with real personal photo */}
-            <div className="relative aspect-[6/7] w-full overflow-hidden">
-              <Image
-                src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Subrat Jena"
-                fill
-                className="object-cover"
-              />
+          <RevealOnScroll direction="right" delay={0.1}>
+            <div className="border border-[var(--color-border)] bg-white/5 p-3">
+              {/* TODO: Replace with real personal photo */}
+              <div className="relative aspect-[6/7] w-full overflow-hidden">
+                <Image
+                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  alt="Subrat Jena"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
-          </div>
+          </RevealOnScroll>
 
-          <div className="bg-[var(--color-accent)] p-3">
-            {/* TODO: Replace with real personal photo */}
-            <div className="relative aspect-[6/7] w-full overflow-hidden border border-white/20">
-              <Image
-                src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Working on a project"
-                fill
-                className="object-cover"
-              />
+          <RevealOnScroll direction="right" delay={0.25}>
+            <div className="bg-[var(--color-accent)] p-3">
+              {/* TODO: Replace with real personal photo */}
+              <div className="relative aspect-[6/7] w-full overflow-hidden border border-white/20">
+                <Image
+                  src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  alt="Working on a project"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
-          </div>
+          </RevealOnScroll>
         </div>
       </div>
     </section>

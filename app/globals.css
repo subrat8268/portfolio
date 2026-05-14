@@ -49,6 +49,19 @@
   animation: pageIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.section-gap {
+  padding-block: clamp(4rem, 7vw, 7rem);
+}
+
 html {
   scroll-behavior: auto;
 }
@@ -56,6 +69,12 @@ html {
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [style*="marqueeScroll"] {
+    animation: none !important;
   }
 }
 
