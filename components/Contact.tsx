@@ -66,44 +66,82 @@ export default function Contact() {
             </div>
           </RevealOnScroll>
 
-          {/* Availability card — replaces picsum contact image */}
+{/* Contact form */}
           <RevealOnScroll direction="right" delay={0.15}>
-             <div className="flex min-h-[360px] flex-col justify-between bg-[var(--color-accent)] p-8 md:p-12">
-              <div>
-                <div className="flex items-center gap-2">
-                  <span
-                    className="inline-block h-2 w-2 rounded-full bg-green-400"
-                    style={{ animation: "pulse 2s ease-in-out infinite" }}
+            <div className="bg-[var(--color-surface)] p-8 md:p-12">
+              <div className="flex items-center gap-2 mb-6">
+                <span
+                  className="inline-block h-2 w-2 rounded-full bg-green-400"
+                  style={{ animation: "pulse 2s ease-in-out infinite" }}
+                />
+                <p className="text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+                  Available for hire
+                </p>
+              </div>
+              
+              <form 
+                action="mailto:subrato8268@gmail.com"
+                method="post"
+                encType="text/plain"
+                className="space-y-4"
+              >
+                <div>
+                  <label htmlFor="name" className="block text-[0.65rem] uppercase tracking-[0.12em] text-[var(--color-text-muted)] mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-text)] text-sm focus:outline-none focus:border-[var(--color-accent)] transition-colors"
+                    placeholder="Your name"
                   />
-                  <p className="text-[0.65rem] uppercase tracking-[0.18em] text-white/70">
-                    Available for hire
-                  </p>
                 </div>
-                <p className="mt-6 text-[clamp(1.6rem,3vw,2.2rem)] font-semibold leading-snug text-white [font-family:var(--font-display)]">
-                  Frontend Developer
-                </p>
-                <p className="mt-2 text-sm text-white/70">
-                  React · Next.js · TypeScript · React Native
-                </p>
-              </div>
-              <div className="mt-10 space-y-3">
-                {[
-                  { label: "Experience", value: "2+ years production" },
-                  { label: "Domain", value: "BFSI · Fintech · B2B SaaS" },
-                  { label: "Previous", value: "DEPT® · Rejolut" },
-                  { label: "Location", value: "Mumbai, India" },
-                ].map((row) => (
-                  <div
-                    key={row.label}
-                    className="flex items-baseline justify-between border-b border-white/10 pb-2"
-                  >
-                    <span className="text-[0.65rem] uppercase tracking-[0.12em] text-white/50">
-                      {row.label}
-                    </span>
-                    <span className="text-sm text-white/90">{row.value}</span>
-                  </div>
-                ))}
-              </div>
+                <div>
+                  <label htmlFor="email" className="block text-[0.65rem] uppercase tracking-[0.12em] text-[var(--color-text-muted)] mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-text)] text-sm focus:outline-none focus:border-[var(--color-accent)] transition-colors"
+                    placeholder="your@email.com"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-[0.65rem] uppercase tracking-[0.12em] text-[var(--color-text-muted)] mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-text)] text-sm focus:outline-none focus:border-[var(--color-accent)] transition-colors resize-none"
+                    placeholder="Tell me about your project or opportunity..."
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-[var(--color-accent)] text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5"
+                >
+                  Send Message
+                </button>
+              </form>
+              
+              <p className="mt-4 text-xs text-[var(--color-text-muted)] text-center">
+                Or reach out directly via{" "}
+                <Link href="mailto:subrato8268@gmail.com" className="text-[var(--color-accent)] hover:underline">
+                  email
+                </Link>
+                {" "}or{" "}
+                <Link href="https://wa.me/918268017431" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] hover:underline">
+                  WhatsApp
+                </Link>
+              </p>
             </div>
           </RevealOnScroll>
         </div>

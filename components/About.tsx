@@ -31,13 +31,18 @@ export default function About() {
                 product delivery and visual communication.
               </p>
             </RevealOnScroll>
-<RevealOnScroll delay={0.3}>
+            <RevealOnScroll delay={0.3}>
               <div className="rounded-[20px] border border-[var(--color-border)] bg-[var(--color-surface)] p-3.5 sm:p-4">
                 <p className="text-[0.62rem] uppercase tracking-[0.14em] text-[var(--text-faint)]">
                   What drives me
                 </p>
                 <p className="mt-2.5 text-[13px] leading-[1.7] text-[var(--color-text-muted)]">
-                  I care about building interfaces that feel invisible — where the user focuses on the task, not the tool. Coming from a design background, I believe the best code is the kind that makes complex flows feel simple. That&apos;s what keeps me up at night: solving the hard problems so users never have to think about them.
+                  I care about building interfaces that feel invisible — where
+                  the user focuses on the task, not the tool. Coming from a
+                  design background, I believe the best code is the kind that
+                  makes complex flows feel simple. That&apos;s what keeps me up
+                  at night: solving the hard problems so users never have to
+                  think about them.
                 </p>
               </div>
             </RevealOnScroll>
@@ -88,28 +93,23 @@ export default function About() {
                     Design-sensitive frontend developer shipping production UI.
                   </p>
                   <div className="mt-3 flex flex-wrap gap-1.5">
-                    {[
-                      "React",
-                      "Next.js",
-                      "AEM",
-                      "WCAG",
-                      "BFSI",
-                      "Mumbai",
-                    ].map((badge) => (
-                      <span
-                        key={badge}
-                        className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface-2)] px-2.5 py-1 text-[0.58rem] uppercase tracking-[0.1em] text-[var(--text-muted)]"
-                      >
-                        {badge}
-                      </span>
-                    ))}
+                    {["React", "Next.js", "AEM", "WCAG", "BFSI", "Mumbai"].map(
+                      (badge) => (
+                        <span
+                          key={badge}
+                          className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface-2)] px-2.5 py-1 text-[0.58rem] uppercase tracking-[0.1em] text-[var(--text-muted)]"
+                        >
+                          {badge}
+                        </span>
+                      ),
+                    )}
                   </div>
                 </div>
               </div>
             </div>
           </RevealOnScroll>
 
-<RevealOnScroll direction="right" delay={0.1}>
+          <RevealOnScroll direction="right" delay={0.1}>
             <div className="relative overflow-hidden rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-md)] transition-transform duration-300 hover:-translate-y-1">
               <div className="flex h-8 items-center gap-1.5 border-b border-[var(--color-border)] bg-[var(--color-surface-offset)] px-3">
                 <span className="h-2 w-2 rounded-full bg-red-400/70" />
@@ -123,34 +123,60 @@ export default function About() {
                 className="overflow-hidden p-3 text-[0.55rem] leading-[1.62]"
                 aria-label="Code snippet"
               >
-                <span className="text-[var(--color-text-muted)]">const ref = useRef&lt;HTMLDivElement&gt;(null)</span>
+                <span className="text-[var(--color-text-muted)]">
+                  const ref = useRef&lt;HTMLDivElement&gt;(null)
+                </span>
                 <br />
-                <span className="text-[var(--color-text-muted)]">const isInView = useInView(ref, {'{'}</span>
+                <span className="text-[var(--color-text-muted)]">
+                  const isInView = useInView(ref, {"{"}
+                </span>
                 <br />
-                <span className="text-[var(--color-text-muted)]">  once: true,</span>
+                <span className="text-[var(--color-text-muted)]">
+                  {" "}
+                  once: true,
+                </span>
                 <br />
-                <span className="text-[var(--color-text-muted)]">  margin: &quot;-80px&quot;</span>
+                <span className="text-[var(--color-text-muted)]">
+                  {" "}
+                  margin: &quot;-80px&quot;
+                </span>
                 <br />
-                <span className="text-[var(--color-text-muted)]">{'}'})</span>
+                <span className="text-[var(--color-text-muted)]">{"}"})</span>
                 <br />
                 <span className="text-[var(--color-primary)]">return</span>
                 <span className="text-[var(--color-text-muted)]"> (</span>
                 <br />
-                <span className="text-[var(--color-text-muted)]">  &lt;motion.div</span>
+                <span className="text-[var(--color-text-muted)]">
+                  {" "}
+                  &lt;motion.div
+                </span>
                 <br />
-                <span className="text-[var(--color-text-muted)]">    ref={'{'}{'ref}'}</span>
+                <span className="text-[var(--color-text-muted)]">
+                  {" "}
+                  ref={"{"}
+                  {"ref}"}
+                </span>
                 <br />
-                <span className="text-[var(--color-text-muted)]">    animate={'{'}</span>
+                <span className="text-[var(--color-text-muted)]">
+                  {" "}
+                  animate={"{"}
+                </span>
                 <br />
-                <span className="text-[var(--color-text-muted)]">      isInView ? </span>
-                <span className="text-[var(--color-text)]">{'{'}</span>
+                <span className="text-[var(--color-text-muted)]">
+                  {" "}
+                  isInView ?{" "}
+                </span>
+                <span className="text-[var(--color-text)]">{"{"}</span>
                 <span className="text-[var(--color-text)]">opacity: 1</span>
-                <span className="text-[var(--color-text-muted)]">{'}'}</span>
+                <span className="text-[var(--color-text-muted)]">{"}"}</span>
                 <span className="text-[var(--color-text-muted)]"> : ...</span>
                 <br />
-                <span className="text-[var(--color-text-muted)]">  {'}'}</span>
+                <span className="text-[var(--color-text-muted)]"> {"}"}</span>
                 <br />
-                <span className="text-[var(--color-text-muted)]">  &gt;{'{'}children{'}'}&lt;/motion.div&gt;</span>
+                <span className="text-[var(--color-text-muted)]">
+                  {" "}
+                  &gt;{"{"}children{"}"}&lt;/motion.div&gt;
+                </span>
                 <br />
                 <span className="text-[var(--color-text-muted)]">)</span>
                 <span className="code-cursor ml-1 inline-block h-[11px] w-[1px] bg-[var(--color-primary)] align-middle" />
@@ -163,7 +189,7 @@ export default function About() {
               <div className="h-[2px] w-full bg-[var(--color-primary)]" />
               <div className="p-3.5">
                 <p className="text-[0.65rem] uppercase tracking-[0.15em] text-[var(--color-primary)]">
-                Currently building
+                  Currently building
                 </p>
                 <div className="mt-2.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-offset)] p-3 transition-all duration-200 hover:border-[var(--color-primary)]/45 hover:bg-[var(--color-surface)]">
                   <div className="flex items-center justify-between gap-3">
@@ -175,7 +201,8 @@ export default function About() {
                     </span>
                   </div>
                   <p className="mt-1.5 text-[0.63rem] leading-relaxed text-[var(--color-text-muted)]">
-                    Cross-platform ledger app with WhatsApp sharing, Super Admin dashboard, JWT auth, and role-based access.
+                    Cross-platform ledger app with WhatsApp sharing, Super Admin
+                    dashboard, JWT auth, and role-based access.
                   </p>
                   <p className="mt-2 text-[0.58rem] uppercase tracking-[0.08em] text-[var(--text-faint)]">
                     React Native, Zustand, Supabase, JWT, WhatsApp
