@@ -167,7 +167,7 @@ export default function Hero() {
               Design Work →
             </Link>
             <a
-              href="/subrat-jena-cv.pdf"
+              href="/subrat-cv.pdf"
               download
               className="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-muted)] transition-colors duration-200 hover:text-white"
             >

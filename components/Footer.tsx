@@ -87,7 +87,8 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between border-t border-[var(--color-border)] pt-8 md:flex-row">
           <div className="text-[var(--color-text-muted)]">
-            &copy; {currentYear} Subrat Jena
+            <p>&copy; {currentYear} Subrat Jena</p>
+            <p className="mt-1">Made with ❤️ by Subrat Jena</p>
           </div>
           <div className="mt-4 md:mt-0">
             <ScrollToTopButton />

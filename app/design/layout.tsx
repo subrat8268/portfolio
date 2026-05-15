@@ -3,14 +3,22 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Visual Design Work — Subrat Jena",
   description:
-    "Logos, event banners, invitations, and social media graphics by Subrat Jena — a Mumbai-based frontend developer with a strong visual design side.",
+    "Logos, event banners, invitations, and social graphics for real clients. Frontend developer with a design side, based in Mumbai.",
   alternates: {
     canonical: "/design",
   },
   openGraph: {
     title: "Visual Design Work — Subrat Jena",
-    description: "Logos, event banners, invitations, and social media graphics.",
-    url: "https://subratjena.com/design",
+    description:
+      "Logos, event banners, invitations, and social graphics for real clients. Frontend developer with a design side, based in Mumbai.",
+    url: "https://mysjportfolio.vercel.app/design",
+    images: [
+      {
+        url: "/og-design.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
 };
 

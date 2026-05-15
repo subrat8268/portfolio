@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { href: "#about", label: "About" },
@@ -12,9 +13,11 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const isDesignRoute = pathname === "/design";
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 80);
@@ -65,7 +68,7 @@ export default function Navbar() {
               </Link>
             ))}
             <a
-              href="../public/subrat-cv.pdf"
+              href="/subrat-cv.pdf"
               download
               className="inline-flex items-center gap-1 rounded-sm border border-[var(--color-border)] px-3 py-1.5 text-[12px] uppercase tracking-[0.1em] text-white/70 transition-colors duration-200 hover:border-white/40 hover:text-white"
             >
@@ -120,7 +123,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <a
-                href="/subrat-jena-cv.pdf"
+                href="/subrat-cv.pdf"
                 download
                 className="text-2xl uppercase tracking-[0.1em] text-[var(--color-text-muted)]"
               >
@@ -140,8 +143,12 @@ export default function Navbar() {
 
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 border-t border-[var(--color-border)] bg-[var(--color-bg)]/90 backdrop-blur-sm">
         <div className="mx-auto flex h-10 max-w-6xl items-center justify-between px-4 text-[11px] tracking-[0.08em] text-[var(--color-text-muted)] uppercase [font-family:var(--font-body)]">
-          <span>Frontend Developer · React · Next.js · React Native</span>
-          <span>{new Date().getFullYear()}</span>
+          <span>
+            {isDesignRoute
+              ? "Design Work"
+              : "Frontend Developer · React · Next.js · React Native"}
+          </span>
+          <span>{isDesignRoute ? "2026" : new Date().getFullYear()}</span>
         </div>
       </div>
     </>
