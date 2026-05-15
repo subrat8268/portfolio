@@ -19,71 +19,74 @@ export default function About() {
           <div className="mt-4 max-w-[62ch] space-y-4 text-[14px] leading-[1.72] text-[var(--color-text)] [font-family:var(--font-body)]">
             <RevealOnScroll delay={0.1}>
               <p>
-                Frontend developer with 2+ years building production React and
-                Next.js interfaces for BFSI and product teams. I focus on
-                performance, accessibility, and clean component architecture.
+                I&apos;m a Frontend Developer with 2+ years of experience
+                building enterprise-grade web interfaces. At DEPT®, I worked on
+                AU Small Finance Bank&apos;s public-facing site serving millions
+                of users — implementing site-wide search, voice search, and the
+                Branch Locator.
               </p>
             </RevealOnScroll>
             <RevealOnScroll delay={0.2}>
               <p>
-                Previously at DEPT® and Rejolut. I bring design sensibility to
-                every interface I ship, with practical experience across both
-                product delivery and visual communication.
+                At Rejolut, I built XPharms Xchange (a Next.js B2B platform
+                achieving 92+ Lighthouse scores) and Research Assist, an
+                internal AI copilot for ICRA&apos;s financial analyst team.
               </p>
-            </RevealOnScroll>
-            <RevealOnScroll delay={0.3}>
-              <div className="rounded-[20px] border border-[var(--color-border)] bg-[var(--color-surface)] p-3.5 sm:p-4">
-                <p className="text-[0.62rem] uppercase tracking-[0.14em] text-[var(--text-faint)]">
-                  What drives me
-                </p>
-                <p className="mt-2.5 text-[13px] leading-[1.7] text-[var(--color-text-muted)]">
-                  I care about building interfaces that feel invisible — where
-                  the user focuses on the task, not the tool. Coming from a
-                  design background, I believe the best code is the kind that
-                  makes complex flows feel simple. That&apos;s what keeps me up
-                  at night: solving the hard problems so users never have to
-                  think about them.
-                </p>
-              </div>
             </RevealOnScroll>
           </div>
 
-          <RevealOnScroll delay={0.4}>
-            <div className="mt-6 flex flex-wrap gap-2">
-              {["DEPT®", "Rejolut", "BFSI", "Mumbai", "React", "Next.js"].map(
-                (tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1.5 text-[0.68rem] uppercase tracking-[0.1em] text-[var(--color-text-muted)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--color-primary)]/45 hover:shadow-[0_0_0_1px_color-mix(in_oklab,var(--color-primary)_22%,transparent)]"
-                  >
-                    {tag}
-                  </span>
-                ),
-              )}
+          <RevealOnScroll delay={0.35}>
+            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {[
+                ["2+", "Years of experience"],
+                ["10M+", "Users on production"],
+                ["20+", "Production bug fixes"],
+                ["92+", "Lighthouse score"],
+              ].map(([value, label]) => (
+                <div
+                  key={label}
+                  className="group rounded-[20px] border border-[var(--color-border)] bg-[var(--color-surface)] p-3 text-center transition-all duration-200 motion-safe:hover:-translate-y-0.5 motion-safe:hover:border-[var(--color-primary)]/40 motion-safe:hover:shadow-[0_0_0_1px_color-mix(in_oklab,var(--color-primary)_18%,transparent),0_10px_24px_color-mix(in_oklab,var(--color-primary)_10%,transparent)]"
+                >
+                  <div className="text-[1.35rem] font-semibold leading-none text-[var(--color-primary)] [font-family:var(--font-display)] transition-colors duration-200 group-hover:text-[var(--color-primary-hover)]">
+                    {value}
+                  </div>
+                  <div className="mt-1 text-[0.62rem] uppercase tracking-[0.1em] text-[var(--color-text-muted)]">
+                    {label}
+                  </div>
+                </div>
+              ))}
             </div>
           </RevealOnScroll>
         </div>
 
-        <div className="grid gap-3.5 sm:grid-cols-[1.1fr_0.9fr] sm:gap-4">
-          <RevealOnScroll direction="right" delay={0.05}>
-            <div className="group relative overflow-hidden rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-lg)] transition-transform duration-300 hover:-translate-y-1">
+        <div className="grid gap-4 lg:grid-cols-2 lg:auto-rows-auto">
+          <RevealOnScroll
+            direction="right"
+            delay={0.03}
+            className="lg:col-start-1 lg:row-start-1 lg:row-span-2"
+          >
+            <div className="group relative overflow-hidden rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-lg)] transition-transform duration-300 motion-safe:hover:-translate-y-1">
               <div
                 className="pointer-events-none absolute inset-0"
                 style={{
                   background:
-                    "radial-gradient(circle at 85% 8%, color-mix(in oklab, var(--color-primary) 18%, transparent) 0%, transparent 45%)",
+                    "radial-gradient(circle at 75% 12%, color-mix(in oklab, var(--color-primary) 24%, transparent) 0%, transparent 40%), radial-gradient(circle at 24% 84%, color-mix(in oklab, var(--color-primary) 10%, transparent) 0%, transparent 36%)",
                 }}
               />
               <div className="relative grid gap-3 p-3.5 sm:p-4">
-                <div className="relative overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-2)]">
+                <div className="relative overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-2)] shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--color-primary)_10%,transparent)]">
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[var(--color-primary)]/12 via-transparent to-transparent opacity-90" />
                   <Image
                     src="/subrat-profile.jpg"
                     alt="Subrat Jena portrait"
                     width={520}
                     height={640}
-                    className="h-[220px] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] md:h-[248px]"
+                    className="h-[220px] w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-[1.03] md:h-[248px]"
                     priority={false}
                   />
+                  <div className="absolute right-3 top-3 rounded-full border border-[var(--color-primary)]/30 bg-[var(--color-bg)]/90 px-2.5 py-1 text-[0.56rem] font-semibold uppercase tracking-[0.12em] text-[var(--color-primary)] shadow-[0_8px_18px_color-mix(in_oklab,var(--color-primary)_14%,transparent)] transition-transform duration-200 motion-safe:group-hover:-translate-y-0.5">
+                    2+ Years
+                  </div>
                 </div>
                 <div>
                   <p className="text-[0.62rem] uppercase tracking-[0.14em] text-[var(--text-faint)]">
@@ -109,93 +112,124 @@ export default function About() {
             </div>
           </RevealOnScroll>
 
-          <RevealOnScroll direction="right" delay={0.1}>
-            <div className="relative overflow-hidden rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-md)] transition-transform duration-300 hover:-translate-y-1">
+          <RevealOnScroll
+            direction="right"
+            delay={0.05}
+            className="lg:col-start-2 lg:row-start-1"
+          >
+            <div className="relative overflow-hidden rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-md)] transition-transform duration-300 motion-safe:hover:-translate-y-1">
               <div className="flex h-8 items-center gap-1.5 border-b border-[var(--color-border)] bg-[var(--color-surface-offset)] px-3">
                 <span className="h-2 w-2 rounded-full bg-red-400/70" />
                 <span className="h-2 w-2 rounded-full bg-yellow-400/70" />
                 <span className="h-2 w-2 rounded-full bg-green-400/70" />
                 <span className="ml-2 text-[0.6rem] text-[var(--color-text-muted)]">
-                  RevealOnScroll.tsx
+                  about-engineer.ts
                 </span>
               </div>
               <pre
-                className="overflow-hidden p-3 text-[0.55rem] leading-[1.62]"
+                className="overflow-hidden p-3.5 text-[0.56rem] leading-[1.65] sm:p-4"
                 aria-label="Code snippet"
               >
-                <span className="text-[var(--color-text-muted)]">
-                  const ref = useRef&lt;HTMLDivElement&gt;(null)
-                </span>
-                <br />
-                <span className="text-[var(--color-text-muted)]">
-                  const isInView = useInView(ref, {"{"}
-                </span>
-                <br />
-                <span className="text-[var(--color-text-muted)]">
+                <div className="text-[var(--color-text-muted)]">
+                  {"// Subrat Jena · Frontend Developer"}
+                </div>
+                <div className="text-[var(--color-text-muted)]">
+                  const engineer = {"{"}
+                </div>
+                <div className="text-[var(--color-text-muted)]">
                   {" "}
-                  once: true,
-                </span>
-                <br />
-                <span className="text-[var(--color-text-muted)]">
+                  name:{" "}
+                  <span className="text-[var(--color-text)]">
+                    &quot;Subrat Jena&quot;
+                  </span>
+                  ,
+                </div>
+                <div className="text-[var(--color-text-muted)]">
                   {" "}
-                  margin: &quot;-80px&quot;
-                </span>
-                <br />
-                <span className="text-[var(--color-text-muted)]">{"}"})</span>
-                <br />
-                <span className="text-[var(--color-primary)]">return</span>
-                <span className="text-[var(--color-text-muted)]"> (</span>
-                <br />
-                <span className="text-[var(--color-text-muted)]">
+                  role:{" "}
+                  <span className="text-[var(--color-text)]">
+                    &quot;Frontend Developer&quot;
+                  </span>
+                  ,
+                </div>
+                <div className="text-[var(--color-text-muted)]">
                   {" "}
-                  &lt;motion.div
-                </span>
-                <br />
-                <span className="text-[var(--color-text-muted)]">
+                  location:{" "}
+                  <span className="text-[var(--color-text)]">
+                    &quot;Mumbai, India&quot;
+                  </span>
+                  ,
+                </div>
+                <div className="text-[var(--color-text-muted)]">
                   {" "}
-                  ref={"{"}
-                  {"ref}"}
-                </span>
-                <br />
-                <span className="text-[var(--color-text-muted)]">
+                  experience:{" "}
+                  <span className="text-[var(--color-text)]">
+                    &quot;2+ years&quot;
+                  </span>
+                  ,
+                </div>
+                <div className="text-[var(--color-text-muted)]">
                   {" "}
-                  animate={"{"}
-                </span>
-                <br />
-                <span className="text-[var(--color-text-muted)]">
+                  employers: [
+                </div>
+                <div className="text-[var(--color-text-muted)]">
                   {" "}
-                  isInView ?{" "}
-                </span>
-                <span className="text-[var(--color-text)]">{"{"}</span>
-                <span className="text-[var(--color-text)]">opacity: 1</span>
-                <span className="text-[var(--color-text-muted)]">{"}"}</span>
-                <span className="text-[var(--color-text-muted)]"> : ...</span>
-                <br />
-                <span className="text-[var(--color-text-muted)]"> {"}"}</span>
-                <br />
-                <span className="text-[var(--color-text-muted)]">
+                  <span className="text-[var(--color-text)]">
+                    &quot;DEPT®&quot;
+                  </span>
+                  ,
+                </div>
+                <div className="text-[var(--color-text-muted)]">
                   {" "}
-                  &gt;{"{"}children{"}"}&lt;/motion.div&gt;
-                </span>
-                <br />
-                <span className="text-[var(--color-text-muted)]">)</span>
+                  <span className="text-[var(--color-text)]">
+                    &quot;Rejolut&quot;
+                  </span>
+                </div>
+                <div className="text-[var(--color-text-muted)]"> ],</div>
+                <div className="text-[var(--color-text-muted)]">
+                  {" "}
+                  focus: [
+                  <span className="text-[var(--color-text)]">
+                    &quot;BFSI&quot;
+                  </span>
+                  ,{" "}
+                  <span className="text-[var(--color-text)]">
+                    &quot;Enterprise&quot;
+                  </span>
+                  ],
+                </div>
+                <div className="text-[var(--color-text-muted)]">
+                  {" "}
+                  available:{" "}
+                  <span className="text-[var(--color-success)]">true</span>,
+                </div>
+                <div className="text-[var(--color-text-muted)]">{"};"}</div>
                 <span className="code-cursor ml-1 inline-block h-[11px] w-[1px] bg-[var(--color-primary)] align-middle" />
               </pre>
             </div>
           </RevealOnScroll>
 
-          <RevealOnScroll direction="right" delay={0.25}>
-            <div className="overflow-hidden rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface-2)] shadow-[var(--shadow-md)] transition-transform duration-300 hover:-translate-y-1 sm:col-span-2 hover:shadow-[0_14px_30px_oklch(0_0_0_/_0.3),0_0_0_1px_color-mix(in_oklab,var(--color-primary)_20%,transparent)]">
+          <RevealOnScroll
+            direction="right"
+            delay={0.1}
+            className="lg:col-start-2 lg:row-start-2"
+          >
+            <div className="overflow-hidden rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-md)] transition-transform duration-300 motion-safe:hover:-translate-y-1">
               <div className="h-[2px] w-full bg-[var(--color-primary)]" />
               <div className="p-3.5">
                 <p className="text-[0.65rem] uppercase tracking-[0.15em] text-[var(--color-primary)]">
                   Currently building
                 </p>
-                <div className="mt-2.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-offset)] p-3 transition-all duration-200 hover:border-[var(--color-primary)]/45 hover:bg-[var(--color-surface)]">
+                <div className="mt-2.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-offset)] p-3 transition-all duration-200 motion-safe:hover:-translate-y-0.5 motion-safe:hover:border-[var(--color-primary)]/45 motion-safe:hover:bg-[var(--color-surface)]">
                   <div className="flex items-center justify-between gap-3">
-                    <p className="text-[0.8rem] font-semibold text-[var(--color-text)]">
-                      KreditBook
-                    </p>
+                    <div className="flex items-center gap-2">
+                      <div className="flex h-7 w-7 items-center justify-center rounded-full border border-[var(--color-primary)]/25 bg-[var(--color-primary-highlight)] text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-[var(--color-primary)]">
+                        KB
+                      </div>
+                      <p className="text-[0.8rem] font-semibold text-[var(--color-text)]">
+                        KreditBook
+                      </p>
+                    </div>
                     <span className="rounded-full border border-[var(--color-primary)]/35 bg-[var(--color-primary-highlight)] px-2 py-0.5 text-[0.56rem] font-medium uppercase tracking-[0.08em] text-[var(--color-primary)]">
                       In Progress
                     </span>

@@ -21,7 +21,7 @@ const skillCategories: SkillCategory[] = [
       { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" },
       {
         name: "Next.js",
-        icon: "https://cdn.simpleicons.org/nextdotjs/ffffff",
+        icon: "https://cdn.simpleicons.org/nextdotjs/000000",
         invert: true,
       },
       {
@@ -36,46 +36,34 @@ const skillCategories: SkillCategory[] = [
         name: "JavaScript",
         icon: "https://cdn.simpleicons.org/javascript/F7DF1E",
       },
+      { name: "AEM", icon: "/icons/aem-icon.svg" },
     ],
   },
   {
     label: "Mobile & State",
     skills: [
       {
-        name: "React Native",
+        name: "RN",
         icon: "https://cdn.simpleicons.org/react/61DAFB",
       },
       { name: "Redux", icon: "https://cdn.simpleicons.org/redux/764ABC" },
-      { name: "Zustand", icon: "https://cdn.simpleicons.org/zustand/3F3F3F" },
+      { name: "Zustand", icon: "https://cdn.simpleicons.org/npm/CB3837" },
       { name: "GraphQL", icon: "https://cdn.simpleicons.org/graphql/E10098" },
     ],
   },
   {
     label: "Backend & Tools",
     skills: [
-      { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs/339933" },
+      { name: "Node.js", icon: "https://cdn.simpleicons.org/nodejs/339933" },
       { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb/47A248" },
       { name: "Jest", icon: "https://cdn.simpleicons.org/jest/C21325" },
       { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032" },
       {
         name: "Vercel",
-        icon: "https://cdn.simpleicons.org/vercel/ffffff",
+        icon: "https://cdn.simpleicons.org/vercel/000000",
         invert: true,
       },
-      { name: "Supabase", icon: "https://cdn.simpleicons.org/supabase/3ECF8E" },
-    ],
-  },
-  {
-    label: "Design Tools",
-    skills: [
-      { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E" },
-    ],
-  },
-  {
-    label: "Enterprise",
-    skills: [
-      { name: "AEM", icon: "/icons/aem-icon.svg" },
-      { name: "WCAG 2.1", icon: "/icons/wcag-icon.webp" },
+      { name: "Firebase", icon: "https://cdn.simpleicons.org/firebase/FFCA28" },
     ],
   },
 ];
@@ -99,7 +87,7 @@ export default function Skills() {
           </p>
         </RevealOnScroll>
 
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
           {skillCategories.map((category, catIndex) => (
             <RevealOnScroll key={category.label} delay={catIndex * 0.08}>
               <div className="rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface-2)] p-6">
