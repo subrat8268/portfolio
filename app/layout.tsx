@@ -54,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <head>
         <link
           rel="preconnect"
@@ -76,9 +76,9 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${poppins.variable} font-inter antialiased`}
+        className={`${inter.variable} ${poppins.variable} app-shell font-inter antialiased`}
       >
-        {children}
+        <div className="page-shell">{children}</div>
       </body>
     </html>
   );

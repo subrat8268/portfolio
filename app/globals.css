@@ -1,24 +1,41 @@
 @import "tailwindcss";
 
 :root {
+  --bg-page: #0a0a0a;
+  --bg-elevated: #111111;
+  --bg-elevated-2: #1a1918;
+  --bg-offset: #1f1e1c;
+  --bg-dynamic: #272624;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-muted: #999999;
+  --text-faint: #4a4947;
+  --accent: #8b1a1a;
+  --accent-hover: #6d1515;
+  --accent-soft: #2d1c19;
+  --radius-lg: 0.75rem;
+  --radius-pill: 9999px;
+  --space-page-x: clamp(1rem, 2vw, 1.5rem);
+  --space-page-y: clamp(1.25rem, 2vw, 2rem);
+
   --color-bg: #0a0a0a;
   --color-surface: #111111;
   --color-surface-2: #1a1918;
   --color-surface-offset: #1f1e1c;
   --color-surface-dynamic: #272624;
   --color-divider: #262523;
-  --color-accent: #8b1a1a;
-  --color-accent-hover: #6d1515;
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --color-primary: #e85d4a;
   --color-primary-hover: #ff7460;
   --color-primary-active: #c24030;
-  --color-primary-highlight: #2d1c19;
+  --color-primary-highlight: var(--accent-soft);
   --color-success: #6daa45;
   --color-success-highlight: #1c2e14;
-  --color-text: #ffffff;
-  --color-text-muted: #999999;
-  --color-text-faint: #4a4947;
-  --color-border: rgba(255, 255, 255, 0.1);
+  --color-text: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
+  --color-border: var(--border-subtle);
   --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.3);
   --shadow-md: 0 4px 12px oklch(0 0 0 / 0.4);
   --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.5);
@@ -27,7 +44,7 @@
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
-  --radius-full: 9999px;
+  --radius-full: var(--radius-pill);
 
   --font-display: "Playfair Display", Georgia, serif;
   --font-script: "Great Vibes", cursive;
@@ -54,20 +71,61 @@
   --ring: rgba(255, 255, 255, 0.35);
 }
 
+[data-theme="dark"] {
+  --bg-page: #0a0a0a;
+  --bg-elevated: #111111;
+  --bg-elevated-2: #1a1918;
+  --bg-offset: #1f1e1c;
+  --bg-dynamic: #272624;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-muted: #999999;
+  --text-faint: #4a4947;
+  --accent: #8b1a1a;
+  --accent-hover: #6d1515;
+  --accent-soft: #2d1c19;
+
+  --color-bg: var(--bg-page);
+  --color-surface: var(--bg-elevated);
+  --color-surface-2: var(--bg-elevated-2);
+  --color-surface-offset: var(--bg-offset);
+  --color-surface-dynamic: var(--bg-dynamic);
+  --color-border: var(--border-subtle);
+  --color-text: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-primary-highlight: var(--accent-soft);
+}
+
 [data-theme="light"] {
+  --bg-page: #f7f6f2;
+  --bg-elevated: #f9f8f5;
+  --bg-elevated-2: #fbfbf9;
+  --bg-offset: #f0ede8;
+  --bg-dynamic: #e6e4df;
+  --border-subtle: #d4d1ca;
+  --text-primary: #1a1917;
+  --text-muted: #6b6966;
+  --text-faint: #aaa8a4;
+  --accent: #8b1a1a;
+  --accent-hover: #6d1515;
+  --accent-soft: #f7e8e6;
+
   --color-bg: #f7f6f2;
   --color-surface: #f9f8f5;
   --color-surface-2: #fbfbf9;
   --color-surface-offset: #f0ede8;
   --color-surface-dynamic: #e6e4df;
   --color-divider: #dcd9d5;
-  --color-border: #d4d1ca;
-  --color-text: #1a1917;
-  --color-text-muted: #6b6966;
-  --color-text-faint: #aaa8a4;
+  --color-border: var(--border-subtle);
+  --color-text: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
   --color-primary: #c73d2a;
   --color-primary-hover: #a82d1d;
-  --color-primary-highlight: #f7e8e6;
+  --color-primary-highlight: var(--accent-soft);
   --color-success: #437a22;
   --color-success-highlight: #d4dfcc;
   --shadow-sm: 0 1px 2px oklch(0.2 0.01 80 / 0.06);
@@ -78,11 +136,9 @@
 @keyframes pageIn {
   from {
     opacity: 0;
-    transform: translateY(8px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -150,13 +206,38 @@ html {
   }
 
   body {
-    background: var(--color-bg);
-    color: var(--color-text);
+    background: var(--bg-page);
+    color: var(--text-primary);
     font-family: var(--font-body);
     font-size: 15px;
     line-height: 1.7;
     overflow-x: hidden;
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--text-primary);
+  }
+}
+
+.app-shell {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+.page-shell {
+  width: min(100%, 96rem);
+  margin-inline: auto;
+  padding-inline: var(--space-page-x);
+}
+
+.app-main {
+  background: var(--bg-page);
+  color: var(--text-primary);
 }
 
 button,

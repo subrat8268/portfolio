@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 const navItems = [
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
   { href: "/design", label: "Design Work" },
   { href: "#contact", label: "Contact" },
 ];
@@ -45,24 +44,39 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 border-b border-transparent transition-all duration-200 ${
-          isScrolled ? "bg-black/20 backdrop-blur-md" : "bg-transparent"
+        className={`fixed inset-x-0 top-0 z-50 border-b backdrop-blur-sm transition-all duration-200 ${
+          isScrolled ? "backdrop-blur-md" : ""
         }`}
+        style={{
+          borderColor: "var(--border-subtle)",
+          backgroundColor: isScrolled
+            ? "color-mix(in oklab, var(--bg-page) 90%, transparent)"
+            : "color-mix(in oklab, var(--bg-page) 78%, transparent)",
+        }}
       >
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-          <Link
-            href="/"
-            className="text-sm text-white/95 [font-family:var(--font-body)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
-          >
-            Subrat Jena
-          </Link>
+          <div className="flex flex-col">
+            <Link
+              href="/"
+              className="text-sm [color:var(--text-primary)] [font-family:var(--font-body)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
+            >
+              Subrat Jena
+            </Link>
+            <span className="text-[10px] uppercase tracking-[0.1em] [color:var(--text-muted)]">
+              Frontend Developer
+            </span>
+          </div>
 
           <nav className="hidden items-center gap-8 sm:flex">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative text-[13px] uppercase tracking-[0.1em] text-white [font-family:var(--font-body)] after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                className={`relative text-[13px] uppercase tracking-[0.1em] [font-family:var(--font-body)] after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[var(--accent)] after:transition-all after:duration-300 hover:after:w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70 ${
+                  item.href === "/design" && isDesignRoute
+                    ? "[color:var(--text-primary)] after:w-full"
+                    : "[color:var(--text-muted)] hover:[color:var(--text-primary)]"
+                }`}
               >
                 {item.label}
               </Link>
@@ -70,14 +84,14 @@ export default function Navbar() {
             <a
               href="/subrat-cv.pdf"
               download
-              className="inline-flex items-center gap-1 rounded-sm border border-[var(--color-border)] px-3 py-1.5 text-[12px] uppercase tracking-[0.1em] text-white/70 transition-colors duration-200 hover:border-white/40 hover:text-white"
+              className="inline-flex items-center gap-1 rounded-sm border border-[var(--border-subtle)] px-3 py-1.5 text-[12px] uppercase tracking-[0.1em] [color:var(--text-muted)] transition-colors duration-200 hover:border-[var(--accent)] hover:[color:var(--text-primary)]"
             >
               ↓ CV
             </a>
             <button
               type="button"
               onClick={toggleTheme}
-              className="inline-flex items-center gap-1 rounded-sm border border-[var(--color-border)] px-3 py-1.5 text-[12px] uppercase tracking-[0.1em] text-white/70 transition-colors duration-200 hover:border-white/40 hover:text-white"
+              className="inline-flex items-center gap-1 rounded-sm border border-[var(--border-subtle)] px-3 py-1.5 text-[12px] uppercase tracking-[0.1em] [color:var(--text-muted)] transition-colors duration-200 hover:border-[var(--accent)] hover:[color:var(--text-primary)]"
             >
               {theme === "dark" ? "Light" : "Dark"}
             </button>
@@ -87,7 +101,7 @@ export default function Navbar() {
             type="button"
             aria-label="Open navigation menu"
             onClick={() => setIsMobileOpen(true)}
-            className="sm:hidden text-2xl leading-none text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            className="sm:hidden text-2xl leading-none [color:var(--text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
           >
             ☰
           </button>
@@ -95,17 +109,25 @@ export default function Navbar() {
       </header>
 
       {isMobileOpen ? (
-        <div className="fixed inset-0 z-[60] bg-[var(--color-bg)]">
+        <div
+          className="fixed inset-0 z-[60]"
+          style={{ backgroundColor: "color-mix(in oklab, var(--bg-page) 95%, transparent)" }}
+        >
           <div className="mx-auto flex h-full max-w-6xl flex-col px-4 py-6">
             <div className="flex items-center justify-between">
-              <span className="text-sm text-white [font-family:var(--font-body)]">
-                Subrat Jena
-              </span>
+              <div className="flex flex-col">
+                <span className="text-sm [color:var(--text-primary)] [font-family:var(--font-body)]">
+                  Subrat Jena
+                </span>
+                <span className="text-[10px] uppercase tracking-[0.1em] [color:var(--text-muted)]">
+                  Frontend Developer
+                </span>
+              </div>
               <button
                 type="button"
                 aria-label="Close navigation menu"
                 onClick={() => setIsMobileOpen(false)}
-                className="text-2xl leading-none text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                className="text-2xl leading-none [color:var(--text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
               >
                 ×
               </button>
@@ -117,7 +139,7 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsMobileOpen(false)}
-                  className="text-2xl uppercase tracking-[0.1em] text-white [font-family:var(--font-display)]"
+                  className="text-2xl uppercase tracking-[0.1em] [color:var(--text-primary)] [font-family:var(--font-display)]"
                 >
                   {item.label}
                 </Link>
@@ -125,14 +147,14 @@ export default function Navbar() {
               <a
                 href="/subrat-cv.pdf"
                 download
-                className="text-2xl uppercase tracking-[0.1em] text-[var(--color-text-muted)]"
+                className="text-2xl uppercase tracking-[0.1em] [color:var(--text-muted)]"
               >
                 ↓ Download CV
               </a>
               <button
                 type="button"
                 onClick={toggleTheme}
-                className="text-2xl uppercase tracking-[0.1em] text-[var(--color-text-muted)]"
+                className="text-2xl uppercase tracking-[0.1em] [color:var(--text-muted)]"
               >
                 {theme === "dark" ? "Light mode" : "Dark mode"}
               </button>
@@ -141,13 +163,15 @@ export default function Navbar() {
         </div>
       ) : null}
 
-      <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 border-t border-[var(--color-border)] bg-[var(--color-bg)]/90 backdrop-blur-sm">
-        <div className="mx-auto flex h-10 max-w-6xl items-center justify-between px-4 text-[11px] tracking-[0.08em] text-[var(--color-text-muted)] uppercase [font-family:var(--font-body)]">
-          <span>
-            {isDesignRoute
-              ? "Design Work"
-              : "Frontend Developer · React · Next.js · React Native"}
-          </span>
+      <div
+        className="pointer-events-none fixed inset-x-0 bottom-0 z-40 border-t backdrop-blur-sm"
+        style={{
+          borderColor: "var(--border-subtle)",
+          backgroundColor: "color-mix(in oklab, var(--bg-elevated) 88%, transparent)",
+        }}
+      >
+        <div className="mx-auto flex h-10 max-w-6xl items-center justify-between px-4 text-[11px] tracking-[0.08em] uppercase [color:var(--text-muted)] [font-family:var(--font-body)]">
+          <span>{isDesignRoute ? "Design Work" : "Frontend Developer"}</span>
           <span>{isDesignRoute ? "2026" : new Date().getFullYear()}</span>
         </div>
       </div>

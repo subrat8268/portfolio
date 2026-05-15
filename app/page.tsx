@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen page-enter">
+    <div className="app-main min-h-screen page-enter">
       <Navbar />
       <Hero />
       <ExperienceStrip />
