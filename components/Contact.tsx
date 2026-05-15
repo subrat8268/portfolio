@@ -71,7 +71,10 @@ export default function Contact() {
             <div className="flex flex-col justify-between bg-[var(--color-accent)] p-8 md:p-12 min-h-[360px]">
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="inline-block h-2 w-2 rounded-full bg-green-400" style={{ animation: "pulse 2s ease-in-out infinite" }} />
+                  <span
+                    className="inline-block h-2 w-2 rounded-full bg-green-400"
+                    style={{ animation: "pulse 2s ease-in-out infinite" }}
+                  />
                   <p className="text-[0.65rem] uppercase tracking-[0.18em] text-white/70">
                     Available for hire
                   </p>
@@ -90,8 +93,13 @@ export default function Contact() {
                   { label: "Previous", value: "DEPT® · Rejolut" },
                   { label: "Location", value: "Mumbai, India" },
                 ].map((row) => (
-                  <div key={row.label} className="flex items-baseline justify-between border-b border-white/10 pb-2">
-                    <span className="text-[0.65rem] uppercase tracking-[0.12em] text-white/50">{row.label}</span>
+                  <div
+                    key={row.label}
+                    className="flex items-baseline justify-between border-b border-white/10 pb-2"
+                  >
+                    <span className="text-[0.65rem] uppercase tracking-[0.12em] text-white/50">
+                      {row.label}
+                    </span>
                     <span className="text-sm text-white/90">{row.value}</span>
                   </div>
                 ))}
@@ -103,8 +111,13 @@ export default function Contact() {
 
       <style jsx>{`
         @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.4; }
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.4;
+          }
         }
       `}</style>
     </section>

@@ -3,15 +3,35 @@
 :root {
   --color-bg: #0a0a0a;
   --color-surface: #111111;
+  --color-surface-2: #1a1918;
+  --color-surface-offset: #1f1e1c;
+  --color-surface-dynamic: #272624;
+  --color-divider: #262523;
   --color-accent: #8b1a1a;
   --color-accent-hover: #6d1515;
+  --color-primary: #e85d4a;
+  --color-primary-hover: #ff7460;
+  --color-primary-active: #c24030;
+  --color-primary-highlight: #2d1c19;
+  --color-success: #6daa45;
+  --color-success-highlight: #1c2e14;
   --color-text: #ffffff;
   --color-text-muted: #999999;
+  --color-text-faint: #4a4947;
   --color-border: rgba(255, 255, 255, 0.1);
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.3);
+  --shadow-md: 0 4px 12px oklch(0 0 0 / 0.4);
+  --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.5);
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
 
   --font-display: "Playfair Display", Georgia, serif;
   --font-script: "Great Vibes", cursive;
-  --font-body: "Inter", sans-serif;
+  --font-body: "Satoshi", "Inter", sans-serif;
 
   --radius: 0.625rem;
   --background: var(--color-bg);
@@ -32,6 +52,27 @@
   --border: var(--color-border);
   --input: var(--color-border);
   --ring: rgba(255, 255, 255, 0.35);
+}
+
+[data-theme="light"] {
+  --color-bg: #f7f6f2;
+  --color-surface: #f9f8f5;
+  --color-surface-2: #fbfbf9;
+  --color-surface-offset: #f0ede8;
+  --color-surface-dynamic: #e6e4df;
+  --color-divider: #dcd9d5;
+  --color-border: #d4d1ca;
+  --color-text: #1a1917;
+  --color-text-muted: #6b6966;
+  --color-text-faint: #aaa8a4;
+  --color-primary: #c73d2a;
+  --color-primary-hover: #a82d1d;
+  --color-primary-highlight: #f7e8e6;
+  --color-success: #437a22;
+  --color-success-highlight: #d4dfcc;
+  --shadow-sm: 0 1px 2px oklch(0.2 0.01 80 / 0.06);
+  --shadow-md: 0 4px 12px oklch(0.2 0.01 80 / 0.08);
+  --shadow-lg: 0 12px 32px oklch(0.2 0.01 80 / 0.12);
 }
 
 @keyframes pageIn {
@@ -129,4 +170,9 @@ textarea {
 ::selection {
   background: rgba(139, 26, 26, 0.35);
   color: var(--color-text);
+}
+
+.skill-icon-card:hover {
+  background: var(--color-surface-dynamic);
+  border-color: oklch(from var(--color-primary) l c h / 0.3);
 }

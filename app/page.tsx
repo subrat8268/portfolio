@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import ExperienceStrip from "@/components/ExperienceStrip";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import DesignTeaser from "@/components/DesignTeaser";
@@ -12,6 +13,7 @@ export default function Home() {
     <div className="min-h-screen page-enter">
       <Navbar />
       <Hero />
+      <ExperienceStrip />
       <About />
       <Projects />
       <DesignTeaser />

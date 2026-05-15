@@ -14,12 +14,29 @@ const navItems = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 80);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    const stored = document.documentElement.getAttribute("data-theme");
+    const preferred = window.matchMedia("(prefers-color-scheme: light)").matches
+      ? "light"
+      : "dark";
+    const nextTheme = stored === "light" || stored === "dark" ? stored : preferred;
+    setTheme(nextTheme);
+    document.documentElement.setAttribute("data-theme", nextTheme);
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    document.documentElement.setAttribute("data-theme", nextTheme);
+  };
 
   return (
     <>
@@ -53,6 +70,13 @@ export default function Navbar() {
             >
               ↓ CV
             </a>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="inline-flex items-center gap-1 rounded-sm border border-[var(--color-border)] px-3 py-1.5 text-[12px] uppercase tracking-[0.1em] text-white/70 transition-colors duration-200 hover:border-white/40 hover:text-white"
+            >
+              {theme === "dark" ? "Light" : "Dark"}
+            </button>
           </nav>
 
           <button
@@ -101,6 +125,13 @@ export default function Navbar() {
               >
                 ↓ Download CV
               </a>
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="text-2xl uppercase tracking-[0.1em] text-[var(--color-text-muted)]"
+              >
+                {theme === "dark" ? "Light mode" : "Dark mode"}
+              </button>
             </nav>
           </div>
         </div>

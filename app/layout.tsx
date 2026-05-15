@@ -70,6 +70,10 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://api.fontshare.com/v2/css?f=satoshi@400,500,700&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body
         className={`${inter.variable} ${poppins.variable} font-inter antialiased`}

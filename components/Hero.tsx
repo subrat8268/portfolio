@@ -154,7 +154,7 @@ export default function Hero() {
         {/* RIGHT — browser mockup cards */}
         <div className="relative h-[420px] lg:h-[520px]">
           <div className="relative h-full w-full">
-            {mockups.map((m, index) => (
+            {mockups.map((m) => (
               <div
                 key={m.label}
                 className={`absolute h-[300px] w-[220px] overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] shadow-2xl ${m.rotate} ${m.offset}`}
