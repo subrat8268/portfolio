@@ -197,7 +197,7 @@ export default function Navbar() {
                 ) : (
                   <Moon className="h-5 w-5" aria-hidden="true" />
                 )}
-                {theme === "dark" ? "Light mode" : "Dark mode"}
+                {isMounted && (theme === "dark" ? "Light mode" : "Dark mode")}
               </button>
             </nav>
           </div>
