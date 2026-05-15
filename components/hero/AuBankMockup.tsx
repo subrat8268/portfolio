@@ -19,7 +19,7 @@ export default function AuBankMockup({
 }: AuBankMockupProps) {
   return (
     <div className="flex h-full flex-col p-5">
-      <p className="mb-3.5 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-[var(--text-primary)]">
+      <p className="mb-3.5 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">
         AU SMALL FINANCE BANK
       </p>
 

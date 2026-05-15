@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --bg-page: #0a0a0a;
-  --bg-elevated: #111111;
+  --bg-page: #0d0d0c;
+  --bg-elevated: #141413;
   --bg-elevated-2: #1a1918;
   --bg-offset: #1f1e1c;
   --bg-dynamic: #272624;
-  --border-subtle: rgba(255, 255, 255, 0.1);
-  --text-primary: #ffffff;
-  --text-muted: #999999;
+  --border-subtle: #2e2d2b;
+  --text-primary: #e8e6e3;
+  --text-muted: #8a8886;
   --text-faint: #4a4947;
   --accent: #e85d4a;
   --accent-hover: #ff7460;
@@ -18,8 +18,8 @@
   --space-page-x: clamp(1rem, 2vw, 1.5rem);
   --space-page-y: clamp(1.25rem, 2vw, 2rem);
 
-  --color-bg: #0a0a0a;
-  --color-surface: #111111;
+  --color-bg: #0d0d0c;
+  --color-surface: #141413;
   --color-surface-2: #1a1918;
   --color-surface-offset: #1f1e1c;
   --color-surface-dynamic: #272624;
@@ -46,7 +46,7 @@
   --radius-xl: 1rem;
   --radius-full: var(--radius-pill);
 
-  --font-display: "Playfair Display", Georgia, serif;
+  --font-display: "Instrument Serif", Georgia, serif;
   --font-script: "Great Vibes", cursive;
   --font-body: "Satoshi", "Inter", sans-serif;
 
@@ -72,14 +72,14 @@
 }
 
 [data-theme="dark"] {
-  --bg-page: #0a0a0a;
-  --bg-elevated: #111111;
+  --bg-page: #0d0d0c;
+  --bg-elevated: #141413;
   --bg-elevated-2: #1a1918;
   --bg-offset: #1f1e1c;
   --bg-dynamic: #272624;
-  --border-subtle: rgba(255, 255, 255, 0.1);
-  --text-primary: #ffffff;
-  --text-muted: #999999;
+  --border-subtle: #2e2d2b;
+  --text-primary: #e8e6e3;
+  --text-muted: #8a8886;
   --text-faint: #4a4947;
   --accent: #e85d4a;
   --accent-hover: #ff7460;
@@ -206,7 +206,19 @@ html {
   }
 
   body {
-    background: var(--bg-page);
+    background-color: var(--bg-page);
+    background-image:
+      radial-gradient(
+        ellipse 70% 60% at 72% 20%,
+        color-mix(in oklab, var(--color-primary) 7%, transparent) 0%,
+        transparent 68%
+      ),
+      radial-gradient(
+        ellipse 60% 55% at 18% 78%,
+        color-mix(in oklab, var(--color-primary) 4%, transparent) 0%,
+        transparent 72%
+      );
+    background-attachment: fixed;
     color: var(--text-primary);
     font-family: var(--font-body);
     font-size: 15px;

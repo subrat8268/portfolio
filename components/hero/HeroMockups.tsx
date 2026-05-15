@@ -24,6 +24,14 @@ export default function HeroMockups() {
     <div className="relative hidden h-[600px] items-center justify-center overflow-visible lg:flex">
       <div
         aria-hidden="true"
+        className="pointer-events-none absolute right-[-2%] top-1/2 h-[560px] w-[520px] -translate-y-1/2 rounded-full"
+        style={{
+          background:
+            "radial-gradient(ellipse 65% 60% at 60% 50%, color-mix(in oklab, var(--color-primary) 14%, var(--bg-page) 86%) 0%, transparent 74%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
         className="pointer-events-none absolute left-1/2 top-1/2 h-[470px] w-[470px] -translate-x-[53%] -translate-y-1/2 rounded-full"
         style={{
           background:
@@ -105,14 +113,14 @@ export default function HeroMockups() {
           >
             <BrowserCard
               url="au.bank.in"
-              className="h-[420px] w-[262px]"
+              className="h-[410px] w-[250px]"
               reduceMotion={reduceMotion}
             >
               <AuBankMockup reduceMotion={reduceMotion} />
             </BrowserCard>
           </motion.div>
 
-          <div className="flex w-[250px] flex-col gap-3 pt-1">
+          <div className="flex w-[250px] flex-col gap-3">
             <motion.div
               animate={
                 reduceMotion

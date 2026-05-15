@@ -55,11 +55,12 @@ export default function Navbar() {
       <header
         className={`sticky top-0 z-50 border-b backdrop-blur-md transition-all duration-300 ${
           isScrolled
-            ? "shadow-[0_10px_30px_color-mix(in_oklab,var(--color-bg)_65%,transparent)]"
+            ? "shadow-[0_12px_34px_color-mix(in_oklab,var(--color-bg)_62%,transparent),0_2px_0_color-mix(in_oklab,var(--color-primary)_22%,transparent)]"
             : ""
         }`}
         style={{
-          borderColor: "color-mix(in oklab, var(--border-subtle) 70%, var(--text-faint) 30%)",
+          borderColor:
+            "color-mix(in oklab, var(--border-subtle) 70%, var(--text-faint) 30%)",
           backgroundColor: isScrolled
             ? "color-mix(in oklab, var(--bg-page) 88%, transparent)"
             : "color-mix(in oklab, var(--bg-page) 84%, transparent)",
@@ -107,7 +108,7 @@ export default function Navbar() {
             <a
               href="/subrat-cv.pdf"
               download
-              className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-elevated)] px-4 py-2 text-[0.7rem] uppercase tracking-[0.12em] [color:var(--text-muted)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:[color:var(--text-primary)]"
+              className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--color-primary)] px-4 py-2 text-[0.7rem] uppercase tracking-[0.12em] text-white font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:[color:var(--text-primary)]"
             >
               <Download className="h-3.5 w-3.5" aria-hidden="true" />
               Download CV
@@ -116,7 +117,9 @@ export default function Navbar() {
 
           <button
             type="button"
-            aria-label={isMobileOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              isMobileOpen ? "Close navigation menu" : "Open navigation menu"
+            }
             aria-expanded={isMobileOpen}
             aria-controls="mobile-nav-menu"
             onClick={() => setIsMobileOpen((prev) => !prev)}
@@ -128,14 +131,16 @@ export default function Navbar() {
               <Menu className="h-5 w-5" aria-hidden="true" />
             )}
           </button>
-
         </div>
       </header>
 
       {isMobileOpen ? (
         <div
           className="fixed inset-0 z-[60]"
-          style={{ backgroundColor: "color-mix(in oklab, var(--bg-page) 95%, transparent)" }}
+          style={{
+            backgroundColor:
+              "color-mix(in oklab, var(--bg-page) 95%, transparent)",
+          }}
         >
           <div
             id="mobile-nav-menu"

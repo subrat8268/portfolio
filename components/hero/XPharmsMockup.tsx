@@ -1,9 +1,12 @@
 "use client";
 
+import { Activity } from "lucide-react";
+
 export default function XPharmsMockup() {
   return (
     <div className="h-full p-4">
-      <p className="mb-3 text-[0.58rem] font-semibold uppercase tracking-[0.1em] text-[var(--text-primary)]">
+      <p className="mb-3 inline-flex items-center gap-1.5 text-[0.58rem] font-semibold uppercase tracking-[0.1em] text-[var(--text-primary)]">
+        <Activity className="h-3.5 w-3.5 text-[var(--color-primary)]" aria-hidden="true" />
         XPHARMS XCHANGE
       </p>
 

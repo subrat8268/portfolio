@@ -3,6 +3,14 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
+import {
+  ArrowUpRight,
+  Atom,
+  Briefcase,
+  Code2,
+  Globe,
+  Smartphone,
+} from "lucide-react";
 import HeroMockups from "@/components/hero/HeroMockups";
 
 export default function Hero() {
@@ -43,6 +51,7 @@ export default function Hero() {
           >
             <div className="mb-3 flex flex-wrap items-center gap-3">
               <span className="flex items-center gap-1.5 rounded-full border border-[color:var(--color-success)]/20 bg-[var(--color-success-highlight)] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-[var(--color-success)]">
+                <Briefcase className="h-3.5 w-3.5 text-[var(--color-success)]" aria-hidden="true" />
                 <span
                   className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-success)]"
                   style={
@@ -91,8 +100,9 @@ export default function Hero() {
               }
             }
           >
-            <p className="mt-1 text-[clamp(1.4rem,2.8vw,2.25rem)] font-bold text-[var(--color-primary)] [font-family:var(--font-body)]">
+            <p className="mt-1 inline-flex items-center gap-2 text-[clamp(1.4rem,2.8vw,2.25rem)] font-bold text-[var(--color-primary)] [font-family:var(--font-body)]">
               Frontend Developer
+              <Code2 className="h-4 w-4 opacity-80" aria-hidden="true" />
             </p>
           </motion.div>
 
@@ -116,15 +126,24 @@ export default function Hero() {
                   tech === "React" ||
                   tech === "Next.js" ||
                   tech === "React Native";
+                const Icon =
+                  tech === "React"
+                    ? Atom
+                    : tech === "Next.js"
+                      ? Globe
+                      : tech === "React Native"
+                        ? Smartphone
+                        : null;
                 return (
                   <span
                     key={tech}
-                    className={`rounded-full border px-2.5 py-1 text-[0.68rem] uppercase tracking-[0.1em] transition-all duration-200 ${
+                    className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[0.68rem] uppercase tracking-[0.1em] transition-all duration-200 ${
                       isAccent
                         ? "border-[color:var(--color-primary)]/35 bg-[var(--color-primary-highlight)] text-[var(--color-primary)] hover:border-[var(--color-primary)]"
                         : "border-[var(--border-subtle)] bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:border-[var(--accent)]"
                     }`}
                   >
+                    {Icon ? <Icon className="h-3.5 w-3.5" aria-hidden="true" /> : null}
                     {tech}
                   </span>
                 );
@@ -152,28 +171,40 @@ export default function Hero() {
             transition={
               motionProps?.transition ?? { duration: 0.4, delay: 0.6 }
             }
-            className="mt-6 flex flex-wrap items-center justify-start gap-3"
+            className="mt-6 flex flex-wrap items-center justify-start gap-4"
           >
             <Link
               href="#projects"
-              className="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-medium text-white shadow-[var(--shadow-md)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--color-primary-hover)]"
+              className="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white shadow-[var(--shadow-md)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--color-primary-hover)]"
             >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                aria-hidden="true"
+              >
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              </svg>
               View Projects
             </Link>
             <Link
               href="#contact"
-              className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-elevated)] px-6 py-3 text-sm text-[var(--text-muted)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:text-[var(--text-primary)] hover:shadow-[0_0_0_1px_color-mix(in_oklab,var(--color-primary)_25%,transparent)]"
+              className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-elevated)] px-6 py-3 font-semibold text-sm text-[var(--text-muted)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:text-[var(--text-primary)] hover:shadow-[0_0_0_1px_color-mix(in_oklab,var(--color-primary)_25%,transparent)]"
             >
               Get in Touch
             </Link>
             <Link
               href="/design"
-              className="group inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.08em] text-[var(--text-muted)] transition-colors duration-200 hover:text-[var(--text-primary)]"
+              className="group font-semibold inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.08em] text-[var(--text-muted)] transition-colors duration-200 hover:text-[var(--text-primary)]"
             >
-              Design Work{" "}
-              <span className="transition-transform duration-200 group-hover:translate-x-1">
-                →
-              </span>
+              Design Work
+              <ArrowUpRight
+                className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                aria-hidden="true"
+              />
             </Link>
           </motion.div>
         </div>
