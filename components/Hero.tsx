@@ -65,7 +65,11 @@ export default function Hero() {
               <span className="flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-[0.65rem] uppercase tracking-[0.15em] text-[var(--color-text-muted)]">
                 <span
                   className="inline-block h-1.5 w-1.5 rounded-full bg-green-400"
-                  style={prefersReducedMotion ? {} : { animation: "pulse 2s ease-in-out infinite" }}
+                  style={
+                    prefersReducedMotion
+                      ? {}
+                      : { animation: "pulse 2s ease-in-out infinite" }
+                  }
                 />
                 Open to opportunities
               </span>
@@ -78,17 +82,36 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            transition={{
+              duration: 0.65,
+              delay: 0.15,
+              ease: [0.16, 1, 0.3, 1],
+            }}
           >
-            <h1 className="[font-family:var(--font-body)] text-[clamp(2.75rem,6vw,4.5rem)] font-semibold leading-none text-[var(--color-text)]">
-              Subrat Jena
+            <h1 className="text-[clamp(2.75rem,6vw,4.5rem)] font-semibold leading-none -mb-6">
+              <span
+                style={{ fontFamily: "var(--font-script)" }}
+                className="text-[1.15em] text-[var(--color-text)]"
+              >
+                S
+              </span>
+              <span
+                style={{ fontFamily: "var(--font-display)" }}
+                className="text-[var(--color-text)]"
+              >
+                ubrat Jena
+              </span>
             </h1>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
+            transition={{
+              duration: 0.55,
+              delay: 0.28,
+              ease: [0.16, 1, 0.3, 1],
+            }}
           >
             <p className="mt-1 text-[clamp(1.4rem,2.8vw,2.25rem)] font-semibold text-[var(--color-accent)] [font-family:var(--font-body)]">
               Frontend Developer
@@ -101,14 +124,16 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.38 }}
           >
             <div className="mt-1 flex flex-wrap gap-2">
-              {["React", "Next.js", "React Native", "TypeScript"].map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-sm border border-[var(--color-border)] px-2.5 py-1 text-[0.68rem] uppercase tracking-[0.1em] text-[var(--color-text-muted)]"
-                >
-                  {tech}
-                </span>
-              ))}
+              {["React", "Next.js", "React Native", "TypeScript"].map(
+                (tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-sm border border-[var(--color-border)] px-2.5 py-1 text-[0.68rem] uppercase tracking-[0.1em] text-[var(--color-text-muted)]"
+                  >
+                    {tech}
+                  </span>
+                ),
+              )}
             </div>
           </motion.div>
 
@@ -118,8 +143,8 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.48 }}
           >
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-[var(--color-text-muted)]">
-              2+ years · BFSI enterprise · DEPT® &amp; Rejolut.
-              Building production React &amp; Next.js interfaces used by millions.
+              2+ years · BFSI enterprise · DEPT® &amp; Rejolut. Building
+              production React &amp; Next.js interfaces used by millions.
             </p>
           </motion.div>
 
@@ -221,8 +246,13 @@ export default function Hero() {
           }
         }
         @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.4; }
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.4;
+          }
         }
       `}</style>
     </section>

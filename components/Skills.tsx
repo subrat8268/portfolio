@@ -19,7 +19,7 @@ const skillCategories: SkillCategory[] = [
       { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" },
       {
         name: "Next.js",
-        icon: "https://cdn.simpleicons.org/nextdotjs/ffffff",
+        icon: "https://cdn.simpleicons.org/nextdotjs/000000",
         invert: true,
       },
       {
@@ -57,7 +57,7 @@ const skillCategories: SkillCategory[] = [
       { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032" },
       {
         name: "Vercel",
-        icon: "https://cdn.simpleicons.org/vercel/ffffff",
+        icon: "https://cdn.simpleicons.org/vercel/000000",
         invert: true,
       },
       { name: "Supabase", icon: "https://cdn.simpleicons.org/supabase/FFCA28" },

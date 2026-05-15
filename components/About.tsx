@@ -19,8 +19,8 @@ export default function About() {
               <p>
                 Frontend developer with 2+ years building production React and
                 Next.js applications for BFSI clients — AU Small Finance Bank,
-                IndiaFirst Life, and ICRA. I focus on performance, accessibility,
-                and clean component architecture.
+                IndiaFirst Life, and ICRA. I focus on performance,
+                accessibility, and clean component architecture.
               </p>
             </RevealOnScroll>
             <RevealOnScroll delay={0.2}>
@@ -35,14 +35,16 @@ export default function About() {
           {/* Experience tags */}
           <RevealOnScroll delay={0.3}>
             <div className="mt-8 flex flex-wrap gap-2">
-              {["DEPT®", "Rejolut", "BFSI Enterprise", "Mumbai", "2+ yrs"].map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-sm border border-[var(--color-border)] px-3 py-1.5 text-[0.68rem] uppercase tracking-[0.1em] text-[var(--color-text-muted)]"
-                >
-                  {tag}
-                </span>
-              ))}
+              {["DEPT®", "Rejolut", "BFSI Enterprise", "Mumbai", "2+ yrs"].map(
+                (tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-sm border border-[var(--color-border)] px-3 py-1.5 text-[0.68rem] uppercase tracking-[0.1em] text-[var(--color-text-muted)]"
+                  >
+                    {tag}
+                  </span>
+                ),
+              )}
             </div>
           </RevealOnScroll>
         </div>
@@ -55,10 +57,15 @@ export default function About() {
                 <span className="h-2 w-2 rounded-full bg-red-400/70" />
                 <span className="h-2 w-2 rounded-full bg-yellow-400/70" />
                 <span className="h-2 w-2 rounded-full bg-green-400/70" />
-                <span className="ml-2 text-[0.6rem] text-[var(--color-text-muted)]">Hero.tsx</span>
+                <span className="ml-2 text-[0.6rem] text-[var(--color-text-muted)]">
+                  Hero.tsx
+                </span>
               </div>
-              <pre className="p-4 text-[0.62rem] leading-[1.7] text-[var(--color-text-muted)] overflow-hidden" aria-label="Code snippet">
-{`export default function Hero() {
+              <pre
+                className="p-4 text-[0.62rem] leading-[1.7] text-[var(--color-text-muted)] overflow-hidden"
+                aria-label="Code snippet"
+              >
+                {`export default function Hero() {
   return (
     <section>
       <h1>Subrat Jena</h1>
@@ -76,16 +83,25 @@ export default function About() {
 
           <RevealOnScroll direction="right" delay={0.25}>
             <div className="bg-[var(--color-accent)] p-4 flex flex-col gap-4">
-              <p className="text-[0.65rem] uppercase tracking-[0.15em] text-white/60">Currently building</p>
+              <p className="text-[0.65rem] uppercase tracking-[0.15em] text-white/60">
+                Currently building
+              </p>
               <div className="space-y-2">
                 {[
                   { name: "au.bank.in", desc: "AEM · React · WCAG" },
                   { name: "XPharms Xchange", desc: "Next.js · SEO · JWT" },
                   { name: "ICRA Copilot", desc: "React · Redux · APIs" },
                 ].map((p) => (
-                  <div key={p.name} className="border border-white/20 bg-white/5 px-3 py-2">
-                    <p className="text-[0.68rem] text-white font-medium">{p.name}</p>
-                    <p className="text-[0.6rem] text-white/50 mt-0.5">{p.desc}</p>
+                  <div
+                    key={p.name}
+                    className="border border-white/20 bg-white/5 px-3 py-2"
+                  >
+                    <p className="text-[0.68rem] text-white font-medium">
+                      {p.name}
+                    </p>
+                    <p className="text-[0.6rem] text-white/50 mt-0.5">
+                      {p.desc}
+                    </p>
                   </div>
                 ))}
               </div>
