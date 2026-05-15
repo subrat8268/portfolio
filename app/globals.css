@@ -240,6 +240,10 @@ html {
   color: var(--text-primary);
 }
 
+section[id] {
+  scroll-margin-top: 6.5rem;
+}
+
 button,
 a,
 input,

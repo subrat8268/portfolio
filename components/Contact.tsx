@@ -32,7 +32,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-[var(--color-bg)] py-[clamp(5rem,8vw,9rem)]"
+      className="bg-[var(--color-bg)] py-[clamp(5.5rem,9vw,10rem)]"
     >
       <div className="mx-auto max-w-6xl px-4">
         <div className="grid overflow-hidden border border-[var(--color-border)] lg:grid-cols-2">
@@ -46,7 +46,7 @@ export default function Contact() {
                 Let&apos;s build something meaningful.
               </p>
 
-              <ul className="mt-8 space-y-5 border-l-2 border-white/30 pl-5">
+              <ul className="mt-8 space-y-5 border-l-2 border-[var(--border-subtle)] pl-5">
                 {contactItems.map((item) => (
                   <li key={item.label}>
                     <p className="text-[11px] uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
@@ -56,7 +56,7 @@ export default function Contact() {
                       href={item.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-1 inline-block text-[15px] text-[var(--color-text)] hover:text-white/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                      className="mt-1 inline-block text-[15px] text-[var(--color-text)] transition-colors duration-200 hover:text-[var(--text-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
                     >
                       {item.value}
                     </Link>
@@ -68,7 +68,7 @@ export default function Contact() {
 
           {/* Availability card — replaces picsum contact image */}
           <RevealOnScroll direction="right" delay={0.15}>
-            <div className="flex flex-col justify-between bg-[var(--color-accent)] p-8 md:p-12 min-h-[360px]">
+             <div className="flex min-h-[360px] flex-col justify-between bg-[var(--color-accent)] p-8 md:p-12">
               <div>
                 <div className="flex items-center gap-2">
                   <span

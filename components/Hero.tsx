@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function Hero() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -17,29 +18,29 @@ export default function Hero() {
 
   const mockups = [
     {
-      label: "AU Bank Search",
+      label: "AU Small Finance Bank",
       tag: "BFSI · Enterprise",
-      lines: ["Search branches", "Compare savings", "Voice search"],
+      lines: ["Branch locator", "Site search", "Voice search"],
       rotate: "-rotate-2",
       offset: "left-0 top-10",
       delay: "0s",
       startRotate: "-10deg",
       finalRotate: "-2deg",
-      accent: "#01696f",
+      accent: "var(--accent)",
     },
     {
-      label: "xpharmsxchange.com",
+      label: "XPharms Xchange",
       tag: "Next.js · B2B",
-      lines: ["92+ Lighthouse", "SEO-first", "JWT Auth"],
+      lines: ["Onboarding flow", "92+ Lighthouse", "JWT access"],
       rotate: "rotate-1",
       offset: "left-[60px] top-0",
       delay: "0.12s",
       startRotate: "8deg",
       finalRotate: "1deg",
-      accent: "#7a39bb",
+      accent: "var(--color-primary)",
     },
     {
-      label: "ICRA Copilot",
+      label: "Research Assist",
       tag: "React · Redux",
       lines: ["Analyst Chat UI", "5+ REST APIs", "-40% Q&A time"],
       rotate: "rotate-5",
@@ -47,24 +48,38 @@ export default function Hero() {
       delay: "0.24s",
       startRotate: "18deg",
       finalRotate: "5deg",
-      accent: "#da7101",
+      accent: "var(--color-success)",
     },
   ];
 
+  const motionProps = shouldReduceMotion
+    ? {
+        initial: false,
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0 },
+      }
+    : undefined;
+
   return (
-    <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[var(--color-bg)]">
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-4 py-24 lg:grid-cols-2">
+    <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[var(--bg-page)]">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-4 py-24 lg:grid-cols-2 lg:py-28">
         {/* LEFT — identity */}
         <div className="flex flex-col gap-4">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+            initial={motionProps?.initial ?? { opacity: 0, y: 16 }}
+            animate={motionProps?.animate ?? { opacity: 1, y: 0 }}
+            transition={
+              motionProps?.transition ?? {
+                duration: 0.5,
+                delay: 0.05,
+                ease: [0.16, 1, 0.3, 1],
+              }
+            }
           >
             <div className="mb-3 flex flex-wrap items-center gap-3">
-              <span className="flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-[0.65rem] uppercase tracking-[0.15em] text-[var(--color-text-muted)]">
+              <span className="flex items-center gap-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-elevated)] px-3 py-1 text-[0.65rem] uppercase tracking-[0.15em] text-[var(--text-muted)]">
                 <span
-                  className="inline-block h-1.5 w-1.5 rounded-full bg-green-400"
+                  className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-success)]"
                   style={
                     prefersReducedMotion
                       ? {}
@@ -73,62 +88,60 @@ export default function Hero() {
                 />
                 Open to opportunities
               </span>
-              <span className="text-[0.65rem] uppercase tracking-[0.15em] text-[var(--color-text-muted)]">
+              <span className="text-[0.65rem] uppercase tracking-[0.15em] text-[var(--text-muted)]">
                 Mumbai, India
               </span>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.65,
-              delay: 0.15,
-              ease: [0.16, 1, 0.3, 1],
-            }}
+            initial={motionProps?.initial ?? { opacity: 0, y: 28 }}
+            animate={motionProps?.animate ?? { opacity: 1, y: 0 }}
+            transition={
+              motionProps?.transition ?? {
+                duration: 0.65,
+                delay: 0.15,
+                ease: [0.16, 1, 0.3, 1],
+              }
+            }
           >
             <h1 className="text-[clamp(2.75rem,6vw,4.5rem)] font-semibold leading-none -mb-6">
               <span
-                style={{ fontFamily: "var(--font-script)" }}
-                className="text-[1.15em] text-[var(--color-text)]"
-              >
-                S
-              </span>
-              <span
                 style={{ fontFamily: "var(--font-display)" }}
-                className="text-[var(--color-text)]"
+                className="text-[var(--text-primary)]"
               >
-                ubrat Jena
+                Subrat Jena
               </span>
             </h1>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.55,
-              delay: 0.28,
-              ease: [0.16, 1, 0.3, 1],
-            }}
+            initial={motionProps?.initial ?? { opacity: 0, y: 20 }}
+            animate={motionProps?.animate ?? { opacity: 1, y: 0 }}
+            transition={
+              motionProps?.transition ?? {
+                duration: 0.55,
+                delay: 0.28,
+                ease: [0.16, 1, 0.3, 1],
+              }
+            }
           >
-            <p className="mt-1 text-[clamp(1.4rem,2.8vw,2.25rem)] font-semibold text-[var(--color-accent)] [font-family:var(--font-body)]">
+            <p className="mt-1 text-[clamp(1.4rem,2.8vw,2.25rem)] font-bold text-[var(--text-primary)] [font-family:var(--font-body)]">
               Frontend Developer
             </p>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.38 }}
+            initial={motionProps?.initial ?? { opacity: 0 }}
+            animate={motionProps?.animate ?? { opacity: 1, y: 0 }}
+            transition={motionProps?.transition ?? { duration: 0.5, delay: 0.38 }}
           >
             <div className="mt-1 flex flex-wrap gap-2">
-              {["React", "Next.js", "React Native", "TypeScript"].map(
+              {["React", "Next.js", "TypeScript", "React Native", "AEM", "WCAG"].map(
                 (tech) => (
                   <span
                     key={tech}
-                    className="rounded-sm border border-[var(--color-border)] px-2.5 py-1 text-[0.68rem] uppercase tracking-[0.1em] text-[var(--color-text-muted)]"
+                    className="rounded-sm border border-[var(--border-subtle)] bg-[var(--bg-elevated)] px-2.5 py-1 text-[0.68rem] uppercase tracking-[0.1em] text-[var(--text-muted)]"
                   >
                     {tech}
                   </span>
@@ -138,51 +151,49 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.48 }}
+            initial={motionProps?.initial ?? { opacity: 0 }}
+            animate={motionProps?.animate ?? { opacity: 1, y: 0 }}
+            transition={motionProps?.transition ?? { duration: 0.5, delay: 0.48 }}
           >
-            <p className="mt-3 max-w-xs text-sm leading-relaxed text-[var(--color-text-muted)]">
-              2+ years · BFSI enterprise · DEPT® &amp; Rejolut. Building
-              production React &amp; Next.js interfaces used by millions.
+            <p className="mt-3 max-w-xs text-sm leading-relaxed text-[var(--text-muted)]">
+              2+ years · BFSI &amp; product · DEPT® &amp; Rejolut.
             </p>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.6 }}
+            initial={motionProps?.initial ?? { opacity: 0, y: 10 }}
+            animate={motionProps?.animate ?? { opacity: 1, y: 0 }}
+            transition={motionProps?.transition ?? { duration: 0.4, delay: 0.6 }}
             className="mt-6 flex flex-wrap items-center justify-start gap-3"
           >
             <Link
               href="#projects"
-              className="inline-flex items-center gap-1.5 bg-[var(--color-accent)] px-5 py-2.5 text-sm text-white transition-colors duration-200 hover:bg-[var(--color-accent-hover)]"
+              className="inline-flex items-center gap-1.5 bg-[var(--accent)] px-5 py-2.5 text-sm text-white transition-colors duration-200 hover:bg-[var(--accent-hover)]"
             >
               View Projects
             </Link>
             <Link
+              href="#contact"
+              className="inline-flex items-center gap-1.5 border border-[var(--border-subtle)] bg-[var(--bg-elevated)] px-5 py-2.5 text-sm text-[var(--text-muted)] transition-all duration-200 hover:border-[var(--accent)] hover:text-[var(--text-primary)]"
+            >
+              Get in Touch
+            </Link>
+            <Link
               href="/design"
-              className="inline-flex items-center gap-1.5 border border-[var(--color-border)] px-5 py-2.5 text-sm text-[var(--color-text-muted)] transition-all duration-200 hover:border-white/40 hover:text-white"
+              className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.08em] text-[var(--text-muted)] transition-colors duration-200 hover:text-[var(--text-primary)]"
             >
               Design Work →
             </Link>
-            <a
-              href="/subrat-cv.pdf"
-              download
-              className="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-muted)] transition-colors duration-200 hover:text-white"
-            >
-              ↓ Download CV
-            </a>
           </motion.div>
         </div>
 
         {/* RIGHT — browser mockup cards */}
-        <div className="relative h-[420px] lg:h-[520px]">
+        <div className="relative h-[360px] sm:h-[420px] lg:h-[520px]">
           <div className="relative h-full w-full">
-            {mockups.map((m) => (
+            {mockups.map((m, index) => (
               <div
                 key={m.label}
-                className={`absolute h-[300px] w-[220px] overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] shadow-2xl ${m.rotate} ${m.offset}`}
+                className={`absolute h-[250px] w-[180px] sm:h-[300px] sm:w-[220px] overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-elevated)] shadow-2xl ${m.rotate} ${m.offset} ${index === 2 ? "hidden sm:block" : ""}`}
                 style={
                   prefersReducedMotion
                     ? undefined
@@ -198,25 +209,25 @@ export default function Hero() {
                 }
               >
                 {/* Browser chrome */}
-                <div className="flex h-7 items-center gap-1.5 border-b border-[var(--color-border)] bg-[var(--color-surface-offset)] px-2">
-                  <span className="h-2 w-2 rounded-full bg-red-400/70" />
-                  <span className="h-2 w-2 rounded-full bg-yellow-400/70" />
-                  <span className="h-2 w-2 rounded-full bg-green-400/70" />
-                  <span className="ml-2 truncate text-[0.55rem] text-[var(--color-text-muted)]">
+                <div className="flex h-7 items-center gap-1.5 border-b border-[var(--border-subtle)] bg-[var(--bg-offset)] px-2">
+                  <span className="h-2 w-2 rounded-full bg-[var(--text-faint)]" />
+                  <span className="h-2 w-2 rounded-full bg-[var(--text-muted)]" />
+                  <span className="h-2 w-2 rounded-full bg-[var(--accent)]" />
+                  <span className="ml-2 truncate text-[0.55rem] text-[var(--text-muted)]">
                     {m.label}
                   </span>
                 </div>
                 {/* Mockup body */}
                 <div className="flex h-[calc(100%-1.75rem)] flex-col justify-between p-3">
                   <div>
-                    <p className="text-[0.55rem] uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
+                    <p className="text-[0.55rem] uppercase tracking-[0.12em] text-[var(--text-muted)]">
                       {m.tag}
                     </p>
                     <div className="mt-2 space-y-1.5">
                       {m.lines.map((line) => (
                         <div
                           key={line}
-                          className="rounded-sm border border-[var(--color-border)] px-2 py-1 text-[0.6rem] text-[var(--color-text-muted)]"
+                          className="rounded-sm border border-[var(--border-subtle)] bg-[var(--bg-offset)] px-2 py-1 text-[0.6rem] text-[var(--text-muted)]"
                         >
                           {line}
                         </div>

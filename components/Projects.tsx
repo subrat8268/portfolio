@@ -101,7 +101,7 @@ export default function Projects() {
   const rest = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="bg-[var(--color-bg)] py-[clamp(5rem,8vw,9rem)]">
+    <section id="projects" className="bg-[var(--color-bg)] py-[clamp(5.5rem,9vw,10rem)]">
       <div className="mx-auto max-w-6xl px-4">
         <RevealOnScroll>
           <p className="mb-3 text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
@@ -158,7 +158,7 @@ export default function Projects() {
               <h3 className="[font-family:var(--font-display)] text-[clamp(1.4rem,2.8vw,1.9rem)] leading-snug text-[var(--color-text)]">
                 {featured.title}
               </h3>
-              <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">
+              <p className="max-w-[60ch] text-sm leading-relaxed text-[var(--color-text-muted)]">
                 {featured.description}
               </p>
               <div className="flex flex-wrap gap-2">

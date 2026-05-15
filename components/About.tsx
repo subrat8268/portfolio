@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="bg-[var(--color-bg)] py-[clamp(5rem,8vw,9rem)]"
+      className="bg-[var(--color-bg)] py-[clamp(5.5rem,9vw,10rem)]"
     >
       <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[40%_60%] lg:items-start">
         <div>
@@ -14,7 +14,7 @@ export default function About() {
               About Me
             </DisplayHeading>
           </RevealOnScroll>
-          <div className="mt-6 space-y-5 text-[15px] leading-[1.7] text-[var(--color-text)] [font-family:var(--font-body)]">
+          <div className="mt-6 max-w-[62ch] space-y-5 text-[15px] leading-[1.75] text-[var(--color-text)] [font-family:var(--font-body)]">
           <RevealOnScroll delay={0.1}>
             <p>
                 Frontend developer with 2+ years building production React and
