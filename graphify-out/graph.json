@@ -1,7 +1,151 @@
 {
   "directed": false,
   "multigraph": false,
-  "graph": {},
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "main_page_composition",
+        "label": "Main Page Component Composition",
+        "nodes": [
+          "app_page",
+          "navbar_component",
+          "hero_component",
+          "experience_strip_component",
+          "about_component",
+          "projects_component",
+          "design_teaser_component",
+          "skills_component",
+          "contact_component",
+          "footer_component"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "app/page.tsx"
+      },
+      {
+        "id": "design_page_composition",
+        "label": "Design Page Component Composition",
+        "nodes": [
+          "app_design_page",
+          "navbar_component",
+          "display_heading_component",
+          "design_gallery_component",
+          "footer_component"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "app/design/page.tsx"
+      },
+      {
+        "id": "shared_animation_system",
+        "label": "Framer Motion Animation System",
+        "nodes": [
+          "framer_motion",
+          "reveal_on_scroll_component",
+          "hero_component",
+          "projects_component"
+        ],
+        "relation": "implement",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "components/RevealOnScroll.tsx"
+      },
+      {
+        "id": "radix_ui_components",
+        "label": "Radix UI Wrapper Components",
+        "nodes": [
+          "accordion",
+          "alertdialog",
+          "aspectratio",
+          "avatar",
+          "collapsible",
+          "dialog",
+          "switch",
+          "tabs",
+          "toggle",
+          "tooltip"
+        ],
+        "relation": "implement",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "components/ui/",
+        "source_location": null
+      },
+      {
+        "id": "cva_variant_components",
+        "label": "CVA Variant Components",
+        "nodes": [
+          "alert",
+          "badge",
+          "button",
+          "toggle"
+        ],
+        "relation": "implement",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "components/ui/",
+        "source_location": null
+      },
+      {
+        "id": "dialog_based_components",
+        "label": "Dialog-based Components",
+        "nodes": [
+          "alertdialog",
+          "command",
+          "dialog"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "components/ui/",
+        "source_location": null
+      },
+      {
+        "id": "deployment_workflow",
+        "label": "Vercel Deployment Workflow",
+        "nodes": [
+          "deployment-checklist",
+          "vercel-deployment",
+          "vercel",
+          "nextjs"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 0.95,
+        "source_file": "DEPLOY.md"
+      },
+      {
+        "id": "design_assets",
+        "label": "Design Portfolio Assets",
+        "nodes": [
+          "ussepp-logo",
+          "ekadant-banner-2023",
+          "ekadant-banner-2024",
+          "laxmi-global-logo",
+          "ritika-birthday-invite",
+          "design-gallery"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 0.9,
+        "source_file": "DEPLOY.md"
+      },
+      {
+        "id": "project_assets",
+        "label": "Project Showcase Assets",
+        "nodes": [
+          "au-bank-project",
+          "icra-project"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 0.95,
+        "source_file": "DEPLOY.md"
+      }
+    ]
+  },
   "nodes": [
     {
       "label": "eslint.config.mjs",
@@ -9,7 +153,7 @@
       "source_file": "eslint.config.mjs",
       "source_location": "L1",
       "id": "eslint_config_mjs",
-      "community": 24,
+      "community": 25,
       "norm_label": "eslint.config.mjs"
     },
     {
@@ -18,7 +162,7 @@
       "source_file": "next-env.d.ts",
       "source_location": "L1",
       "id": "next_env_d_ts",
-      "community": 25,
+      "community": 26,
       "norm_label": "next-env.d.ts"
     },
     {
@@ -27,7 +171,7 @@
       "source_file": "next.config.mjs",
       "source_location": "L1",
       "id": "next_config_mjs",
-      "community": 26,
+      "community": 27,
       "norm_label": "next.config.mjs"
     },
     {
@@ -36,7 +180,7 @@
       "source_file": "postcss.config.mjs",
       "source_location": "L1",
       "id": "postcss_config_mjs",
-      "community": 27,
+      "community": 28,
       "norm_label": "postcss.config.mjs"
     },
     {
@@ -52,7 +196,7 @@
       "label": "RootLayout()",
       "file_type": "code",
       "source_file": "app\\layout.tsx",
-      "source_location": "L51",
+      "source_location": "L54",
       "id": "app_layout_rootlayout",
       "community": 13,
       "norm_label": "rootlayout()"
@@ -124,7 +268,7 @@
       "label": "DesignLayout()",
       "file_type": "code",
       "source_file": "app\\design\\layout.tsx",
-      "source_location": "L17",
+      "source_location": "L25",
       "id": "design_layout_designlayout",
       "community": 17,
       "norm_label": "designlayout()"
@@ -135,7 +279,7 @@
       "source_file": "app\\design\\page.tsx",
       "source_location": "L1",
       "id": "app_design_page_tsx",
-      "community": 28,
+      "community": 29,
       "norm_label": "page.tsx"
     },
     {
@@ -144,7 +288,7 @@
       "source_file": "components\\About.tsx",
       "source_location": "L1",
       "id": "components_about_tsx",
-      "community": 29,
+      "community": 30,
       "norm_label": "about.tsx"
     },
     {
@@ -153,7 +297,7 @@
       "source_file": "components\\Contact.tsx",
       "source_location": "L1",
       "id": "components_contact_tsx",
-      "community": 30,
+      "community": 31,
       "norm_label": "contact.tsx"
     },
     {
@@ -162,7 +306,7 @@
       "source_file": "components\\DesignGallery.tsx",
       "source_location": "L1",
       "id": "components_designgallery_tsx",
-      "community": 4,
+      "community": 2,
       "norm_label": "designgallery.tsx"
     },
     {
@@ -171,7 +315,7 @@
       "source_file": "components\\DesignGallery.tsx",
       "source_location": "L23",
       "id": "components_designgallery_gallerycard",
-      "community": 4,
+      "community": 2,
       "norm_label": "gallerycard()"
     },
     {
@@ -180,7 +324,7 @@
       "source_file": "components\\DesignGallery.tsx",
       "source_location": "L210",
       "id": "components_designgallery_handlekeydown",
-      "community": 4,
+      "community": 2,
       "norm_label": "handlekeydown()"
     },
     {
@@ -189,7 +333,7 @@
       "source_file": "components\\DesignGallery.tsx",
       "source_location": "L254",
       "id": "components_designgallery_featuredspanclass",
-      "community": 4,
+      "community": 2,
       "norm_label": "featuredspanclass()"
     },
     {
@@ -225,7 +369,7 @@
       "source_file": "components\\ExperienceStrip.tsx",
       "source_location": "L1",
       "id": "components_experiencestrip_tsx",
-      "community": 31,
+      "community": 32,
       "norm_label": "experiencestrip.tsx"
     },
     {
@@ -252,16 +396,16 @@
       "source_file": "components\\Hero.tsx",
       "source_location": "L1",
       "id": "components_hero_tsx",
-      "community": 20,
+      "community": 2,
       "norm_label": "hero.tsx"
     },
     {
       "label": "update()",
       "file_type": "code",
       "source_file": "components\\Hero.tsx",
-      "source_location": "L12",
+      "source_location": "L22",
       "id": "components_hero_update",
-      "community": 20,
+      "community": 2,
       "norm_label": "update()"
     },
     {
@@ -270,25 +414,25 @@
       "source_file": "components\\Navbar.tsx",
       "source_location": "L1",
       "id": "components_navbar_tsx",
-      "community": 9,
+      "community": 2,
       "norm_label": "navbar.tsx"
     },
     {
-      "label": "onScroll()",
+      "label": "handleScroll()",
       "file_type": "code",
       "source_file": "components\\Navbar.tsx",
-      "source_location": "L20",
-      "id": "components_navbar_onscroll",
-      "community": 9,
-      "norm_label": "onscroll()"
+      "source_location": "L36",
+      "id": "components_navbar_handlescroll",
+      "community": 2,
+      "norm_label": "handlescroll()"
     },
     {
       "label": "toggleTheme()",
       "file_type": "code",
       "source_file": "components\\Navbar.tsx",
-      "source_location": "L36",
+      "source_location": "L46",
       "id": "components_navbar_toggletheme",
-      "community": 9,
+      "community": 2,
       "norm_label": "toggletheme()"
     },
     {
@@ -297,7 +441,7 @@
       "source_file": "components\\Projects.tsx",
       "source_location": "L1",
       "id": "components_projects_tsx",
-      "community": 32,
+      "community": 3,
       "norm_label": "projects.tsx"
     },
     {
@@ -306,7 +450,7 @@
       "source_file": "components\\RevealOnScroll.tsx",
       "source_location": "L1",
       "id": "components_revealonscroll_tsx",
-      "community": 21,
+      "community": 3,
       "norm_label": "revealonscroll.tsx"
     },
     {
@@ -315,7 +459,7 @@
       "source_file": "components\\RevealOnScroll.tsx",
       "source_location": "L13",
       "id": "components_revealonscroll_revealonscroll",
-      "community": 21,
+      "community": 3,
       "norm_label": "revealonscroll()"
     },
     {
@@ -324,7 +468,7 @@
       "source_file": "components\\ScrollToTopButton.tsx",
       "source_location": "L1",
       "id": "components_scrolltotopbutton_tsx",
-      "community": 22,
+      "community": 2,
       "norm_label": "scrolltotopbutton.tsx"
     },
     {
@@ -333,7 +477,7 @@
       "source_file": "components\\ScrollToTopButton.tsx",
       "source_location": "L5",
       "id": "components_scrolltotopbutton_scrolltotopbutton",
-      "community": 22,
+      "community": 2,
       "norm_label": "scrolltotopbutton()"
     },
     {
@@ -351,7 +495,7 @@
       "source_file": "components\\ui\\accordion.tsx",
       "source_location": "L1",
       "id": "components_ui_accordion_tsx",
-      "community": 0,
+      "community": 2,
       "norm_label": "accordion.tsx"
     },
     {
@@ -360,7 +504,7 @@
       "source_file": "components\\ui\\accordion.tsx",
       "source_location": "L9",
       "id": "ui_accordion_accordion",
-      "community": 0,
+      "community": 2,
       "norm_label": "accordion()"
     },
     {
@@ -369,7 +513,7 @@
       "source_file": "components\\ui\\alert-dialog.tsx",
       "source_location": "L1",
       "id": "components_ui_alert_dialog_tsx",
-      "community": 1,
+      "community": 6,
       "norm_label": "alert-dialog.tsx"
     },
     {
@@ -378,7 +522,7 @@
       "source_file": "components\\ui\\alert-dialog.tsx",
       "source_location": "L15",
       "id": "ui_alert_dialog_alertdialogtrigger",
-      "community": 1,
+      "community": 6,
       "norm_label": "alertdialogtrigger()"
     },
     {
@@ -387,7 +531,7 @@
       "source_file": "components\\ui\\alert-dialog.tsx",
       "source_location": "L23",
       "id": "ui_alert_dialog_alertdialogportal",
-      "community": 1,
+      "community": 6,
       "norm_label": "alertdialogportal()"
     },
     {
@@ -396,7 +540,7 @@
       "source_file": "components\\ui\\alert-dialog.tsx",
       "source_location": "L86",
       "id": "ui_alert_dialog_cn",
-      "community": 1,
+      "community": 6,
       "norm_label": "cn()"
     },
     {
@@ -405,7 +549,7 @@
       "source_file": "components\\ui\\alert-dialog.tsx",
       "source_location": "L108",
       "id": "ui_alert_dialog_alertdialogdescription",
-      "community": 1,
+      "community": 6,
       "norm_label": "alertdialogdescription()"
     },
     {
@@ -414,7 +558,7 @@
       "source_file": "components\\ui\\alert-dialog.tsx",
       "source_location": "L121",
       "id": "ui_alert_dialog_alertdialogaction",
-      "community": 1,
+      "community": 6,
       "norm_label": "alertdialogaction()"
     },
     {
@@ -423,7 +567,7 @@
       "source_file": "components\\ui\\alert-dialog.tsx",
       "source_location": "L133",
       "id": "ui_alert_dialog_alertdialogcancel",
-      "community": 1,
+      "community": 6,
       "norm_label": "alertdialogcancel()"
     },
     {
@@ -432,7 +576,7 @@
       "source_file": "components\\ui\\alert.tsx",
       "source_location": "L1",
       "id": "components_ui_alert_tsx",
-      "community": 10,
+      "community": 0,
       "norm_label": "alert.tsx"
     },
     {
@@ -441,7 +585,7 @@
       "source_file": "components\\ui\\alert.tsx",
       "source_location": "L22",
       "id": "ui_alert_alert",
-      "community": 10,
+      "community": 0,
       "norm_label": "alert()"
     },
     {
@@ -450,7 +594,7 @@
       "source_file": "components\\ui\\alert.tsx",
       "source_location": "L41",
       "id": "ui_alert_cn",
-      "community": 10,
+      "community": 0,
       "norm_label": "cn()"
     },
     {
@@ -468,7 +612,7 @@
       "source_file": "components\\ui\\avatar.tsx",
       "source_location": "L1",
       "id": "components_ui_avatar_tsx",
-      "community": 5,
+      "community": 0,
       "norm_label": "avatar.tsx"
     },
     {
@@ -477,7 +621,7 @@
       "source_file": "components\\ui\\avatar.tsx",
       "source_location": "L8",
       "id": "ui_avatar_avatar",
-      "community": 5,
+      "community": 0,
       "norm_label": "avatar()"
     },
     {
@@ -486,7 +630,7 @@
       "source_file": "components\\ui\\avatar.tsx",
       "source_location": "L24",
       "id": "ui_avatar_avatarimage",
-      "community": 5,
+      "community": 0,
       "norm_label": "avatarimage()"
     },
     {
@@ -495,7 +639,7 @@
       "source_file": "components\\ui\\avatar.tsx",
       "source_location": "L37",
       "id": "ui_avatar_avatarfallback",
-      "community": 5,
+      "community": 0,
       "norm_label": "avatarfallback()"
     },
     {
@@ -522,7 +666,7 @@
       "source_file": "components\\ui\\breadcrumb.tsx",
       "source_location": "L1",
       "id": "components_ui_breadcrumb_tsx",
-      "community": 2,
+      "community": 7,
       "norm_label": "breadcrumb.tsx"
     },
     {
@@ -531,7 +675,7 @@
       "source_file": "components\\ui\\breadcrumb.tsx",
       "source_location": "L7",
       "id": "ui_breadcrumb_breadcrumb",
-      "community": 2,
+      "community": 7,
       "norm_label": "breadcrumb()"
     },
     {
@@ -540,7 +684,7 @@
       "source_file": "components\\ui\\breadcrumb.tsx",
       "source_location": "L15",
       "id": "ui_breadcrumb_cn",
-      "community": 2,
+      "community": 7,
       "norm_label": "cn()"
     },
     {
@@ -549,7 +693,7 @@
       "source_file": "components\\ui\\breadcrumb.tsx",
       "source_location": "L34",
       "id": "ui_breadcrumb_breadcrumblink",
-      "community": 2,
+      "community": 7,
       "norm_label": "breadcrumblink()"
     },
     {
@@ -558,7 +702,7 @@
       "source_file": "components\\ui\\breadcrumb.tsx",
       "source_location": "L52",
       "id": "ui_breadcrumb_breadcrumbpage",
-      "community": 2,
+      "community": 7,
       "norm_label": "breadcrumbpage()"
     },
     {
@@ -567,7 +711,7 @@
       "source_file": "components\\ui\\breadcrumb.tsx",
       "source_location": "L65",
       "id": "ui_breadcrumb_breadcrumbseparator",
-      "community": 2,
+      "community": 7,
       "norm_label": "breadcrumbseparator()"
     },
     {
@@ -576,7 +720,7 @@
       "source_file": "components\\ui\\breadcrumb.tsx",
       "source_location": "L83",
       "id": "ui_breadcrumb_breadcrumbellipsis",
-      "community": 2,
+      "community": 7,
       "norm_label": "breadcrumbellipsis()"
     },
     {
@@ -603,7 +747,7 @@
       "source_file": "components\\ui\\calendar.tsx",
       "source_location": "L1",
       "id": "components_ui_calendar_tsx",
-      "community": 11,
+      "community": 2,
       "norm_label": "calendar.tsx"
     },
     {
@@ -612,7 +756,7 @@
       "source_file": "components\\ui\\calendar.tsx",
       "source_location": "L14",
       "id": "ui_calendar_calendar",
-      "community": 11,
+      "community": 2,
       "norm_label": "calendar()"
     },
     {
@@ -621,7 +765,7 @@
       "source_file": "components\\ui\\calendar.tsx",
       "source_location": "L203",
       "id": "ui_calendar_cn",
-      "community": 11,
+      "community": 2,
       "norm_label": "cn()"
     },
     {
@@ -630,7 +774,7 @@
       "source_file": "components\\ui\\card.tsx",
       "source_location": "L1",
       "id": "components_ui_card_tsx",
-      "community": 6,
+      "community": 0,
       "norm_label": "card.tsx"
     },
     {
@@ -639,7 +783,7 @@
       "source_file": "components\\ui\\card.tsx",
       "source_location": "L9",
       "id": "ui_card_cn",
-      "community": 6,
+      "community": 0,
       "norm_label": "cn()"
     },
     {
@@ -648,7 +792,7 @@
       "source_file": "components\\ui\\card.tsx",
       "source_location": "L41",
       "id": "ui_card_carddescription",
-      "community": 6,
+      "community": 0,
       "norm_label": "carddescription()"
     },
     {
@@ -657,7 +801,7 @@
       "source_file": "components\\ui\\card.tsx",
       "source_location": "L74",
       "id": "ui_card_cardfooter",
-      "community": 6,
+      "community": 0,
       "norm_label": "cardfooter()"
     },
     {
@@ -666,7 +810,7 @@
       "source_file": "components\\ui\\carousel.tsx",
       "source_location": "L1",
       "id": "components_ui_carousel_tsx",
-      "community": 7,
+      "community": 2,
       "norm_label": "carousel.tsx"
     },
     {
@@ -675,7 +819,7 @@
       "source_file": "components\\ui\\carousel.tsx",
       "source_location": "L35",
       "id": "ui_carousel_usecarousel",
-      "community": 7,
+      "community": 2,
       "norm_label": "usecarousel()"
     },
     {
@@ -684,7 +828,7 @@
       "source_file": "components\\ui\\carousel.tsx",
       "source_location": "L45",
       "id": "ui_carousel_carousel",
-      "community": 7,
+      "community": 2,
       "norm_label": "carousel()"
     },
     {
@@ -693,7 +837,7 @@
       "source_file": "components\\ui\\carousel.tsx",
       "source_location": "L145",
       "id": "ui_carousel_cn",
-      "community": 7,
+      "community": 2,
       "norm_label": "cn()"
     },
     {
@@ -702,7 +846,7 @@
       "source_file": "components\\ui\\collapsible.tsx",
       "source_location": "L1",
       "id": "components_ui_collapsible_tsx",
-      "community": 12,
+      "community": 9,
       "norm_label": "collapsible.tsx"
     },
     {
@@ -711,7 +855,7 @@
       "source_file": "components\\ui\\collapsible.tsx",
       "source_location": "L11",
       "id": "ui_collapsible_collapsibletrigger",
-      "community": 12,
+      "community": 9,
       "norm_label": "collapsibletrigger()"
     },
     {
@@ -720,7 +864,7 @@
       "source_file": "components\\ui\\collapsible.tsx",
       "source_location": "L22",
       "id": "ui_collapsible_collapsiblecontent",
-      "community": 12,
+      "community": 9,
       "norm_label": "collapsiblecontent()"
     },
     {
@@ -747,7 +891,7 @@
       "source_file": "components\\ui\\context-menu.tsx",
       "source_location": "L1",
       "id": "components_ui_context_menu_tsx",
-      "community": 3,
+      "community": 8,
       "norm_label": "context-menu.tsx"
     },
     {
@@ -756,7 +900,7 @@
       "source_file": "components\\ui\\context-menu.tsx",
       "source_location": "L15",
       "id": "ui_context_menu_contextmenutrigger",
-      "community": 3,
+      "community": 8,
       "norm_label": "contextmenutrigger()"
     },
     {
@@ -765,7 +909,7 @@
       "source_file": "components\\ui\\context-menu.tsx",
       "source_location": "L23",
       "id": "ui_context_menu_contextmenugroup",
-      "community": 3,
+      "community": 8,
       "norm_label": "contextmenugroup()"
     },
     {
@@ -774,7 +918,7 @@
       "source_file": "components\\ui\\context-menu.tsx",
       "source_location": "L31",
       "id": "ui_context_menu_contextmenuportal",
-      "community": 3,
+      "community": 8,
       "norm_label": "contextmenuportal()"
     },
     {
@@ -783,7 +927,7 @@
       "source_file": "components\\ui\\context-menu.tsx",
       "source_location": "L45",
       "id": "ui_context_menu_contextmenuradiogroup",
-      "community": 3,
+      "community": 8,
       "norm_label": "contextmenuradiogroup()"
     },
     {
@@ -792,7 +936,7 @@
       "source_file": "components\\ui\\context-menu.tsx",
       "source_location": "L87",
       "id": "ui_context_menu_cn",
-      "community": 3,
+      "community": 8,
       "norm_label": "cn()"
     },
     {
@@ -801,7 +945,7 @@
       "source_file": "components\\ui\\context-menu.tsx",
       "source_location": "L163",
       "id": "ui_context_menu_contextmenuradioitem",
-      "community": 3,
+      "community": 8,
       "norm_label": "contextmenuradioitem()"
     },
     {
@@ -810,7 +954,7 @@
       "source_file": "components\\ui\\dialog.tsx",
       "source_location": "L1",
       "id": "components_ui_dialog_tsx",
-      "community": 0,
+      "community": 2,
       "norm_label": "dialog.tsx"
     },
     {
@@ -819,7 +963,7 @@
       "source_file": "components\\ui\\dialog.tsx",
       "source_location": "L97",
       "id": "ui_dialog_cn",
-      "community": 0,
+      "community": 2,
       "norm_label": "cn()"
     },
     {
@@ -828,7 +972,7 @@
       "source_file": "components\\ui\\sonner.tsx",
       "source_location": "L1",
       "id": "components_ui_sonner_tsx",
-      "community": 23,
+      "community": 1,
       "norm_label": "sonner.tsx"
     },
     {
@@ -837,7 +981,7 @@
       "source_file": "components\\ui\\sonner.tsx",
       "source_location": "L6",
       "id": "ui_sonner_toaster",
-      "community": 23,
+      "community": 1,
       "norm_label": "toaster()"
     },
     {
@@ -891,7 +1035,7 @@
       "source_file": "components\\ui\\tooltip.tsx",
       "source_location": "L1",
       "id": "components_ui_tooltip_tsx",
-      "community": 8,
+      "community": 0,
       "norm_label": "tooltip.tsx"
     },
     {
@@ -900,7 +1044,7 @@
       "source_file": "components\\ui\\tooltip.tsx",
       "source_location": "L8",
       "id": "ui_tooltip_tooltipprovider",
-      "community": 8,
+      "community": 0,
       "norm_label": "tooltipprovider()"
     },
     {
@@ -909,7 +1053,7 @@
       "source_file": "components\\ui\\tooltip.tsx",
       "source_location": "L21",
       "id": "ui_tooltip_tooltip",
-      "community": 8,
+      "community": 0,
       "norm_label": "tooltip()"
     },
     {
@@ -918,7 +1062,7 @@
       "source_file": "components\\ui\\tooltip.tsx",
       "source_location": "L37",
       "id": "ui_tooltip_tooltipcontent",
-      "community": 8,
+      "community": 0,
       "norm_label": "tooltipcontent()"
     },
     {
@@ -947,6 +1091,1123 @@
       "id": "lib_utils_cn",
       "community": 0,
       "norm_label": "cn()"
+    },
+    {
+      "label": "Home Page",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "app_page",
+      "community": 3,
+      "norm_label": "home page"
+    },
+    {
+      "label": "Design Page",
+      "file_type": "code",
+      "source_file": "app/design/page.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "app_design_page",
+      "community": 3,
+      "norm_label": "design page"
+    },
+    {
+      "label": "Root Layout",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "app_layout",
+      "community": 10,
+      "norm_label": "root layout"
+    },
+    {
+      "label": "Design Layout",
+      "file_type": "code",
+      "source_file": "app/design/layout.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "app_design_layout",
+      "community": 10,
+      "norm_label": "design layout"
+    },
+    {
+      "label": "Next.js Configuration",
+      "file_type": "code",
+      "source_file": "next.config.mjs",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "next_config",
+      "community": 20,
+      "norm_label": "next.js configuration"
+    },
+    {
+      "label": "PostCSS Configuration",
+      "file_type": "code",
+      "source_file": "postcss.config.mjs",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "postcss_config",
+      "community": 21,
+      "norm_label": "postcss configuration"
+    },
+    {
+      "label": "ESLint Configuration",
+      "file_type": "code",
+      "source_file": "eslint.config.mjs",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "eslint_config",
+      "community": 36,
+      "norm_label": "eslint configuration"
+    },
+    {
+      "label": "Navbar Component",
+      "file_type": "code",
+      "source_file": "components/Navbar.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "navbar_component",
+      "community": 3,
+      "norm_label": "navbar component"
+    },
+    {
+      "label": "Hero Component",
+      "file_type": "code",
+      "source_file": "components/Hero.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "hero_component",
+      "community": 3,
+      "norm_label": "hero component"
+    },
+    {
+      "label": "ExperienceStrip Component",
+      "file_type": "code",
+      "source_file": "components/ExperienceStrip.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "experience_strip_component",
+      "community": 3,
+      "norm_label": "experiencestrip component"
+    },
+    {
+      "label": "About Component",
+      "file_type": "code",
+      "source_file": "components/About.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "about_component",
+      "community": 3,
+      "norm_label": "about component"
+    },
+    {
+      "label": "Projects Component",
+      "file_type": "code",
+      "source_file": "components/Projects.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "projects_component",
+      "community": 3,
+      "norm_label": "projects component"
+    },
+    {
+      "label": "Skills Component",
+      "file_type": "code",
+      "source_file": "components/Skills.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "skills_component",
+      "community": 3,
+      "norm_label": "skills component"
+    },
+    {
+      "label": "Contact Component",
+      "file_type": "code",
+      "source_file": "components/Contact.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "contact_component",
+      "community": 3,
+      "norm_label": "contact component"
+    },
+    {
+      "label": "Footer Component",
+      "file_type": "code",
+      "source_file": "components/Footer.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "footer_component",
+      "community": 3,
+      "norm_label": "footer component"
+    },
+    {
+      "label": "DesignGallery Component",
+      "file_type": "code",
+      "source_file": "components/DesignGallery.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "design_gallery_component",
+      "community": 3,
+      "norm_label": "designgallery component"
+    },
+    {
+      "label": "DesignTeaser Component",
+      "file_type": "code",
+      "source_file": "components/DesignTeaser.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "design_teaser_component",
+      "community": 2,
+      "norm_label": "designteaser component"
+    },
+    {
+      "label": "DisplayHeading Component",
+      "file_type": "code",
+      "source_file": "components/DisplayHeading.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "display_heading_component",
+      "community": 3,
+      "norm_label": "displayheading component"
+    },
+    {
+      "label": "RevealOnScroll Component",
+      "file_type": "code",
+      "source_file": "components/RevealOnScroll.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "reveal_on_scroll_component",
+      "community": 3,
+      "norm_label": "revealonscroll component"
+    },
+    {
+      "label": "ScrollToTopButton Component",
+      "file_type": "code",
+      "source_file": "components/ScrollToTopButton.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "scroll_to_top_button_component",
+      "community": 2,
+      "norm_label": "scrolltotopbutton component"
+    },
+    {
+      "label": "Design Work Library",
+      "file_type": "code",
+      "source_file": "lib/design-work.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "lib_design_work",
+      "community": 3,
+      "norm_label": "design work library"
+    },
+    {
+      "label": "Utility Functions",
+      "file_type": "code",
+      "source_file": "lib/utils.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "lib_utils",
+      "community": 3,
+      "norm_label": "utility functions"
+    },
+    {
+      "label": "Sitemap Route",
+      "file_type": "code",
+      "source_file": "app/sitemap.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "sitemap_route",
+      "community": 37,
+      "norm_label": "sitemap route"
+    },
+    {
+      "label": "Robots Route",
+      "file_type": "code",
+      "source_file": "app/robots.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "robots_route",
+      "community": 38,
+      "norm_label": "robots route"
+    },
+    {
+      "label": "Framer Motion Animation Library",
+      "file_type": "code",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "framer_motion",
+      "community": 3,
+      "norm_label": "framer motion animation library"
+    },
+    {
+      "label": "Lucide React Icons",
+      "file_type": "code",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "lucide_react",
+      "community": 2,
+      "norm_label": "lucide react icons"
+    },
+    {
+      "label": "Tailwind CSS v4",
+      "file_type": "code",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "tailwind_css_v4",
+      "community": 21,
+      "norm_label": "tailwind css v4"
+    },
+    {
+      "label": "Next.js App Router",
+      "file_type": "code",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "nextjs_app_router",
+      "community": 10,
+      "norm_label": "next.js app router"
+    },
+    {
+      "label": "Image Remote Patterns Configuration",
+      "file_type": "rationale",
+      "source_file": "next.config.mjs",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "image_remote_patterns",
+      "community": 20,
+      "norm_label": "image remote patterns configuration"
+    },
+    {
+      "label": "Two Route Architecture",
+      "file_type": "rationale",
+      "source_file": "app/page.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "two_route_architecture",
+      "community": 39,
+      "norm_label": "two route architecture"
+    },
+    {
+      "label": "Skills Component",
+      "file_type": "code",
+      "source_file": "components/Skills.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "skills",
+      "community": 11,
+      "norm_label": "skills component"
+    },
+    {
+      "label": "DisplayHeading Component",
+      "file_type": "code",
+      "source_file": "components/DisplayHeading.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "displayheading",
+      "community": 11,
+      "norm_label": "displayheading component"
+    },
+    {
+      "label": "RevealOnScroll Component",
+      "file_type": "code",
+      "source_file": "components/RevealOnScroll.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "revealonscroll",
+      "community": 11,
+      "norm_label": "revealonscroll component"
+    },
+    {
+      "label": "Accordion Component",
+      "file_type": "code",
+      "source_file": "components/ui/accordion.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "accordion",
+      "community": 1,
+      "norm_label": "accordion component"
+    },
+    {
+      "label": "AlertDialog Component",
+      "file_type": "code",
+      "source_file": "components/ui/alert-dialog.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "alertdialog",
+      "community": 1,
+      "norm_label": "alertdialog component"
+    },
+    {
+      "label": "Alert Component",
+      "file_type": "code",
+      "source_file": "components/ui/alert.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "alert",
+      "community": 1,
+      "norm_label": "alert component"
+    },
+    {
+      "label": "AspectRatio Component",
+      "file_type": "code",
+      "source_file": "components/ui/aspect-ratio.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "aspectratio",
+      "community": 1,
+      "norm_label": "aspectratio component"
+    },
+    {
+      "label": "Avatar Component",
+      "file_type": "code",
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "avatar",
+      "community": 1,
+      "norm_label": "avatar component"
+    },
+    {
+      "label": "Badge Component",
+      "file_type": "code",
+      "source_file": "components/ui/badge.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "badge",
+      "community": 1,
+      "norm_label": "badge component"
+    },
+    {
+      "label": "Breadcrumb Component",
+      "file_type": "code",
+      "source_file": "components/ui/breadcrumb.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "breadcrumb",
+      "community": 1,
+      "norm_label": "breadcrumb component"
+    },
+    {
+      "label": "Button Component",
+      "file_type": "code",
+      "source_file": "components/ui/button.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "button",
+      "community": 1,
+      "norm_label": "button component"
+    },
+    {
+      "label": "Calendar Component",
+      "file_type": "code",
+      "source_file": "components/ui/calendar.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "calendar",
+      "community": 1,
+      "norm_label": "calendar component"
+    },
+    {
+      "label": "Card Component",
+      "file_type": "code",
+      "source_file": "components/ui/card.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "card",
+      "community": 1,
+      "norm_label": "card component"
+    },
+    {
+      "label": "Carousel Component",
+      "file_type": "code",
+      "source_file": "components/ui/carousel.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "carousel",
+      "community": 1,
+      "norm_label": "carousel component"
+    },
+    {
+      "label": "Collapsible Component",
+      "file_type": "code",
+      "source_file": "components/ui/collapsible.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "collapsible",
+      "community": 1,
+      "norm_label": "collapsible component"
+    },
+    {
+      "label": "Command Component",
+      "file_type": "code",
+      "source_file": "components/ui/command.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "command",
+      "community": 1,
+      "norm_label": "command component"
+    },
+    {
+      "label": "Dialog Component",
+      "file_type": "code",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "dialog",
+      "community": 1,
+      "norm_label": "dialog component"
+    },
+    {
+      "label": "Toaster (Sonner) Component",
+      "file_type": "code",
+      "source_file": "components/ui/sonner.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "sonner",
+      "community": 1,
+      "norm_label": "toaster (sonner) component"
+    },
+    {
+      "label": "Switch Component",
+      "file_type": "code",
+      "source_file": "components/ui/switch.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "switch",
+      "community": 1,
+      "norm_label": "switch component"
+    },
+    {
+      "label": "Tabs Component",
+      "file_type": "code",
+      "source_file": "components/ui/tabs.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "tabs",
+      "community": 1,
+      "norm_label": "tabs component"
+    },
+    {
+      "label": "Toggle Component",
+      "file_type": "code",
+      "source_file": "components/ui/toggle.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "toggle",
+      "community": 1,
+      "norm_label": "toggle component"
+    },
+    {
+      "label": "Tooltip Component",
+      "file_type": "code",
+      "source_file": "components/ui/tooltip.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "tooltip",
+      "community": 1,
+      "norm_label": "tooltip component"
+    },
+    {
+      "label": "cn Utility Function",
+      "file_type": "code",
+      "source_file": "lib/utils.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "cn",
+      "community": 1,
+      "norm_label": "cn utility function"
+    },
+    {
+      "label": "buttonVariants CVA Configuration",
+      "file_type": "code",
+      "source_file": "components/ui/button.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "buttonvariants",
+      "community": 1,
+      "norm_label": "buttonvariants cva configuration"
+    },
+    {
+      "label": "DesignItem Type",
+      "file_type": "code",
+      "source_file": "lib/design-work.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "designitem",
+      "community": 22,
+      "norm_label": "designitem type"
+    },
+    {
+      "label": "designItems Data Array",
+      "file_type": "code",
+      "source_file": "lib/design-work.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "designitems",
+      "community": 22,
+      "norm_label": "designitems data array"
+    },
+    {
+      "label": "Radix Accordion Primitive",
+      "file_type": "code",
+      "source_file": "components/ui/accordion.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "radix_accordion",
+      "community": 1,
+      "norm_label": "radix accordion primitive"
+    },
+    {
+      "label": "Radix AlertDialog Primitive",
+      "file_type": "code",
+      "source_file": "components/ui/alert-dialog.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "radix_alertdialog",
+      "community": 1,
+      "norm_label": "radix alertdialog primitive"
+    },
+    {
+      "label": "Radix Dialog Primitive",
+      "file_type": "code",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "radix_dialog",
+      "community": 1,
+      "norm_label": "radix dialog primitive"
+    },
+    {
+      "label": "Radix Tabs Primitive",
+      "file_type": "code",
+      "source_file": "components/ui/tabs.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "radix_tabs",
+      "community": 1,
+      "norm_label": "radix tabs primitive"
+    },
+    {
+      "label": "Radix Tooltip Primitive",
+      "file_type": "code",
+      "source_file": "components/ui/tooltip.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "radix_tooltip",
+      "community": 1,
+      "norm_label": "radix tooltip primitive"
+    },
+    {
+      "label": "class-variance-authority Pattern",
+      "file_type": "rationale",
+      "source_file": "components/ui/alert.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "cva",
+      "community": 1,
+      "norm_label": "class-variance-authority pattern"
+    },
+    {
+      "label": "npm Package Manager",
+      "file_type": "code",
+      "source_file": "AGENTS.md",
+      "source_location": 3,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "npm",
+      "community": 4,
+      "norm_label": "npm package manager"
+    },
+    {
+      "label": "Next.js Framework",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": 1,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "nextjs",
+      "community": 4,
+      "norm_label": "next.js framework"
+    },
+    {
+      "label": "Vercel Deployment Platform",
+      "file_type": "code",
+      "source_file": "DEPLOY.md",
+      "source_location": 23,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "vercel",
+      "community": 4,
+      "norm_label": "vercel deployment platform"
+    },
+    {
+      "label": "Tailwind CSS v4",
+      "file_type": "code",
+      "source_file": "AGENTS.md",
+      "source_location": 11,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "tailwind-css",
+      "community": 40,
+      "norm_label": "tailwind css v4"
+    },
+    {
+      "label": "Client Components Pattern",
+      "file_type": "code",
+      "source_file": "AGENTS.md",
+      "source_location": 8,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "client-components",
+      "community": 4,
+      "norm_label": "client components pattern"
+    },
+    {
+      "label": "Import Alias (@/)",
+      "file_type": "code",
+      "source_file": "AGENTS.md",
+      "source_location": 7,
+      "source_url": null,
+      "captured_at": null,
+      "contributor": null,
+      "id": "import-alias",
+      "community": 23,
+      "norm_label": "import alias (@/)"
+    },
+    {
+      "label": "Mobile Testing",
+      "file_type": "rationale",
+      "source_file": "DEPLOY.md",
+      "source_location": 16,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "mobile-testing",
+      "community": 12,
+      "norm_label": "mobile testing"
+    },
+    {
+      "label": "Prefers Reduced Motion",
+      "file_type": "rationale",
+      "source_file": "DEPLOY.md",
+      "source_location": 17,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "prefers-reduced-motion",
+      "community": 12,
+      "norm_label": "prefers reduced motion"
+    },
+    {
+      "label": "ESLint Configuration",
+      "file_type": "code",
+      "source_file": "AGENTS.md",
+      "source_location": 12,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "eslint-config",
+      "community": 4,
+      "norm_label": "eslint configuration"
+    },
+    {
+      "label": "Next.js Configuration",
+      "file_type": "code",
+      "source_file": "AGENTS.md",
+      "source_location": 9,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "next-config",
+      "community": 4,
+      "norm_label": "next.js configuration"
+    },
+    {
+      "label": "Deployment Checklist",
+      "file_type": "document",
+      "source_file": "DEPLOY.md",
+      "source_location": 1,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "deployment-checklist",
+      "community": 4,
+      "norm_label": "deployment checklist"
+    },
+    {
+      "label": "Project Rules Configuration",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": 1,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "project-rules",
+      "community": 23,
+      "norm_label": "project rules configuration"
+    },
+    {
+      "label": "Vercel Deployment Process",
+      "file_type": "rationale",
+      "source_file": "DEPLOY.md",
+      "source_location": 20,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "vercel-deployment",
+      "community": 4,
+      "norm_label": "vercel deployment process"
+    },
+    {
+      "label": "Design Gallery",
+      "file_type": "rationale",
+      "source_file": "AGENTS.md",
+      "source_location": 10,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "design-gallery",
+      "community": 5,
+      "norm_label": "design gallery"
+    },
+    {
+      "label": "AU Bank Project",
+      "file_type": "image",
+      "source_file": "public/projects/au-bank-mockup.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "au-bank-project",
+      "community": 24,
+      "norm_label": "au bank project"
+    },
+    {
+      "label": "ICRA Rating Project",
+      "file_type": "image",
+      "source_file": "public/projects/icra-mockup.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icra-project",
+      "community": 24,
+      "norm_label": "icra rating project"
+    },
+    {
+      "label": "USSEPP Logo Design",
+      "file_type": "image",
+      "source_file": "public/design/ussepp-logo.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ussepp-logo",
+      "community": 5,
+      "norm_label": "ussepp logo design"
+    },
+    {
+      "label": "Ekadant Banner 2023",
+      "file_type": "image",
+      "source_file": "public/design/ekadant-banner-2023.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ekadant-banner-2023",
+      "community": 5,
+      "norm_label": "ekadant banner 2023"
+    },
+    {
+      "label": "Ekadant Banner 2024",
+      "file_type": "image",
+      "source_file": "public/design/ekadant-banner-2024.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ekadant-banner-2024",
+      "community": 5,
+      "norm_label": "ekadant banner 2024"
+    },
+    {
+      "label": "Laxmi Global Logo",
+      "file_type": "image",
+      "source_file": "public/design/laxmi-global-logo.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "laxmi-global-logo",
+      "community": 5,
+      "norm_label": "laxmi global logo"
+    },
+    {
+      "label": "Ritika Birthday Invite",
+      "file_type": "image",
+      "source_file": "public/design/ritika-birthday-invite.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ritika-birthday-invite",
+      "community": 5,
+      "norm_label": "ritika birthday invite"
+    },
+    {
+      "label": "Canva Design Tool",
+      "file_type": "image",
+      "source_file": "public/icons/canva-icon.jpeg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "canva-icon",
+      "community": 5,
+      "norm_label": "canva design tool"
+    },
+    {
+      "label": "Adobe Experience Manager",
+      "file_type": "image",
+      "source_file": "public/icons/aem-icon.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "aem-icon",
+      "community": 5,
+      "norm_label": "adobe experience manager"
+    },
+    {
+      "label": "WCAG Accessibility",
+      "file_type": "image",
+      "source_file": "public/icons/wcag-icon.webp",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wcag-icon",
+      "community": 12,
+      "norm_label": "wcag accessibility"
     }
   ],
   "links": [
@@ -954,7 +2215,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\layout.tsx",
-      "source_location": "L51",
+      "source_location": "L54",
       "weight": 1.0,
       "source": "app_layout_tsx",
       "target": "app_layout_rootlayout",
@@ -994,10 +2255,21 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\design\\layout.tsx",
-      "source_location": "L17",
+      "source_location": "L25",
       "weight": 1.0,
       "source": "app_design_layout_tsx",
       "target": "design_layout_designlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components\\DesignGallery.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_designgallery_tsx",
+      "target": "lucide_react",
       "confidence_score": 1.0
     },
     {
@@ -1062,23 +2334,46 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components\\Hero.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_hero_tsx",
+      "target": "framer_motion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components\\Hero.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_hero_tsx",
+      "target": "lucide_react",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components\\Hero.tsx",
-      "source_location": "L12",
+      "source_location": "L22",
       "weight": 1.0,
       "source": "components_hero_tsx",
       "target": "components_hero_update",
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
+      "relation": "imports_from",
+      "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components\\Navbar.tsx",
-      "source_location": "L20",
+      "source_location": "L5",
       "weight": 1.0,
       "source": "components_navbar_tsx",
-      "target": "components_navbar_onscroll",
+      "target": "lucide_react",
       "confidence_score": 1.0
     },
     {
@@ -1088,7 +2383,50 @@
       "source_location": "L36",
       "weight": 1.0,
       "source": "components_navbar_tsx",
+      "target": "components_navbar_handlescroll",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components\\Navbar.tsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "components_navbar_tsx",
       "target": "components_navbar_toggletheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components\\Projects.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_projects_tsx",
+      "target": "lucide_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components\\Projects.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_projects_tsx",
+      "target": "framer_motion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components\\RevealOnScroll.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_revealonscroll_tsx",
+      "target": "framer_motion",
       "confidence_score": 1.0
     },
     {
@@ -1102,6 +2440,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components\\ScrollToTopButton.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_scrolltotopbutton_tsx",
+      "target": "lucide_react",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components\\ScrollToTopButton.tsx",
@@ -1109,6 +2458,17 @@
       "weight": 1.0,
       "source": "components_scrolltotopbutton_tsx",
       "target": "components_scrolltotopbutton_scrolltotopbutton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components\\ui\\accordion.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_ui_accordion_tsx",
+      "target": "lucide_react",
       "confidence_score": 1.0
     },
     {
@@ -1297,6 +2657,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components\\ui\\breadcrumb.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_ui_breadcrumb_tsx",
+      "target": "lucide_react",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -1389,6 +2760,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components\\ui\\calendar.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_ui_calendar_tsx",
+      "target": "lucide_react",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -1461,6 +2843,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components\\ui\\carousel.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_ui_carousel_tsx",
+      "target": "lucide_react",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -1522,6 +2915,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components\\ui\\command.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_ui_command_tsx",
+      "target": "lucide_react",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -1540,6 +2944,17 @@
       "weight": 1.0,
       "source": "components_ui_command_tsx",
       "target": "ui_command_cn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components\\ui\\context-menu.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_ui_context_menu_tsx",
+      "target": "lucide_react",
       "confidence_score": 1.0
     },
     {
@@ -1614,6 +3029,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components\\ui\\dialog.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_ui_dialog_tsx",
+      "target": "lucide_react",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -1632,6 +3058,17 @@
       "weight": 1.0,
       "source": "components_ui_dialog_tsx",
       "target": "ui_dialog_cn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components\\ui\\sonner.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_ui_sonner_tsx",
+      "target": "sonner",
       "confidence_score": 1.0
     },
     {
@@ -1747,7 +3184,1169 @@
       "source": "lib_utils_ts",
       "target": "lib_utils_cn",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/page.tsx",
+      "source_location": 1,
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "navbar_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/page.tsx",
+      "source_location": 2,
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "hero_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/page.tsx",
+      "source_location": 3,
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "experience_strip_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/page.tsx",
+      "source_location": 4,
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "about_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/page.tsx",
+      "source_location": 5,
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "projects_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/page.tsx",
+      "source_location": 6,
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "design_teaser_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/page.tsx",
+      "source_location": 7,
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "skills_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/page.tsx",
+      "source_location": 8,
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "contact_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/page.tsx",
+      "source_location": 9,
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "footer_component"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": null,
+      "source_location": null,
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "app_design_page"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/design/page.tsx",
+      "source_location": 3,
+      "weight": 1.0,
+      "source": "app_design_page",
+      "target": "display_heading_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/design/page.tsx",
+      "source_location": 4,
+      "weight": 1.0,
+      "source": "app_design_page",
+      "target": "footer_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/design/page.tsx",
+      "source_location": 5,
+      "weight": 1.0,
+      "source": "app_design_page",
+      "target": "navbar_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/design/page.tsx",
+      "source_location": 6,
+      "weight": 1.0,
+      "source": "app_design_page",
+      "target": "design_gallery_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/design/page.tsx",
+      "source_location": 7,
+      "weight": 1.0,
+      "source": "app_design_page",
+      "target": "lib_design_work"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": null,
+      "source_location": null,
+      "weight": 1.0,
+      "source": "app_layout",
+      "target": "app_design_layout"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "app/layout.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "app_layout",
+      "target": "nextjs_app_router"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "next.config.mjs",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "next_config",
+      "target": "image_remote_patterns"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "postcss.config.mjs",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "postcss_config",
+      "target": "tailwind_css_v4"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/Navbar.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "lucide_react",
+      "target": "navbar_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/Hero.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "framer_motion",
+      "target": "hero_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/Hero.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "lucide_react",
+      "target": "hero_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ExperienceStrip.tsx",
+      "source_location": 1,
+      "weight": 1.0,
+      "source": "experience_strip_component",
+      "target": "reveal_on_scroll_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/About.tsx",
+      "source_location": 3,
+      "weight": 1.0,
+      "source": "about_component",
+      "target": "display_heading_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/About.tsx",
+      "source_location": 4,
+      "weight": 1.0,
+      "source": "about_component",
+      "target": "reveal_on_scroll_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/Projects.tsx",
+      "source_location": 7,
+      "weight": 1.0,
+      "source": "projects_component",
+      "target": "display_heading_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/Projects.tsx",
+      "source_location": 8,
+      "weight": 1.0,
+      "source": "projects_component",
+      "target": "reveal_on_scroll_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/Projects.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "framer_motion",
+      "target": "projects_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/Contact.tsx",
+      "source_location": 5,
+      "weight": 1.0,
+      "source": "contact_component",
+      "target": "display_heading_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/Contact.tsx",
+      "source_location": 6,
+      "weight": 1.0,
+      "source": "contact_component",
+      "target": "reveal_on_scroll_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/Contact.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "lucide_react",
+      "target": "contact_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/Footer.tsx",
+      "source_location": 3,
+      "weight": 1.0,
+      "source": "footer_component",
+      "target": "scroll_to_top_button_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/DesignGallery.tsx",
+      "source_location": 7,
+      "weight": 1.0,
+      "source": "design_gallery_component",
+      "target": "lib_design_work"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/DesignGallery.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "lucide_react",
+      "target": "design_gallery_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/DesignTeaser.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "lucide_react",
+      "target": "design_teaser_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/DisplayHeading.tsx",
+      "source_location": 1,
+      "weight": 1.0,
+      "source": "display_heading_component",
+      "target": "lib_utils"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/RevealOnScroll.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "framer_motion",
+      "target": "reveal_on_scroll_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ScrollToTopButton.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "lucide_react",
+      "target": "scroll_to_top_button_component"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/Skills.tsx",
+      "source_location": 90,
+      "weight": 1.0,
+      "source": "skills",
+      "target": "displayheading"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/Skills.tsx",
+      "source_location": 86,
+      "weight": 1.0,
+      "source": "skills",
+      "target": "revealonscroll"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/accordion.tsx",
+      "source_location": 7,
+      "weight": 1.0,
+      "source": "accordion",
+      "target": "cn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/accordion.tsx",
+      "source_location": 4,
+      "weight": 1.0,
+      "source": "accordion",
+      "target": "radix_accordion"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/alert-dialog.tsx",
+      "source_location": 6,
+      "weight": 1.0,
+      "source": "alertdialog",
+      "target": "cn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/alert-dialog.tsx",
+      "source_location": 4,
+      "weight": 1.0,
+      "source": "alertdialog",
+      "target": "radix_alertdialog"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/alert-dialog.tsx",
+      "source_location": 7,
+      "weight": 1.0,
+      "source": "alertdialog",
+      "target": "button"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/alert-dialog.tsx",
+      "source_location": 127,
+      "weight": 1.0,
+      "source": "alertdialog",
+      "target": "buttonvariants"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "components/ui/alert-dialog.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "alertdialog",
+      "target": "dialog"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/alert.tsx",
+      "source_location": 4,
+      "weight": 1.0,
+      "source": "alert",
+      "target": "cn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/alert.tsx",
+      "source_location": 2,
+      "weight": 1.0,
+      "source": "alert",
+      "target": "cva"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "components/ui/alert.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "alert",
+      "target": "badge"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "components/ui/alert.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "alert",
+      "target": "button"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/aspect-ratio.tsx",
+      "source_location": 3,
+      "weight": 1.0,
+      "source": "aspectratio",
+      "target": "radix_accordion"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": 6,
+      "weight": 1.0,
+      "source": "avatar",
+      "target": "cn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": 4,
+      "weight": 1.0,
+      "source": "avatar",
+      "target": "radix_accordion"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/badge.tsx",
+      "source_location": 5,
+      "weight": 1.0,
+      "source": "badge",
+      "target": "cn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/badge.tsx",
+      "source_location": 3,
+      "weight": 1.0,
+      "source": "badge",
+      "target": "cva"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "components/ui/badge.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "badge",
+      "target": "toggle"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/breadcrumb.tsx",
+      "source_location": 5,
+      "weight": 1.0,
+      "source": "breadcrumb",
+      "target": "cn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/button.tsx",
+      "source_location": 5,
+      "weight": 1.0,
+      "source": "button",
+      "target": "cn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/button.tsx",
+      "source_location": 7,
+      "weight": 1.0,
+      "source": "button",
+      "target": "buttonvariants"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/button.tsx",
+      "source_location": 3,
+      "weight": 1.0,
+      "source": "button",
+      "target": "cva"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/calendar.tsx",
+      "source_location": 12,
+      "weight": 1.0,
+      "source": "calendar",
+      "target": "button"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/carousel.tsx",
+      "source_location": 10,
+      "weight": 1.0,
+      "source": "carousel",
+      "target": "button"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "components/ui/button.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "button",
+      "target": "toggle"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/calendar.tsx",
+      "source_location": 11,
+      "weight": 1.0,
+      "source": "calendar",
+      "target": "cn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/calendar.tsx",
+      "source_location": 55,
+      "weight": 1.0,
+      "source": "calendar",
+      "target": "buttonvariants"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/card.tsx",
+      "source_location": 3,
+      "weight": 1.0,
+      "source": "card",
+      "target": "cn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/carousel.tsx",
+      "source_location": 9,
+      "weight": 1.0,
+      "source": "carousel",
+      "target": "cn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/collapsible.tsx",
+      "source_location": 3,
+      "weight": 1.0,
+      "source": "collapsible",
+      "target": "radix_accordion"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/command.tsx",
+      "source_location": 7,
+      "weight": 1.0,
+      "source": "command",
+      "target": "cn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/command.tsx",
+      "source_location": 8,
+      "weight": 1.0,
+      "source": "command",
+      "target": "dialog"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": 7,
+      "weight": 1.0,
+      "source": "dialog",
+      "target": "cn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": 4,
+      "weight": 1.0,
+      "source": "dialog",
+      "target": "radix_dialog"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "components/ui/sonner.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "sonner",
+      "target": "cva"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/switch.tsx",
+      "source_location": 6,
+      "weight": 1.0,
+      "source": "switch",
+      "target": "cn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/switch.tsx",
+      "source_location": 4,
+      "weight": 1.0,
+      "source": "switch",
+      "target": "radix_accordion"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/tabs.tsx",
+      "source_location": 6,
+      "weight": 1.0,
+      "source": "tabs",
+      "target": "cn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/tabs.tsx",
+      "source_location": 4,
+      "weight": 1.0,
+      "source": "tabs",
+      "target": "radix_tabs"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/toggle.tsx",
+      "source_location": 7,
+      "weight": 1.0,
+      "source": "toggle",
+      "target": "cn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/toggle.tsx",
+      "source_location": 5,
+      "weight": 1.0,
+      "source": "toggle",
+      "target": "cva"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/toggle.tsx",
+      "source_location": 4,
+      "weight": 1.0,
+      "source": "toggle",
+      "target": "radix_accordion"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/tooltip.tsx",
+      "source_location": 6,
+      "weight": 1.0,
+      "source": "tooltip",
+      "target": "cn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/tooltip.tsx",
+      "source_location": 4,
+      "weight": 1.0,
+      "source": "tooltip",
+      "target": "radix_tooltip"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/design-work.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "designitems",
+      "target": "designitem"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "README.md",
+      "source_location": 7,
+      "weight": 1.0,
+      "source": "npm",
+      "target": "nextjs"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "DEPLOY.md",
+      "source_location": 23,
+      "weight": 1.0,
+      "source": "nextjs",
+      "target": "vercel"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "source_location": 12,
+      "weight": 1.0,
+      "source": "eslint-config",
+      "target": "nextjs"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "source_location": 9,
+      "weight": 1.0,
+      "source": "next-config",
+      "target": "nextjs"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "source_location": 8,
+      "weight": 1.0,
+      "source": "client-components",
+      "target": "nextjs"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "DEPLOY.md",
+      "source_location": 22,
+      "weight": 1.0,
+      "source": "vercel-deployment",
+      "target": "vercel"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "source_location": 7,
+      "weight": 1.0,
+      "source": "project-rules",
+      "target": "import-alias"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "DEPLOY.md",
+      "source_location": "16-18",
+      "weight": 1.0,
+      "source": "mobile-testing",
+      "target": "prefers-reduced-motion"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "DEPLOY.md",
+      "source_location": 17,
+      "weight": 1.0,
+      "source": "wcag-icon",
+      "target": "prefers-reduced-motion"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "DEPLOY.md",
+      "source_location": 20,
+      "weight": 1.0,
+      "source": "deployment-checklist",
+      "target": "vercel-deployment"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "DEPLOY.md",
+      "source_location": 12,
+      "weight": 1.0,
+      "source": "design-gallery",
+      "target": "ussepp-logo"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "DEPLOY.md",
+      "source_location": 13,
+      "weight": 1.0,
+      "source": "design-gallery",
+      "target": "ekadant-banner-2023"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "DEPLOY.md",
+      "source_location": 13,
+      "weight": 1.0,
+      "source": "design-gallery",
+      "target": "ekadant-banner-2024"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "DEPLOY.md",
+      "source_location": 13,
+      "weight": 1.0,
+      "source": "design-gallery",
+      "target": "laxmi-global-logo"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "DEPLOY.md",
+      "source_location": 13,
+      "weight": 1.0,
+      "source": "design-gallery",
+      "target": "ritika-birthday-invite"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "DEPLOY.md",
+      "source_location": 12,
+      "weight": 1.0,
+      "source": "canva-icon",
+      "target": "design-gallery"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "DEPLOY.md",
+      "source_location": "9-11",
+      "weight": 1.0,
+      "source": "au-bank-project",
+      "target": "icra-project"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "public/icons/aem-icon.svg",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "aem-icon",
+      "target": "canva-icon"
     }
   ],
-  "hyperedges": []
+  "hyperedges": [
+    {
+      "id": "main_page_composition",
+      "label": "Main Page Component Composition",
+      "nodes": [
+        "app_page",
+        "navbar_component",
+        "hero_component",
+        "experience_strip_component",
+        "about_component",
+        "projects_component",
+        "design_teaser_component",
+        "skills_component",
+        "contact_component",
+        "footer_component"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/page.tsx"
+    },
+    {
+      "id": "design_page_composition",
+      "label": "Design Page Component Composition",
+      "nodes": [
+        "app_design_page",
+        "navbar_component",
+        "display_heading_component",
+        "design_gallery_component",
+        "footer_component"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/design/page.tsx"
+    },
+    {
+      "id": "shared_animation_system",
+      "label": "Framer Motion Animation System",
+      "nodes": [
+        "framer_motion",
+        "reveal_on_scroll_component",
+        "hero_component",
+        "projects_component"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/RevealOnScroll.tsx"
+    },
+    {
+      "id": "radix_ui_components",
+      "label": "Radix UI Wrapper Components",
+      "nodes": [
+        "accordion",
+        "alertdialog",
+        "aspectratio",
+        "avatar",
+        "collapsible",
+        "dialog",
+        "switch",
+        "tabs",
+        "toggle",
+        "tooltip"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/",
+      "source_location": null
+    },
+    {
+      "id": "cva_variant_components",
+      "label": "CVA Variant Components",
+      "nodes": [
+        "alert",
+        "badge",
+        "button",
+        "toggle"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/",
+      "source_location": null
+    },
+    {
+      "id": "dialog_based_components",
+      "label": "Dialog-based Components",
+      "nodes": [
+        "alertdialog",
+        "command",
+        "dialog"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/",
+      "source_location": null
+    },
+    {
+      "id": "deployment_workflow",
+      "label": "Vercel Deployment Workflow",
+      "nodes": [
+        "deployment-checklist",
+        "vercel-deployment",
+        "vercel",
+        "nextjs"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "DEPLOY.md"
+    },
+    {
+      "id": "design_assets",
+      "label": "Design Portfolio Assets",
+      "nodes": [
+        "ussepp-logo",
+        "ekadant-banner-2023",
+        "ekadant-banner-2024",
+        "laxmi-global-logo",
+        "ritika-birthday-invite",
+        "design-gallery"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9,
+      "source_file": "DEPLOY.md"
+    },
+    {
+      "id": "project_assets",
+      "label": "Project Showcase Assets",
+      "nodes": [
+        "au-bank-project",
+        "icra-project"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "DEPLOY.md"
+    }
+  ]
 }

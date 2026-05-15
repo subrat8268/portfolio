@@ -1,0 +1,274 @@
+{
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\eslint.config.mjs": {
+    "mtime": 1755019265.7486093,
+    "hash": "58a81380da978ff8030d2ed7a5e1f42b"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\next-env.d.ts": {
+    "mtime": 1778841503.4715574,
+    "hash": "b698cdd97fe8e3bd16dcd74899ad7cef"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\next.config.mjs": {
+    "mtime": 1778834253.7982936,
+    "hash": "3f005b0dc1cec625376ca6e274c9b56d"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\postcss.config.mjs": {
+    "mtime": 1755019265.7580361,
+    "hash": "0a8c5fa8885965eb3d71ee945ff2e9be"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\app\\layout.tsx": {
+    "mtime": 1778841477.1014857,
+    "hash": "029e2054f4f5991abf760f91416060f4"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\app\\page.tsx": {
+    "mtime": 1778838963.3488264,
+    "hash": "6cf3ba1219ccbf91ee51d65f1e0bb1da"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\app\\robots.ts": {
+    "mtime": 1778701081.6242287,
+    "hash": "01efd4985050b9f79a84ab7ae631da6a"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\app\\sitemap.ts": {
+    "mtime": 1778701071.0485063,
+    "hash": "9c9f4b4323da6538ce388e95dff4536c"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\app\\design\\layout.tsx": {
+    "mtime": 1778838125.9448485,
+    "hash": "e5e18da852b7501939d84647df6984a0"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\app\\design\\page.tsx": {
+    "mtime": 1778701102.216099,
+    "hash": "7c7d294753761fffc244bfb994ddd264"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\About.tsx": {
+    "mtime": 1778863216.3536668,
+    "hash": "eaabe37d61ad11207c97fe2f0d86967e"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\Contact.tsx": {
+    "mtime": 1778840907.9084642,
+    "hash": "1cad95a74c58aebafd0767708688a8de"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\DesignGallery.tsx": {
+    "mtime": 1778834322.8237824,
+    "hash": "a027007b3c9ad9f20ee755b2c1a62609"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\DesignTeaser.tsx": {
+    "mtime": 1778834283.5042875,
+    "hash": "34f3dfee5ac1a87e42e55af46c42d853"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\DisplayHeading.tsx": {
+    "mtime": 1778828001.8144436,
+    "hash": "0c06f36e05095f4db4edebf771a4a444"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ExperienceStrip.tsx": {
+    "mtime": 1778862048.8736508,
+    "hash": "05eb4ee83b989673ca795c4acde49a4a"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\Footer.tsx": {
+    "mtime": 1778838417.3307939,
+    "hash": "981e8cb0f2bd9879bcf1934cb0032733"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\Hero.tsx": {
+    "mtime": 1778860323.25881,
+    "hash": "1b9849bad86e15eb5afb054ea780bfa5"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\Navbar.tsx": {
+    "mtime": 1778861590.2100751,
+    "hash": "a117e6494297cfb2cdd6c69bc6e461d1"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\Projects.tsx": {
+    "mtime": 1778840893.0057783,
+    "hash": "2b1969587ea7f500bc44eb614a6da373"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\RevealOnScroll.tsx": {
+    "mtime": 1778736864.2090468,
+    "hash": "b27a55a9a132ba3c8950eaade89b1074"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ScrollToTopButton.tsx": {
+    "mtime": 1778700749.9974186,
+    "hash": "5f0e0bbc3ae2f05368f2c492f2c02cfe"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\Skills.tsx": {
+    "mtime": 1778834261.8920696,
+    "hash": "09299e59e6bd72e94029e45598c7622f"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\accordion.tsx": {
+    "mtime": 1755019265.7096004,
+    "hash": "9acd8f651844143bd32aa3f4ebdd8498"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\alert-dialog.tsx": {
+    "mtime": 1755019265.7231302,
+    "hash": "96289b446b05be92f5fa68a99489c908"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\alert.tsx": {
+    "mtime": 1755019265.7247128,
+    "hash": "60a1358bb82344b005cea0eca2cbf275"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\aspect-ratio.tsx": {
+    "mtime": 1755019265.7247128,
+    "hash": "dcb189013ec808fefffceed9f15bcc3b"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\avatar.tsx": {
+    "mtime": 1755019265.7247128,
+    "hash": "dfe8c1ef8f73aa7f91230c14a4a21b71"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\badge.tsx": {
+    "mtime": 1755019265.7295682,
+    "hash": "b18d5e3e077aac3937008f6f09eb12d9"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\breadcrumb.tsx": {
+    "mtime": 1755019265.7319882,
+    "hash": "908958673b534e7ab8af02a47d450bf3"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\button.tsx": {
+    "mtime": 1755019265.7319882,
+    "hash": "ec47dd35a37fd626e7911239dedf5f18"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\calendar.tsx": {
+    "mtime": 1755019265.7319882,
+    "hash": "4be1da833b44c7bbe86a3538d2bd0b9e"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\card.tsx": {
+    "mtime": 1755019265.7319882,
+    "hash": "486b4175c685923e8ace5592259f93c4"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\carousel.tsx": {
+    "mtime": 1755019265.7319882,
+    "hash": "61511ca1762ddf6b333c382a4e921c52"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\collapsible.tsx": {
+    "mtime": 1755019265.7388022,
+    "hash": "6dc9bbf54b5bdb11466bfa79966c2755"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\command.tsx": {
+    "mtime": 1755019265.7388022,
+    "hash": "c1db40a6f8892dba4122046b4b448484"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\context-menu.tsx": {
+    "mtime": 1755019265.7388022,
+    "hash": "87a6fe9d4a224f1750dd6e83dfee98ea"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\dialog.tsx": {
+    "mtime": 1755019265.7388022,
+    "hash": "8735cc509ecf04f07f2e611bb03c3d6f"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\sonner.tsx": {
+    "mtime": 1755019265.7388022,
+    "hash": "c94f3201849c1d1f3e679a631106c7a3"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\switch.tsx": {
+    "mtime": 1755019265.7388022,
+    "hash": "881e0aadc25f61839d2e97dd646f3ae3"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\tabs.tsx": {
+    "mtime": 1755019265.7388022,
+    "hash": "c40b57c831b57166ae18690a41e5d5b3"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\toggle.tsx": {
+    "mtime": 1755019265.7388022,
+    "hash": "dd6df1b1c6551cff6a71aed52ece9236"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\components\\ui\\tooltip.tsx": {
+    "mtime": 1755019265.7486093,
+    "hash": "c660b43af1749d010755b523f12d4d96"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\lib\\design-work.ts": {
+    "mtime": 1778691454.8042119,
+    "hash": "ea6d54a5e80afcc5987fef6ac2443dd7"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\lib\\utils.ts": {
+    "mtime": 1755019265.7486093,
+    "hash": "1d8011eb18769078bf77502b220daa5e"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\AGENTS.md": {
+    "mtime": 1778836402.0466468,
+    "hash": "6982a96f519585e49aea87a2170304f4"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\DEPLOY.md": {
+    "mtime": 1778695461.6271868,
+    "hash": "2d0ae5dccb1a79054fb381cd067191b9"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\README.md": {
+    "mtime": 1755019265.6901052,
+    "hash": "9162add00befbcdb432430f405c4ad8d"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\subrat-cv.pdf": {
+    "mtime": 1775412223.799839,
+    "hash": "beb7e249e6eccbbd5cca9fedb1973ed3"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\file.svg": {
+    "mtime": 1755019265.7605834,
+    "hash": "d09f95206c3fa0bb9bd9fefabfd0ea71"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\globe.svg": {
+    "mtime": 1755019265.7605834,
+    "hash": "2aaafa6a49b6563925fe440891e32717"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\next.svg": {
+    "mtime": 1755019265.7605834,
+    "hash": "8e061864f388b47f33a1c3780831193e"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\og-image.png": {
+    "mtime": 1778701093.7427363,
+    "hash": "bc77aa28ecbeb9e5eb71918ea21a4cc1"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\vercel.svg": {
+    "mtime": 1755019265.7605834,
+    "hash": "c0af2f507b369b085b35ef4bbe3bcf1e"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\window.svg": {
+    "mtime": 1755019265.7605834,
+    "hash": "a2760511c65806022ad20adf74370ff3"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\about\\photo-1.svg": {
+    "mtime": 1778694413.7155306,
+    "hash": "369fb75271159cad3330aa48768ff599"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\about\\photo-2.svg": {
+    "mtime": 1778694413.7507877,
+    "hash": "369fb75271159cad3330aa48768ff599"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\contact\\contact-visual.svg": {
+    "mtime": 1778700866.5012717,
+    "hash": "4b0cb212f51fce2928dd8d78041cc85e"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\design\\ekadant-banner-2023.png": {
+    "mtime": 1778687569.8755865,
+    "hash": "cde8a9afe244a739352737b0ef0f08e5"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\design\\ekadant-banner-2024.png": {
+    "mtime": 1778687569.871858,
+    "hash": "2b678c167240e54461f18acd5e3c6ca2"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\design\\laxmi-global-logo.png": {
+    "mtime": 1778687569.8791187,
+    "hash": "0dcd40f228a4887b539c3f468df4345c"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\design\\ritika-birthday-invite.png": {
+    "mtime": 1778687569.8837447,
+    "hash": "4b3b5a4b3a3de64c15b14000d7298082"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\design\\ussepp-logo.png": {
+    "mtime": 1778687569.8659923,
+    "hash": "02c08297cfda21b4e57bdf09cec3d799"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\icons\\aem-icon.svg": {
+    "mtime": 1778825792.7129693,
+    "hash": "57e93692d417a6a866ec5a92e35b9738"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\icons\\canva-icon.jpeg": {
+    "mtime": 1778826556.1940897,
+    "hash": "bfdb2878da786eba5333fecef5a2d979"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\icons\\wcag-icon.webp": {
+    "mtime": 1778826906.475459,
+    "hash": "52bac7b40d02df95adae48d1814211a5"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\projects\\au-bank-mockup.png": {
+    "mtime": 1778693862.9734392,
+    "hash": "55b5e07ea199841c15499bc91ca21328"
+  },
+  "C:\\Users\\Subrat\\OneDrive\\Desktop\\portfolio\\portfolio\\public\\projects\\icra-mockup.png": {
+    "mtime": 1778693863.010008,
+    "hash": "45fb4735c7a244e400f1904c3246bdf9"
+  }
+}
