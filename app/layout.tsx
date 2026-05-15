@@ -1,5 +1,5 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 
 const inter = Inter({
@@ -21,7 +21,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  themeColor: "#0a0a0a",
   openGraph: {
     title: "Subrat Jena — Frontend Developer",
     description:
@@ -46,6 +45,10 @@ export const metadata: Metadata = {
       "Frontend developer with BFSI enterprise experience. Based in Mumbai.",
     images: ["/og-image.png"],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0a0a0a",
 };
 
 export default function RootLayout({

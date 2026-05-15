@@ -14,6 +14,7 @@ const navItems = [
 
 export default function Navbar() {
   const [isMounted, setIsMounted] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
 
@@ -31,6 +32,15 @@ export default function Navbar() {
     setTheme(nextTheme);
     document.documentElement.setAttribute("data-theme", nextTheme);
     setIsMounted(true);
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleTheme = () => {
@@ -43,34 +53,39 @@ export default function Navbar() {
   return (
     <>
       <header
-        className="fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md transition-all duration-200"
+        className={`sticky top-0 z-50 border-b backdrop-blur-md transition-all duration-300 ${
+          isScrolled
+            ? "shadow-[0_10px_30px_color-mix(in_oklab,var(--color-bg)_65%,transparent)]"
+            : ""
+        }`}
         style={{
-          borderColor: "var(--border-subtle)",
-          backgroundColor:
-            "color-mix(in oklab, var(--bg-page) 86%, transparent)",
+          borderColor: "color-mix(in oklab, var(--border-subtle) 70%, var(--text-faint) 30%)",
+          backgroundColor: isScrolled
+            ? "color-mix(in oklab, var(--bg-page) 88%, transparent)"
+            : "color-mix(in oklab, var(--bg-page) 84%, transparent)",
         }}
       >
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 lg:px-5">
           <Link
             href="/"
-            className="text-sm [color:var(--text-primary)] [font-family:var(--font-body)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
+            className="text-[1.03rem] tracking-[-0.01em] [color:var(--text-primary)] [font-family:var(--font-display)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
           >
             Subrat Jena
           </Link>
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-7 md:flex">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative text-[13px] uppercase tracking-[0.1em] [font-family:var(--font-body)] [color:var(--text-muted)] transition-colors duration-200 hover:[color:var(--text-primary)] after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[var(--accent)] after:transition-all after:duration-300 hover:after:w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
+                className="relative text-[0.78rem] uppercase tracking-[0.12em] [font-family:var(--font-body)] [color:var(--text-muted)] transition-colors duration-200 hover:[color:var(--text-primary)] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[var(--accent)] after:transition-all after:duration-300 hover:after:w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
               >
                 {item.label}
               </Link>
             ))}
           </nav>
 
-          <div className="hidden items-center gap-2 md:flex">
+          <div className="hidden items-center gap-2.5 md:flex">
             <button
               type="button"
               onClick={toggleTheme}
@@ -81,7 +96,7 @@ export default function Navbar() {
                     : "Switch to dark theme"
                   : "Toggle theme"
               }
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-subtle)] [color:var(--text-muted)] transition-colors duration-200 hover:border-[var(--accent)] hover:[color:var(--text-primary)]"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-subtle)] bg-[var(--bg-elevated)] [color:var(--text-muted)] transition-all duration-200 hover:border-[var(--accent)] hover:[color:var(--text-primary)]"
             >
               {isMounted && theme === "dark" ? (
                 <Sun className="h-4 w-4" aria-hidden="true" />
@@ -92,7 +107,7 @@ export default function Navbar() {
             <a
               href="/subrat-cv.pdf"
               download
-              className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-elevated)] px-4 py-2 text-[12px] uppercase tracking-[0.1em] [color:var(--text-muted)] transition-colors duration-200 hover:border-[var(--accent)] hover:[color:var(--text-primary)]"
+              className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-elevated)] px-4 py-2 text-[0.7rem] uppercase tracking-[0.12em] [color:var(--text-muted)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:[color:var(--text-primary)]"
             >
               <Download className="h-3.5 w-3.5" aria-hidden="true" />
               Download CV

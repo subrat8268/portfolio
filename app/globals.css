@@ -10,8 +10,8 @@
   --text-primary: #ffffff;
   --text-muted: #999999;
   --text-faint: #4a4947;
-  --accent: #8b1a1a;
-  --accent-hover: #6d1515;
+  --accent: #e85d4a;
+  --accent-hover: #ff7460;
   --accent-soft: #2d1c19;
   --radius-lg: 0.75rem;
   --radius-pill: 9999px;
@@ -81,8 +81,8 @@
   --text-primary: #ffffff;
   --text-muted: #999999;
   --text-faint: #4a4947;
-  --accent: #8b1a1a;
-  --accent-hover: #6d1515;
+  --accent: #e85d4a;
+  --accent-hover: #ff7460;
   --accent-soft: #2d1c19;
 
   --color-bg: var(--bg-page);
@@ -109,8 +109,8 @@
   --text-primary: #1a1917;
   --text-muted: #6b6966;
   --text-faint: #aaa8a4;
-  --accent: #8b1a1a;
-  --accent-hover: #6d1515;
+  --accent: #c73d2a;
+  --accent-hover: #a82d1d;
   --accent-soft: #f7e8e6;
 
   --color-bg: #f7f6f2;
@@ -232,7 +232,7 @@ html {
 .page-shell {
   width: min(100%, 96rem);
   margin-inline: auto;
-  padding-inline: var(--space-page-x);
+  /* padding-inline: var(--space-page-x); */
 }
 
 .app-main {

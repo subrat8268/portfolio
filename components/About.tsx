@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import DisplayHeading from "@/components/DisplayHeading";
 import RevealOnScroll from "@/components/RevealOnScroll";
 
@@ -58,8 +60,55 @@ export default function About() {
           </RevealOnScroll>
         </div>
 
-        {/* Code editor visual — replaces picsum placeholders */}
         <div className="grid gap-6 sm:grid-cols-2">
+          <RevealOnScroll direction="right" delay={0.05}>
+            <div className="relative overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-elevated)] shadow-[var(--shadow-lg)] sm:col-span-2">
+              <div
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(circle at 80% 10%, color-mix(in oklab, var(--accent) 28%, transparent) 0%, transparent 42%)",
+                }}
+              />
+              <div className="relative grid gap-4 p-4 sm:grid-cols-[220px_1fr] sm:items-center sm:p-5">
+                <div className="relative overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-offset)]">
+                  <Image
+                    src="/subrat-profile.jpg"
+                    alt="Subrat Jena portrait"
+                    width={520}
+                    height={640}
+                    className="h-[220px] w-full object-cover"
+                    priority={false}
+                  />
+                </div>
+                <div>
+                  <p className="text-[0.62rem] uppercase tracking-[0.14em] text-[var(--text-faint)]">
+                    Profile
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
+                    I design and ship production UIs that stay usable under real
+                    business constraints, from BFSI compliance to performance budgets.
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {[
+                      "Frontend Developer",
+                      "Mumbai, India",
+                      "2+ Years",
+                      "BFSI · Enterprise",
+                    ].map((badge) => (
+                      <span
+                        key={badge}
+                        className="rounded-full border border-[var(--border-subtle)] bg-[var(--bg-offset)] px-3 py-1 text-[0.62rem] uppercase tracking-[0.1em] text-[var(--text-muted)]"
+                      >
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </RevealOnScroll>
+
           <RevealOnScroll direction="right" delay={0.1}>
             <div className="overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)]">
               <div className="flex h-7 items-center gap-1.5 border-b border-[var(--color-border)] bg-[var(--color-surface-offset)] px-3">
