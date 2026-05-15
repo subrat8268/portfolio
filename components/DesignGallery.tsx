@@ -291,13 +291,10 @@ export function DesignGallery({ items }: DesignGalleryProps) {
       </section>
 
       <section className="max-w-6xl mx-auto px-4 pb-8">
-        <div className="flex items-center justify-between gap-4 mb-4">
+        <div className="mb-4">
           <h2 className="text-sm font-semibold tracking-[0.2em] uppercase text-slate-400">
             Featured work
           </h2>
-          <p className="text-xs text-slate-500">
-            Larger featured cards with an asymmetric desktop layout.
-          </p>
         </div>
 
         {featuredItems.length > 0 ? (
@@ -325,13 +322,10 @@ export function DesignGallery({ items }: DesignGalleryProps) {
       </section>
 
       <section className="max-w-6xl mx-auto px-4 pb-16">
-        <div className="flex items-center justify-between gap-4 mb-4">
+        <div className="mb-4">
           <h2 className="text-sm font-semibold tracking-[0.2em] uppercase text-slate-400">
             Full grid
           </h2>
-          <p className="text-xs text-slate-500">
-            Remaining work shown in a compact responsive grid.
-          </p>
         </div>
 
         {gridItems.length > 0 ? (

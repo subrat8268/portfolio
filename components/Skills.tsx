@@ -21,7 +21,7 @@ const skillCategories: SkillCategory[] = [
       { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" },
       {
         name: "Next.js",
-        icon: "https://cdn.simpleicons.org/nextdotjs/000000",
+        icon: "https://cdn.simpleicons.org/nextdotjs/ffffff",
         invert: true,
       },
       {
@@ -46,7 +46,7 @@ const skillCategories: SkillCategory[] = [
         icon: "https://cdn.simpleicons.org/react/61DAFB",
       },
       { name: "Redux", icon: "https://cdn.simpleicons.org/redux/764ABC" },
-      { name: "Zustand", icon: "https://cdn.simpleicons.org/npm/CB3837" },
+      { name: "Zustand", icon: "https://cdn.simpleicons.org/zustand/3F3F3F" },
       { name: "GraphQL", icon: "https://cdn.simpleicons.org/graphql/E10098" },
     ],
   },
@@ -59,10 +59,16 @@ const skillCategories: SkillCategory[] = [
       { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032" },
       {
         name: "Vercel",
-        icon: "https://cdn.simpleicons.org/vercel/000000",
+        icon: "https://cdn.simpleicons.org/vercel/ffffff",
         invert: true,
       },
-      { name: "Supabase", icon: "https://cdn.simpleicons.org/supabase/FFCA28" },
+      { name: "Supabase", icon: "https://cdn.simpleicons.org/supabase/3ECF8E" },
+    ],
+  },
+  {
+    label: "Design Tools",
+    skills: [
+      { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E" },
     ],
   },
   {
@@ -70,8 +76,6 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "AEM", icon: "/icons/aem-icon.svg" },
       { name: "WCAG 2.1", icon: "/icons/wcag-icon.webp" },
-      { name: "Canva", icon: "/icons/canva-icon.jpeg" },
-      { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E" },
     ],
   },
 ];

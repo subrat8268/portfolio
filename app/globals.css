@@ -161,6 +161,7 @@
 
 html {
   scroll-behavior: auto;
+  scroll-padding-top: 72px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

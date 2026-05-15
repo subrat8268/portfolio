@@ -6,20 +6,25 @@ type Props = {
 };
 
 export default function DisplayHeading({ children, className }: Props) {
+  const text = String(children);
+  
   return (
-    <h2 className={cn("leading-none", className)}>
+    <h2 
+      className={cn("leading-none", className)}
+      aria-label={text}
+    >
       <span
         style={{ fontFamily: "var(--font-script)" }}
         className="inline text-[1.15em] text-[var(--color-accent)]"
+        aria-hidden="true"
       >
-        <span aria-hidden="true">{String(children).charAt(0)}</span>
-        <span className="sr-only">{String(children)[0]}... (display heading)</span>
-      </span>
-      <span
-        style={{ fontFamily: "var(--font-display)" }}
-        className="inline text-[var(--color-accent)]"
-      >
-        {String(children).slice(1)}
+        {text.split(' ').map((word, wi) => (
+          <span key={wi} className="inline-block mr-[0.2em]">
+            {word.split('').map((char, ci) => (
+              <span key={ci} className="inline-block">{char}</span>
+            ))}
+          </span>
+        ))}
       </span>
     </h2>
   );

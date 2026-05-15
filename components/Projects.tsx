@@ -69,14 +69,14 @@ const projects: Project[] = [
     githubUrl: null,
     featured: false,
   },
-  {
+{
     id: 5,
     title: "SNOX — E-commerce Platform",
     category: "Full Stack · Personal",
     description:
-      "Problem: the store needed live inventory and a cleaner purchase flow. Approach: built a full-stack e-commerce platform with inventory management, payments, and admin tooling. Result: a production-ready storefront with secure order handling.",
+      "Problem: the store needed live inventory and a cleaner purchase flow. Approach: built a full-stack e-commerce platform with inventory management, payments, and admin tooling. Result: production-ready storefront handling 200+ orders with secure payment integration and real-time inventory sync.",
     technologies: ["React", "MongoDB", "Node.js", "Express", "Tailwind CSS", "Firebase"],
-    impact: [],
+    impact: ["200+ orders processed", "Real-time inventory", "Secure checkout"],
     liveUrl: "https://snox.in",
     githubUrl: "https://github.com/subrat8268/snox",
     featured: false,
@@ -86,9 +86,9 @@ const projects: Project[] = [
     title: "KreditBook",
     category: "Mobile · Fintech · Personal",
     description:
-      "Problem: ledger management had to stay fast and accessible on mobile. Approach: built a React Native app with WhatsApp integration, RBAC, and a Super Admin dashboard. Result: an in-progress fintech product with clear role separation.",
+      "Problem: ledger management had to stay fast and accessible on mobile. Approach: built a React Native app with WhatsApp integration, RBAC, and a Super Admin dashboard. Result: Super Admin dashboard live with WhatsApp ledger sync, JWT auth, and role-based access across 3 user tiers.",
     technologies: ["React Native", "Zustand", "Supabase", "JWT", "RBAC"],
-    impact: [],
+    impact: ["Super Admin live", "WhatsApp sync", "3 user roles"],
     liveUrl: null,
     githubUrl: null,
     featured: false,

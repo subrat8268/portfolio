@@ -31,32 +31,14 @@ export default function About() {
                 product delivery and visual communication.
               </p>
             </RevealOnScroll>
-            <RevealOnScroll delay={0.3}>
+<RevealOnScroll delay={0.3}>
               <div className="rounded-[20px] border border-[var(--color-border)] bg-[var(--color-surface)] p-3.5 sm:p-4">
                 <p className="text-[0.62rem] uppercase tracking-[0.14em] text-[var(--text-faint)]">
-                  Selected Work
+                  What drives me
                 </p>
-                <ul className="mt-2.5 space-y-2 text-[13px] text-[var(--color-text-muted)]">
-                  {[
-                    ["01", "XPharms Xchange", "Next.js trading platform"],
-                    ["02", "Research Assist", "AI Copilot"],
-                    ["03", "AU Small Finance Bank", "AEM + WCAG"],
-                    ["04", "IndiaFirst KYC", "Forms + payments"],
-                  ].map(([id, name, desc]) => (
-                    <li
-                      key={id}
-                      className="grid grid-cols-[26px_1fr] items-start gap-2.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-offset)] px-2.5 py-1.5"
-                    >
-                      <span className="mt-0.5 text-[0.6rem] font-semibold tracking-[0.12em] text-[var(--color-primary)]">
-                        {id}
-                      </span>
-                      <span>
-                        <span className="block text-[0.75rem] text-[var(--color-text)]">{name}</span>
-                        <span className="block text-[0.68rem] text-[var(--color-text-muted)]">{desc}</span>
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="mt-2.5 text-[13px] leading-[1.7] text-[var(--color-text-muted)]">
+                  I care about building interfaces that feel invisible — where the user focuses on the task, not the tool. Coming from a design background, I believe the best code is the kind that makes complex flows feel simple. That&apos;s what keeps me up at night: solving the hard problems so users never have to think about them.
+                </p>
               </div>
             </RevealOnScroll>
           </div>
@@ -127,41 +109,50 @@ export default function About() {
             </div>
           </RevealOnScroll>
 
-          <RevealOnScroll direction="right" delay={0.1}>
+<RevealOnScroll direction="right" delay={0.1}>
             <div className="relative overflow-hidden rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-md)] transition-transform duration-300 hover:-translate-y-1">
               <div className="flex h-8 items-center gap-1.5 border-b border-[var(--color-border)] bg-[var(--color-surface-offset)] px-3">
                 <span className="h-2 w-2 rounded-full bg-red-400/70" />
                 <span className="h-2 w-2 rounded-full bg-yellow-400/70" />
                 <span className="h-2 w-2 rounded-full bg-green-400/70" />
                 <span className="ml-2 text-[0.6rem] text-[var(--color-text-muted)]">
-                  Hero.tsx
+                  RevealOnScroll.tsx
                 </span>
               </div>
               <pre
-                className="overflow-hidden p-3 text-[0.58rem] leading-[1.62]"
+                className="overflow-hidden p-3 text-[0.55rem] leading-[1.62]"
                 aria-label="Code snippet"
               >
-                <span className="text-[var(--color-text-muted)]">export default function </span>
-                <span className="text-[var(--color-primary)]">Hero</span>
-                <span className="text-[var(--color-text-muted)]">() {'{'}</span>
+                <span className="text-[var(--color-text-muted)]">const ref = useRef&lt;HTMLDivElement&gt;(null)</span>
                 <br />
-                <span className="text-[var(--color-text-muted)]">  return (</span>
+                <span className="text-[var(--color-text-muted)]">const isInView = useInView(ref, {'{'}</span>
                 <br />
-                <span className="text-[var(--color-text-muted)]">    {'<'}section{'>'}</span>
+                <span className="text-[var(--color-text-muted)]">  once: true,</span>
                 <br />
-                <span className="text-[var(--color-text-muted)]">      {'<'}h1{'>'}</span>
-                <span className="text-[var(--color-text)]">Subrat Jena</span>
-                <span className="text-[var(--color-text-muted)]">{'</'}h1{'>'}</span>
+                <span className="text-[var(--color-text-muted)]">  margin: &quot;-80px&quot;</span>
                 <br />
-                <span className="text-[var(--color-text-muted)]">      {'<'}p{'>'}</span>
-                <span className="text-[var(--color-primary)]">Frontend Developer</span>
-                <span className="text-[var(--color-text-muted)]">{'</'}p{'>'}</span>
+                <span className="text-[var(--color-text-muted)]">{'}'})</span>
                 <br />
-                <span className="text-[var(--color-text-muted)]">    {'</'}section{'>'}</span>
+                <span className="text-[var(--color-primary)]">return</span>
+                <span className="text-[var(--color-text-muted)]"> (</span>
                 <br />
-                <span className="text-[var(--color-text-muted)]">  );</span>
+                <span className="text-[var(--color-text-muted)]">  &lt;motion.div</span>
                 <br />
+                <span className="text-[var(--color-text-muted)]">    ref={'{'}{'ref}'}</span>
+                <br />
+                <span className="text-[var(--color-text-muted)]">    animate={'{'}</span>
+                <br />
+                <span className="text-[var(--color-text-muted)]">      isInView ? </span>
+                <span className="text-[var(--color-text)]">{'{'}</span>
+                <span className="text-[var(--color-text)]">opacity: 1</span>
                 <span className="text-[var(--color-text-muted)]">{'}'}</span>
+                <span className="text-[var(--color-text-muted)]"> : ...</span>
+                <br />
+                <span className="text-[var(--color-text-muted)]">  {'}'}</span>
+                <br />
+                <span className="text-[var(--color-text-muted)]">  &gt;{'{'}children{'}'}&lt;/motion.div&gt;</span>
+                <br />
+                <span className="text-[var(--color-text-muted)]">)</span>
                 <span className="code-cursor ml-1 inline-block h-[11px] w-[1px] bg-[var(--color-primary)] align-middle" />
               </pre>
             </div>

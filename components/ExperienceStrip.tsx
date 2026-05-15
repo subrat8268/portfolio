@@ -19,15 +19,6 @@ const experiences = [
     role: "XPharms Xchange · Research Assist · Rejo AI",
     detail: "Next.js, React, product builds",
   },
-  {
-    id: "creditbook",
-    initials: "CB",
-    logoBg: "var(--color-primary-highlight)",
-    logoColor: "var(--color-primary)",
-    company: "KredBook",
-    role: "Ongoing React Native app work",
-    detail: "Fintech, WhatsApp-ledger, RBAC",
-  },
 ];
 
 export default function ExperienceStrip() {

@@ -14,7 +14,6 @@ export default function DesignPage() {
 
       <main className="max-w-5xl mx-auto px-4">
         <section className="pt-28 max-w-4xl">
-          <h1 className="sr-only">Design as a second language.</h1>
           <p className="text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
             Visual Design Work
           </p>
@@ -37,9 +36,9 @@ export default function DesignPage() {
         <section className="mt-10">
           <div className="border border-[var(--color-border)] px-4 py-4 sm:grid sm:grid-cols-3">
             <div className="py-2 sm:px-4 sm:border-r sm:border-[var(--color-border)]">
-              <p className="text-sm font-medium text-[var(--color-text)]">5+ designs</p>
+              <p className="text-sm font-medium text-[var(--color-text)]">Real client work</p>
               <p className="mt-1 text-xs text-[var(--color-text-muted)]">
-                Logos, Banners, Invites, Social
+                Logos, Banners, Invitations
               </p>
             </div>
             <div className="py-2 sm:px-4 sm:border-r sm:border-[var(--color-border)]">
@@ -61,8 +60,8 @@ export default function DesignPage() {
           <div className="border border-[var(--color-border)] bg-[var(--color-surface)] p-6 md:p-8">
             <h2 className="text-2xl font-semibold">Need a developer who can also design?</h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--color-text-muted)]">
-              I can handle brand touchpoints alongside code work, from launch
-              graphics to simple identity systems.
+              I design and build — logos, launch graphics, and full UI components.
+              One person, zero handoff.
             </p>
             <div className="mt-6 flex flex-wrap gap-3 text-sm">
               <Link
