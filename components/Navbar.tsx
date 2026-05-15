@@ -27,7 +27,8 @@ export default function Navbar() {
     const preferred = window.matchMedia("(prefers-color-scheme: light)").matches
       ? "light"
       : "dark";
-    const nextTheme = stored === "light" || stored === "dark" ? stored : preferred;
+    const nextTheme =
+      stored === "light" || stored === "dark" ? stored : preferred;
     setTheme(nextTheme);
     document.documentElement.setAttribute("data-theme", nextTheme);
   }, []);
@@ -64,7 +65,7 @@ export default function Navbar() {
               </Link>
             ))}
             <a
-              href="/subrat-jena-cv.pdf"
+              href="../public/subrat-cv.pdf"
               download
               className="inline-flex items-center gap-1 rounded-sm border border-[var(--color-border)] px-3 py-1.5 text-[12px] uppercase tracking-[0.1em] text-white/70 transition-colors duration-200 hover:border-white/40 hover:text-white"
             >

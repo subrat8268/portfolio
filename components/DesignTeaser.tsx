@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const marqueeItems = [
@@ -22,14 +23,29 @@ const marqueeItems = [
 ];
 
 export default function DesignTeaser() {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setPrefersReducedMotion(mediaQuery.matches);
+
+    update();
+    mediaQuery.addEventListener("change", update);
+
+    return () => mediaQuery.removeEventListener("change", update);
+  }, []);
+
   return (
     <section className="overflow-hidden border-y border-[var(--color-border)]">
       <div className="overflow-hidden bg-[var(--color-accent)] py-3">
         <div
           className="flex w-max gap-10 whitespace-nowrap"
-          style={{
-            animation: "marqueeScroll 22s linear infinite",
-          }}
+          aria-hidden="true"
+          style={
+            prefersReducedMotion
+              ? { transform: "translateX(0)" }
+              : { animation: "marqueeScroll 22s linear infinite" }
+          }
         >
           {marqueeItems.map((item, i) => (
             <span

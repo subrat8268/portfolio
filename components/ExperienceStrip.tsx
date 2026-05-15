@@ -7,7 +7,8 @@ const experiences = [
     logoBg: "#000000",
     logoColor: "#ffffff",
     company: "DEPT®",
-    role: "AEM Frontend · AU Bank, IndiaFirst Life",
+    role: "AU Small Finance Bank · IndiaFirst Life KYC",
+    detail: "Frontend delivery, AEM, WCAG",
   },
   {
     id: "rejolut",
@@ -15,15 +16,17 @@ const experiences = [
     logoBg: "#1a1a2e",
     logoColor: "#e94560",
     company: "Rejolut",
-    role: "Frontend · XPharms, ICRA, KreditBook",
+    role: "XPharms Xchange · Research Assist · Rejo AI",
+    detail: "Next.js, React, product builds",
   },
   {
-    id: "years",
-    initials: "2yr",
+    id: "creditbook",
+    initials: "CB",
     logoBg: "var(--color-primary-highlight)",
     logoColor: "var(--color-primary)",
-    company: "2 Years",
-    role: "BFSI Enterprise Production",
+    company: "CreditBook",
+    role: "Ongoing React Native app work",
+    detail: "Fintech, WhatsApp-ledger, RBAC",
   },
 ];
 
@@ -56,6 +59,9 @@ export default function ExperienceStrip() {
                     {exp.company}
                   </p>
                   <p className="text-[0.65rem] text-[var(--color-text-muted)]">{exp.role}</p>
+                  <p className="mt-0.5 text-[0.6rem] uppercase tracking-[0.1em] text-[var(--color-text-faint)]">
+                    {exp.detail}
+                  </p>
                 </div>
               </div>
             ))}

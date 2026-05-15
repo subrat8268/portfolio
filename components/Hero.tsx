@@ -17,14 +17,14 @@ export default function Hero() {
 
   const mockups = [
     {
-      label: "au.bank.in",
+      label: "AU Bank Search",
       tag: "BFSI · Enterprise",
-      lines: ["Site-wide Search", "Branch Locator", "Voice Search"],
-      rotate: "-rotate-3",
+      lines: ["Search branches", "Compare savings", "Voice search"],
+      rotate: "-rotate-2",
       offset: "left-0 top-10",
       delay: "0s",
-      startRotate: "-12deg",
-      finalRotate: "-3deg",
+      startRotate: "-10deg",
+      finalRotate: "-2deg",
       accent: "#01696f",
     },
     {

@@ -120,6 +120,8 @@ export function DesignGallery({ items }: DesignGalleryProps) {
   const [isModalMounted, setIsModalMounted] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const lastFocusedElementRef = useRef<HTMLElement | null>(null);
 
   const visibleItems = useMemo(() => {
     if (activeFilter === "All") {
@@ -145,6 +147,8 @@ export function DesignGallery({ items }: DesignGalleryProps) {
       closeTimerRef.current = null;
     }
 
+    lastFocusedElementRef.current =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null;
     setActiveItem(item);
     setActiveImageIndex(0);
     setIsModalImageLoading(true);
@@ -162,6 +166,8 @@ export function DesignGallery({ items }: DesignGalleryProps) {
       setIsModalMounted(false);
       setActiveItem(null);
       setActiveImageIndex(0);
+      lastFocusedElementRef.current?.focus();
+      lastFocusedElementRef.current = null;
     }, 200);
   }, [activeItem]);
 
@@ -236,6 +242,12 @@ export function DesignGallery({ items }: DesignGalleryProps) {
       }
     };
   }, []);
+
+  useEffect(() => {
+    if (isModalMounted && activeItem) {
+      closeButtonRef.current?.focus();
+    }
+  }, [activeItem, isModalMounted]);
 
   const featuredCount = Math.min(featuredItems.length, 3);
 
@@ -348,10 +360,11 @@ export function DesignGallery({ items }: DesignGalleryProps) {
           role="presentation"
         >
           <div className="flex min-h-full items-center justify-center p-4 sm:p-6">
-            <div
+              <div
               role="dialog"
               aria-modal="true"
               aria-labelledby="design-gallery-title"
+              aria-describedby="design-gallery-description"
               className={`relative w-full max-w-6xl overflow-hidden rounded-3xl border border-slate-800/80 bg-slate-900 shadow-2xl transition-all duration-200 ${
                 isModalVisible ? "scale-100 opacity-100" : "scale-95 opacity-0"
               }`}
@@ -396,6 +409,7 @@ export function DesignGallery({ items }: DesignGalleryProps) {
 
                 <div className="relative p-6 sm:p-8">
                   <button
+                    ref={closeButtonRef}
                     type="button"
                     onClick={closeModal}
                     aria-label="Close modal"
@@ -444,7 +458,10 @@ export function DesignGallery({ items }: DesignGalleryProps) {
                     </div>
                   </div>
 
-                  <p className="mt-6 text-sm leading-6 text-slate-300">
+                  <p
+                    id="design-gallery-description"
+                    className="mt-6 text-sm leading-6 text-slate-300"
+                  >
                     {activeItem.description}
                   </p>
                 </div>

@@ -13,6 +13,11 @@ const nextConfig = {
         hostname: "res.cloudinary.com",
         // Used in: lib/design-work.ts (all design thumbnails)
       },
+      {
+        protocol: "https",
+        hostname: "cdn.simpleicons.org",
+        // Used in: components/Skills.tsx
+      },
     ],
   },
 };

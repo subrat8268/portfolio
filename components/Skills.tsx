@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import DisplayHeading from "@/components/DisplayHeading";
 import RevealOnScroll from "@/components/RevealOnScroll";
 
@@ -106,13 +108,13 @@ export default function Skills() {
                       key={skill.name}
                       className="skill-icon-card flex min-w-[64px] cursor-default flex-col items-center gap-1 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-3 transition-all duration-[180ms]"
                     >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <Image
                         src={skill.icon}
-                        alt={skill.name}
+                        alt=""
+                        aria-hidden="true"
                         width={24}
                         height={24}
-                        loading="lazy"
+                        unoptimized
                         style={
                           skill.invert ? { filter: "invert(1)" } : undefined
                         }

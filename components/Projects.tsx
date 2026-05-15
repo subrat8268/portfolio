@@ -24,9 +24,9 @@ const projects: Project[] = [
   {
     id: 1,
     title: "AU Small Finance Bank (DEPT®)",
-    category: "Enterprise · BFSI · Production",
+    category: "Enterprise · BFSI · AEM",
     description:
-      "Engineered site-wide search and voice search for au.bank.in, serving millions of users. Built the Branch Locator with AEM components and interactive maps. Resolved 20+ production React/AEM bugs and lifted WCAG 2.1 accessibility compliance by ~35%.",
+      "Problem: key AU Bank journeys needed faster discovery and better accessibility. Approach: built site-wide search, voice search, and a Branch Locator with AEM components and maps. Result: 20+ production React/AEM fixes shipped and WCAG compliance improved by ~35%.",
     technologies: ["AEM", "React", "HTML/CSS", "JavaScript", "DOM APIs", "WCAG 2.1", "Responsive"],
     impact: ["10M+ users", "WCAG +35%", "20+ prod bugs fixed"],
     liveUrl: "https://au.bank.in",
@@ -36,9 +36,9 @@ const projects: Project[] = [
   {
     id: 2,
     title: "XPharms Xchange (Rejolut)",
-    category: "Startup · Web3 · B2B SaaS",
+    category: "Startup · Next.js · B2B SaaS",
     description:
-      "Architected a Next.js marketing + onboarding platform for a blockchain-based B2B cannabis marketplace. SEO-optimised with Google Search Console integration, achieving 92+ Lighthouse scores and sub-2s load times. JWT authentication and role-based access for vetted trade partners.",
+      "Problem: the onboarding funnel needed trust, speed, and search visibility. Approach: built a Next.js marketing and onboarding platform with SEO, Google Search Console, JWT auth, and role-based access. Result: 92+ Lighthouse scores and sub-2s load times.",
     technologies: ["Next.js", "JWT", "REST APIs", "SEO", "Google Search Console", "Vercel"],
     impact: ["92+ Lighthouse", "sub-2s load", "SSR SEO"],
     liveUrl: "https://xpharmsxchange.com",
@@ -48,9 +48,9 @@ const projects: Project[] = [
   {
     id: 3,
     title: "Research Assist — AI Copilot (Rejolut × ICRA)",
-    category: "Enterprise · BFSI · Internal Tool",
+    category: "Enterprise · BFSI · AI Copilot",
     description:
-      "Built a Copilot-style internal chat tool for financial analysts at ICRA (India's leading credit rating agency). Integrated 5+ REST APIs for real-time research queries. Redux state management cut analyst Q&A turnaround by ~40% for a team of 15+.",
+      "Problem: analysts needed faster access to research answers. Approach: built a Copilot-style React and Redux chat tool with 5+ REST APIs for real-time queries. Result: Q&A turnaround dropped by ~40% for a 15+ person team.",
     technologies: ["React", "Redux", "GraphQL", "REST APIs"],
     impact: ["-40% Q&A time", "15+ analysts", "5+ API integrations"],
     liveUrl: null,
@@ -60,9 +60,9 @@ const projects: Project[] = [
   {
     id: 4,
     title: "IndiaFirst Life — KYC Flow (DEPT®)",
-    category: "Enterprise · BFSI · Production",
+    category: "Enterprise · BFSI · KYC",
     description:
-      "Built KYC form flows across 3 stages for IndiaFirst Life insurance. Improved form validation by ~40% and reduced payment pipeline failures by 25% through thorough Jest + React Testing Library coverage.",
+      "Problem: the KYC journey had to stay reliable across multiple stages. Approach: built the form flow with React, validation, and Jest plus React Testing Library coverage. Result: validation improved by ~40% and payment failures fell by 25%.",
     technologies: ["React", "Jest", "React Testing Library"],
     impact: ["+40% validation", "-25% payment errors"],
     liveUrl: null,
@@ -74,7 +74,7 @@ const projects: Project[] = [
     title: "SNOX — E-commerce Platform",
     category: "Full Stack · Personal",
     description:
-      "Full-stack e-commerce platform with real-time inventory management, secure payment processing, and an admin dashboard.",
+      "Problem: the store needed live inventory and a cleaner purchase flow. Approach: built a full-stack e-commerce platform with inventory management, payments, and admin tooling. Result: a production-ready storefront with secure order handling.",
     technologies: ["React", "MongoDB", "Node.js", "Express", "Tailwind CSS", "Firebase"],
     impact: [],
     liveUrl: "https://snox.in",
@@ -86,7 +86,7 @@ const projects: Project[] = [
     title: "KreditBook",
     category: "Mobile · Fintech · Personal",
     description:
-      "Cross-platform ledger app with WhatsApp integration, role-based access control, and a Super Admin dashboard. Built solo in React Native.",
+      "Problem: ledger management had to stay fast and accessible on mobile. Approach: built a React Native app with WhatsApp integration, RBAC, and a Super Admin dashboard. Result: an in-progress fintech product with clear role separation.",
     technologies: ["React Native", "Zustand", "Supabase", "JWT", "RBAC"],
     impact: [],
     liveUrl: null,

@@ -15,27 +15,36 @@ export default function About() {
             </DisplayHeading>
           </RevealOnScroll>
           <div className="mt-6 space-y-5 text-[15px] leading-[1.7] text-[var(--color-text)] [font-family:var(--font-body)]">
-            <RevealOnScroll delay={0.1}>
-              <p>
+          <RevealOnScroll delay={0.1}>
+            <p>
                 Frontend developer with 2+ years building production React and
-                Next.js applications for BFSI clients — AU Small Finance Bank,
-                IndiaFirst Life, and ICRA. I focus on performance,
-                accessibility, and clean component architecture.
-              </p>
-            </RevealOnScroll>
-            <RevealOnScroll delay={0.2}>
-              <p>
+                Next.js interfaces for BFSI and product teams. I focus on
+                performance, accessibility, and clean component architecture.
+            </p>
+          </RevealOnScroll>
+          <RevealOnScroll delay={0.2}>
+            <p>
                 Previously at DEPT® and Rejolut. I bring design sensibility to
-                every interface I ship — logos, banners, and motion are a side
-                skill that informs how I think about UI.
-              </p>
-            </RevealOnScroll>
+                every interface I ship, with practical experience across both
+                product delivery and visual communication.
+            </p>
+          </RevealOnScroll>
+          <RevealOnScroll delay={0.3}>
+            <ul className="space-y-2 text-[14px] leading-[1.7] text-[var(--color-text-muted)]">
+              <li>XPharms Xchange - Next.js trading platform</li>
+              <li>Research Assist - AI Copilot</li>
+              <li>AU Small Finance Bank - AEM + WCAG</li>
+              <li>IndiaFirst KYC flows - validation and payments</li>
+              <li>Rejo AI - enterprise SaaS delivery</li>
+              <li>CreditBook - React Native app</li>
+            </ul>
+          </RevealOnScroll>
           </div>
 
           {/* Experience tags */}
-          <RevealOnScroll delay={0.3}>
+          <RevealOnScroll delay={0.4}>
             <div className="mt-8 flex flex-wrap gap-2">
-              {["DEPT®", "Rejolut", "BFSI Enterprise", "Mumbai", "2+ yrs"].map(
+              {["DEPT®", "Rejolut", "BFSI", "Mumbai", "React", "Next.js"].map(
                 (tag) => (
                   <span
                     key={tag}

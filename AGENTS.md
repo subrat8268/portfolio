@@ -10,4 +10,4 @@
 - `lib/design-work.ts` drives the design gallery, and its thumbnails currently point at `/design/placeholder-*.png` under `public/`.
 - Tailwind v4 is wired through `postcss.config.mjs`; there is no `tailwind.config.*` file.
 - `eslint.config.mjs` extends `next/core-web-vitals` and `next/typescript`; run `npm run lint` before `npm run build` when verifying changes.
-- Ignore `.agents/README.md` for repo commands; it describes a different stack than this workspace.
+- Ignore `.agents/README.md` for repo commands; it describes a different stack than this workspace.Update Rule
