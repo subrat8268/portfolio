@@ -1,7 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+
+const previewItems = [
+  {
+    id: "ussepp-logo",
+    title: "Education Programme Emblem",
+    thumbnail: "https://res.cloudinary.com/drmgqakwr/image/upload/v1778689052/Untitled_design_2_srqusw.png",
+  },
+  {
+    id: "ekadant-banner-2024",
+    title: "Festival Mandal Banner",
+    thumbnail: "https://res.cloudinary.com/drmgqakwr/image/upload/v1778689107/Ekdant_diwali_23_cvewav.png",
+  },
+  {
+    id: "lgi-logo",
+    title: "Corporate Identity",
+    thumbnail: "https://res.cloudinary.com/drmgqakwr/image/upload/v1778688838/LGI_Variation_Logo_fcr5ac.png",
+  },
+];
 
 const marqueeItems = [
   "Logo Design",
@@ -61,17 +80,33 @@ export default function DesignTeaser() {
 
       <div className="bg-[var(--color-surface)] py-14">
         <div className="mx-auto flex max-w-6xl flex-col justify-between gap-8 px-4 sm:flex-row sm:items-center">
-          <div>
+          <div className="max-w-lg">
             <p className="mb-2 text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
               Also
             </p>
             <h3 className="[font-family:var(--font-display)] text-[clamp(1.75rem,4vw,2.75rem)] leading-tight text-[var(--color-text)]">
               I also design.
             </h3>
-            <p className="mt-2 max-w-md text-sm leading-relaxed text-[var(--color-text-muted)]">
+            <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-muted)]">
               Logos, banners, invitations, social graphics — built for real
               clients using Canva.
             </p>
+            <div className="mt-6 flex gap-3">
+              {previewItems.map((item) => (
+                <div
+                  key={item.id}
+                  className="relative w-20 h-20 rounded-lg overflow-hidden border border-[var(--color-border)] shrink-0"
+                >
+                  <Image
+                    src={item.thumbnail}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                    sizes="80px"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
           <Link
             href="/design"
