@@ -6,19 +6,9 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 import type { DesignItem } from "@/lib/design-work";
 
-type FilterValue = "All" | "Logo" | "Banner" | "Invitation" | "Social";
-
 type DesignGalleryProps = {
   items: DesignItem[];
 };
-
-const FILTERS: Array<{ label: string; value: FilterValue }> = [
-  { label: "All", value: "All" },
-  { label: "Logos", value: "Logo" },
-  { label: "Banners", value: "Banner" },
-  { label: "Invitations", value: "Invitation" },
-  { label: "Social", value: "Social" },
-];
 
 function GalleryCard({
   item,
@@ -113,7 +103,6 @@ function GalleryCard({
 }
 
 export function DesignGallery({ items }: DesignGalleryProps) {
-  const [activeFilter, setActiveFilter] = useState<FilterValue>("All");
   const [activeItem, setActiveItem] = useState<DesignItem | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isModalImageLoading, setIsModalImageLoading] = useState(false);
@@ -123,22 +112,14 @@ export function DesignGallery({ items }: DesignGalleryProps) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const lastFocusedElementRef = useRef<HTMLElement | null>(null);
 
-  const visibleItems = useMemo(() => {
-    if (activeFilter === "All") {
-      return items;
-    }
-
-    return items.filter((item) => item.type === activeFilter);
-  }, [activeFilter, items]);
-
   const featuredItems = useMemo(
-    () => visibleItems.filter((item) => item.featured),
-    [visibleItems]
+    () => items.filter((item) => item.featured),
+    [items]
   );
 
   const gridItems = useMemo(
-    () => visibleItems.filter((item) => !item.featured),
-    [visibleItems]
+    () => items.filter((item) => !item.featured),
+    [items]
   );
 
   const openModal = useCallback((item: DesignItem) => {
@@ -267,28 +248,6 @@ export function DesignGallery({ items }: DesignGalleryProps) {
 
   return (
     <>
-      <section className="max-w-6xl mx-auto px-4 pb-8">
-        <div className="flex flex-wrap items-center gap-3">
-          {FILTERS.map((filter) => {
-            const isActive = activeFilter === filter.value;
-
-            return (
-              <button
-                key={filter.value}
-                type="button"
-                onClick={() => setActiveFilter(filter.value)}
-                className={`min-h-11 rounded-full border px-4 py-2 text-[0.65rem] tracking-[0.18em] uppercase transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 ${
-                  isActive
-                    ? "border-slate-50 bg-slate-50 text-slate-950"
-                    : "border-slate-700 text-slate-400 hover:border-slate-500 hover:text-slate-200"
-                }`}
-              >
-                {filter.label}
-              </button>
-            );
-          })}
-        </div>
-      </section>
 
       <section className="max-w-6xl mx-auto px-4 pb-8">
         <div className="mb-4">
