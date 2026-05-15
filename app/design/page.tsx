@@ -1,11 +1,15 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
+
 import DisplayHeading from "@/components/DisplayHeading";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { DesignGallery } from "@/components/DesignGallery";
 import { designItems } from "@/lib/design-work";
-import Link from "next/link";
+
+const heroPreviews = designItems.filter(item => item.featured).slice(0, 3);
 
 export default function DesignPage() {
   return (
@@ -31,6 +35,23 @@ export default function DesignPage() {
               home page →
             </Link>
           </p>
+          
+          <div className="mt-8 flex gap-3">
+            {heroPreviews.map((item) => (
+              <div
+                key={item.id}
+                className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-[var(--color-border)]"
+              >
+                <Image
+                  src={item.thumbnail}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 96px, 128px"
+                />
+              </div>
+            ))}
+          </div>
         </section>
 
         <section className="mt-10">
