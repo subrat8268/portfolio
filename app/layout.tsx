@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
+import { MotionConfig } from "framer-motion";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -81,7 +82,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${poppins.variable} app-shell font-inter antialiased`}
       >
-        <div className="page-shell">{children}</div>
+        <MotionConfig reducedMotion="never">
+          <div className="page-shell">{children}</div>
+        </MotionConfig>
       </body>
     </html>
   );

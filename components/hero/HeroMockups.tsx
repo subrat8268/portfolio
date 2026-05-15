@@ -1,14 +1,14 @@
 "use client";
 
 import { type MouseEvent, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import BrowserCard from "@/components/hero/BrowserCard";
 import AuBankMockup from "@/components/hero/AuBankMockup";
 import XPharmsMockup from "@/components/hero/XPharmsMockup";
 import ResearchAssistMockup from "@/components/hero/ResearchAssistMockup";
 
 export default function HeroMockups() {
-  const reduceMotion = Boolean(useReducedMotion());
+  const reduceMotion = false;
   const [isHovered, setIsHovered] = useState(false);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
 

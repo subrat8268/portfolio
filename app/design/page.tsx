@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 import DisplayHeading from "@/components/DisplayHeading";
 import Footer from "@/components/Footer";
@@ -13,7 +13,7 @@ import { designItems } from "@/lib/design-work";
 const heroPreviews = designItems.filter((item) => item.featured).slice(0, 3);
 
 export default function DesignPage() {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = false;
 
   return (
     <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowUpRight,
   Atom,
@@ -15,7 +15,7 @@ import HeroMockups from "@/components/hero/HeroMockups";
 
 export default function Hero() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = false;
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
