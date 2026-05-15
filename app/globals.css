@@ -26,8 +26,8 @@
   --color-divider: #262523;
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
-  --color-primary: #e85d4a;
-  --color-primary-hover: #ff7460;
+  --color-primary: var(--accent);
+  --color-primary-hover: var(--accent-hover);
   --color-primary-active: #c24030;
   --color-primary-highlight: var(--accent-soft);
   --color-success: #6daa45;
@@ -109,8 +109,8 @@
   --text-primary: #1a1917;
   --text-muted: #6b6966;
   --text-faint: #aaa8a4;
-  --accent: #c73d2a;
-  --accent-hover: #a82d1d;
+  --accent: #e85d4a;
+  --accent-hover: #ff7460;
   --accent-soft: #f7e8e6;
 
   --color-bg: #f7f6f2;

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import HeroMockups from "@/components/HeroMockups";
+import HeroMockups from "@/components/hero/HeroMockups";
 
 export default function Hero() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -139,12 +139,10 @@ export default function Hero() {
               motionProps?.transition ?? { duration: 0.5, delay: 0.48 }
             }
           >
-            <p className="mt-3 max-w-xs text-sm leading-relaxed text-[var(--text-muted)]">
-              2+ years · BFSI &amp; product · DEPT® &amp; Rejolut.
-            </p>
             <p className="mt-2 max-w-md text-sm leading-relaxed text-[var(--text-muted)]">
-              I build production-grade interfaces that balance speed,
-              accessibility, and polish.
+              2+ years building enterprise-grade interfaces for BFSI companies
+              and product startups. From AU Small Finance Bank&apos;s site-wide
+              search to B2B fintech platforms at Rejolut.
             </p>
           </motion.div>
 
