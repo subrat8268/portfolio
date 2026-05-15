@@ -24,7 +24,7 @@ const experiences = [
     initials: "CB",
     logoBg: "var(--color-primary-highlight)",
     logoColor: "var(--color-primary)",
-    company: "CreditBook",
+    company: "KredBook",
     role: "Ongoing React Native app work",
     detail: "Fintech, WhatsApp-ledger, RBAC",
   },

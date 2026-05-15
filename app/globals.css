@@ -273,3 +273,25 @@ textarea {
   background: var(--color-surface-dynamic);
   border-color: oklch(from var(--color-primary) l c h / 0.3);
 }
+
+.code-cursor {
+  animation: blinkCursor 1.05s steps(1) infinite;
+}
+
+@keyframes blinkCursor {
+  0%,
+  48% {
+    opacity: 1;
+  }
+  52%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .code-cursor {
+    animation: none;
+    opacity: 0.75;
+  }
+}
