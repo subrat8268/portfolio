@@ -9,6 +9,7 @@ export type DesignItem = {
   thumbnail: string;
   images: string[];
   featured: boolean;
+  aspectRatio: string;
   description: string;
 };
 
@@ -24,6 +25,7 @@ export const designItems: DesignItem[] = [
     tags: ["Education", "Emblem", "Multi-colour", "Badge"],
     thumbnail:
       "https://res.cloudinary.com/drmgqakwr/image/upload/v1778689052/Untitled_design_2_srqusw.png",
+    aspectRatio: "1 / 1",
     images: [
       "https://res.cloudinary.com/drmgqakwr/image/upload/v1778689052/Untitled_design_2_srqusw.png",
     ],
@@ -47,6 +49,7 @@ export const designItems: DesignItem[] = [
     ],
     thumbnail:
       "https://res.cloudinary.com/drmgqakwr/image/upload/v1778689107/Ekdant_diwali_23_cvewav.png",
+    aspectRatio: "16 / 9",
     images: [
       "https://res.cloudinary.com/drmgqakwr/image/upload/v1778689107/Ekdant_diwali_23_cvewav.png",
     ],
@@ -64,6 +67,7 @@ export const designItems: DesignItem[] = [
     tags: ["Festival", "Marathi Typography", "Photo Composite", "Deep Purple"],
     thumbnail:
       "https://res.cloudinary.com/drmgqakwr/image/upload/v1778689006/ekdant2023banner_bxpuve.jpg",
+    aspectRatio: "16 / 9",
     images: [
       "https://res.cloudinary.com/drmgqakwr/image/upload/v1778689006/ekdant2023banner_bxpuve.jpg",
     ],
@@ -81,6 +85,7 @@ export const designItems: DesignItem[] = [
     tags: ["Corporate", "Import Export", "Geometric", "Lettermark"],
     thumbnail:
       "https://res.cloudinary.com/drmgqakwr/image/upload/v1778688838/LGI_Variation_Logo_fcr5ac.png",
+    aspectRatio: "1 / 1",
     images: [
       "https://res.cloudinary.com/drmgqakwr/image/upload/v1778688838/LGI_Variation_Logo_fcr5ac.png",
     ],
@@ -98,6 +103,7 @@ export const designItems: DesignItem[] = [
     tags: ["Print", "Invitation", "Pastel", "Watercolour", "Botanical"],
     thumbnail:
       "https://res.cloudinary.com/drmgqakwr/image/upload/v1778688651/Green_Watercolor_Cute_1st_Birthday_Invitation_ywxrbm.png",
+    aspectRatio: "4 / 5",
     images: [
       "https://res.cloudinary.com/drmgqakwr/image/upload/v1778688651/Green_Watercolor_Cute_1st_Birthday_Invitation_ywxrbm.png",
     ],
@@ -115,6 +121,7 @@ export const designItems: DesignItem[] = [
     tags: ["Campus", "Event", "Banner", "Print & Digital"],
     thumbnail:
       "https://res.cloudinary.com/drmgqakwr/image/upload/v1778688950/EPLS1Banner_gdbyj3.jpg",
+    aspectRatio: "16 / 9",
     images: [
       "https://res.cloudinary.com/drmgqakwr/image/upload/v1778688950/EPLS1Banner_gdbyj3.jpg",
     ],

@@ -10,7 +10,13 @@ type DesignGalleryProps = {
   items: DesignItem[];
 };
 
-function GalleryCard({
+function tagClassName(featured: boolean) {
+  return featured
+    ? "border-[var(--color-primary)]/20 bg-[var(--color-primary-highlight)] text-[var(--color-primary)]"
+    : "border-[var(--color-border)] bg-[var(--color-surface-2)] text-[var(--color-text-muted)]";
+}
+
+function GalleryWallCard({
   item,
   featured,
   onOpen,
@@ -26,77 +32,63 @@ function GalleryCard({
       type="button"
       onClick={() => onOpen(item)}
       aria-label={`Open ${item.title}`}
-      className="group w-full text-left rounded-2xl border border-slate-800/70 bg-slate-900/60 overflow-hidden transition-all duration-200 hover:border-slate-600/80 hover:bg-slate-900/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+      className="group mb-6 w-full break-inside-avoid text-left outline-none"
     >
-      <div
-        className={`relative overflow-hidden bg-slate-950 ${
-          featured ? "aspect-[16/10]" : "aspect-[4/3]"
-        }`}
-      >
-        <Image
-          src={item.images[0] ?? item.thumbnail}
-          alt={item.title}
-          fill
-          sizes={
-            featured
-              ? "(max-width: 1024px) 100vw, 58vw"
-              : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          }
-          loading={priority ? "eager" : "lazy"}
-          className="object-cover transition-all duration-200 group-hover:scale-[1.03]"
-        />
-      </div>
+      <div className="overflow-hidden rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-md)] transition-all duration-200 motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:border-[var(--color-primary)]/25 motion-safe:group-hover:shadow-[0_18px_40px_color-mix(in_oklab,var(--color-primary)_10%,transparent)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]">
+        <div
+          className="relative overflow-hidden bg-[var(--color-primary-highlight)]/15"
+          style={{ aspectRatio: item.aspectRatio }}
+        >
+          <Image
+            src={item.images[0] ?? item.thumbnail}
+            alt={item.title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            priority={priority}
+            className="object-contain p-4 transition-transform duration-300 motion-safe:group-hover:scale-[1.01]"
+          />
 
-      <div className={featured ? "p-5" : "p-4"}>
-        {featured ? (
-          <>
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <p className="text-[0.65rem] tracking-[0.18em] uppercase text-slate-500">
-                  {item.type}
-                </p>
-                <h3 className="mt-1 text-base font-normal text-slate-50">
-                  {item.title}
-                </h3>
-              </div>
+          {featured ? (
+            <span className="absolute left-4 top-4 inline-flex rounded-full border border-[var(--color-primary)]/25 bg-[var(--color-bg)]/90 px-2.5 py-1 text-[0.56rem] font-semibold uppercase tracking-[0.12em] text-[var(--color-primary)] backdrop-blur-sm">
+              Featured
+            </span>
+          ) : null}
+        </div>
+
+        <div className="p-4 sm:p-5">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <p className="text-[0.62rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+                {item.type}
+              </p>
+              <h3 className="mt-1 text-base font-normal text-[var(--color-text)] sm:text-[1.05rem]">
+                {item.title}
+              </h3>
             </div>
-            <p className="mt-1 text-xs uppercase tracking-[0.18em] text-slate-500">
-              {item.clientOrEvent} • {item.year}
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {item.tags.map((tag) => (
-                <span
-                  key={`${item.id}-${tag}`}
-                  className="rounded-full border border-slate-700 px-2 py-0.5 text-xs text-slate-400"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <p className="mt-4 line-clamp-2 text-sm text-slate-300">
-              {item.description}
-            </p>
-          </>
-        ) : (
-          <>
-            <p className="text-[0.65rem] tracking-[0.18em] uppercase text-slate-500">
-              {item.type}
-            </p>
-            <h3 className="mt-1 text-sm font-normal text-slate-50">
-              {item.title}
-            </h3>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {item.tags.map((tag) => (
-                <span
-                  key={`${item.id}-${tag}`}
-                  className="rounded-full border border-slate-700 px-2 py-0.5 text-xs text-slate-400"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </>
-        )}
+            <span className="text-right text-[0.62rem] uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
+              {item.year}
+            </span>
+          </div>
+
+          <p className="mt-2 text-xs uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+            {item.clientOrEvent}
+          </p>
+
+          <p className="mt-4 text-sm leading-6 text-[var(--color-text-muted)]">
+            {item.description}
+          </p>
+
+          <div className="mt-4 flex flex-wrap gap-2">
+            {item.tags.map((tag, index) => (
+              <span
+                key={`${item.id}-${tag}`}
+                className={`rounded-full border px-2.5 py-1 text-[0.6rem] uppercase tracking-[0.08em] ${tagClassName(featured && index === 0)}`}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </button>
   );
@@ -112,13 +104,8 @@ export function DesignGallery({ items }: DesignGalleryProps) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const lastFocusedElementRef = useRef<HTMLElement | null>(null);
 
-  const featuredItems = useMemo(
-    () => items.filter((item) => item.featured),
-    [items]
-  );
-
-  const gridItems = useMemo(
-    () => items.filter((item) => !item.featured),
+  const orderedItems = useMemo(
+    () => [...items].sort((a, b) => Number(b.featured) - Number(a.featured)),
     [items]
   );
 
@@ -211,9 +198,7 @@ export function DesignGallery({ items }: DesignGalleryProps) {
 
     window.addEventListener("keydown", handleKeyDown);
 
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeItem, closeModal, goToNextImage, goToPreviousImage, isModalMounted]);
 
   useEffect(() => {
@@ -230,79 +215,41 @@ export function DesignGallery({ items }: DesignGalleryProps) {
     }
   }, [activeItem, isModalMounted]);
 
-  const featuredCount = Math.min(featuredItems.length, 3);
-
-  const featuredSpanClass = (index: number) => {
-    if (featuredCount === 1) {
-      return "lg:col-span-12";
-    }
-
-    if (index === 0) {
-      return "lg:col-span-7 lg:row-span-2";
-    }
-
-    return "lg:col-span-5";
-  };
-
   const modalImage = activeItem?.images[activeImageIndex] ?? activeItem?.images[0];
 
   return (
     <>
-
       <section className="max-w-6xl mx-auto px-4 pb-8">
-        <div className="mb-4">
-          <h2 className="text-sm font-semibold tracking-[0.2em] uppercase text-slate-400">
-            Featured work
-          </h2>
+        <div className="mb-4 flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-sm font-semibold tracking-[0.2em] uppercase text-[var(--color-text-muted)]">
+              Curated wall
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-muted)]">
+              Each piece is shown at its own proportion. No crop, no squeeze, no square-box treatment.
+            </p>
+          </div>
+          <p className="hidden text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)] md:block">
+            Click artwork to open full view
+          </p>
         </div>
 
-        {featuredItems.length > 0 ? (
-          <>
-            <div className="grid gap-6 lg:grid-cols-12 lg:auto-rows-[minmax(0,auto)]">
-              {featuredItems.slice(0, 3).map((item, index) => (
-                <div key={item.id} className={featuredSpanClass(index)}>
-                  <GalleryCard item={item} featured onOpen={openModal} priority={index === 0} />
-                </div>
-              ))}
-            </div>
-            {featuredItems.length > 3 ? (
-              <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {featuredItems.slice(3).map((item) => (
-                  <GalleryCard key={item.id} item={item} featured onOpen={openModal} />
-                ))}
-              </div>
-            ) : null}
-          </>
-        ) : (
-          <div className="rounded-2xl border border-slate-800/70 bg-slate-900/60 px-5 py-8 text-sm text-slate-400">
-            No featured items match this filter.
-          </div>
-        )}
-      </section>
-
-      <section className="max-w-6xl mx-auto px-4 pb-16">
-        <div className="mb-4">
-          <h2 className="text-sm font-semibold tracking-[0.2em] uppercase text-slate-400">
-            Full grid
-          </h2>
+        <div className="columns-1 gap-6 md:columns-2 xl:columns-3">
+          {orderedItems.map((item, index) => (
+            <GalleryWallCard
+              key={item.id}
+              item={item}
+              featured={item.featured}
+              onOpen={openModal}
+              priority={index < 2}
+            />
+          ))}
         </div>
-
-        {gridItems.length > 0 ? (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {gridItems.map((item) => (
-              <GalleryCard key={item.id} item={item} featured={false} onOpen={openModal} />
-            ))}
-          </div>
-        ) : (
-          <div className="rounded-2xl border border-slate-800/70 bg-slate-900/60 px-5 py-8 text-sm text-slate-400">
-            No additional items match this filter.
-          </div>
-        )}
       </section>
 
       {isModalMounted && activeItem ? (
         <div
-          className={`fixed inset-0 z-50 bg-slate-950/85 transition-all duration-200 ${
+          className={`fixed inset-0 z-50 bg-[var(--color-bg)]/90 backdrop-blur-md transition-all duration-200 ${
             isModalVisible ? "opacity-100" : "opacity-0"
           }`}
           onMouseDown={(event) => {
@@ -313,51 +260,53 @@ export function DesignGallery({ items }: DesignGalleryProps) {
           role="presentation"
         >
           <div className="flex min-h-full items-center justify-center p-4 sm:p-6">
-              <div
+            <div
               role="dialog"
               aria-modal="true"
               aria-labelledby="design-gallery-title"
               aria-describedby="design-gallery-description"
-              className={`relative w-full max-w-6xl overflow-hidden rounded-3xl border border-slate-800/80 bg-slate-900 shadow-2xl transition-all duration-200 ${
+              className={`relative w-full max-w-6xl overflow-hidden rounded-[30px] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-2xl transition-all duration-200 ${
                 isModalVisible ? "scale-100 opacity-100" : "scale-95 opacity-0"
               }`}
             >
-              <div className="grid max-h-[calc(100vh-2rem)] overflow-y-auto lg:grid-cols-[1.2fr_0.8fr]">
-                <div className="relative border-b border-slate-800/70 bg-slate-950 lg:border-b-0 lg:border-r">
-                  <div className="relative aspect-[4/3] w-full lg:aspect-[5/6]">
+              <div className="grid max-h-[calc(100vh-2rem)] overflow-y-auto lg:grid-cols-[1.35fr_0.85fr]">
+                <div className="relative border-b border-[var(--color-border)] bg-[var(--color-primary-highlight)]/10 lg:border-b-0 lg:border-r">
+                  <div className="relative flex min-h-[58vh] items-center justify-center p-4 sm:p-6 lg:min-h-[78vh]">
                     {isModalImageLoading ? (
-                      <div className="absolute inset-0 animate-pulse bg-slate-800/70" />
+                      <div className="absolute inset-0 animate-pulse bg-[var(--color-surface-2)]/70" />
                     ) : null}
-                    <Image
-                      src={modalImage ?? activeItem.thumbnail}
-                      alt={activeItem.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 60vw"
-                      className="object-cover"
-                      onLoad={() => setIsModalImageLoading(false)}
-                    />
-                  </div>
+                    <div className="relative h-full w-full min-h-[54vh] lg:min-h-[72vh]">
+                      <Image
+                        src={modalImage ?? activeItem.thumbnail}
+                        alt={activeItem.title}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 68vw"
+                        className="object-contain p-4 sm:p-6"
+                        onLoad={() => setIsModalImageLoading(false)}
+                      />
+                    </div>
 
-                  {activeItem.images.length > 1 ? (
-                    <>
-                      <button
-                        type="button"
-                        onClick={goToPreviousImage}
-                        aria-label="Previous image"
-                        className="absolute left-4 top-1/2 inline-flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-700 bg-slate-950/70 text-slate-100 transition-all duration-200 hover:border-slate-500 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-                      >
-                        <ChevronLeft className="h-4 w-4" />
-                      </button>
-                      <button
-                        type="button"
-                        onClick={goToNextImage}
-                        aria-label="Next image"
-                        className="absolute right-4 top-1/2 inline-flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-700 bg-slate-950/70 text-slate-100 transition-all duration-200 hover:border-slate-500 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-                      >
-                        <ChevronRight className="h-4 w-4" />
-                      </button>
-                    </>
-                  ) : null}
+                    {activeItem.images.length > 1 ? (
+                      <>
+                        <button
+                          type="button"
+                          onClick={goToPreviousImage}
+                          aria-label="Previous image"
+                          className="absolute left-4 top-1/2 inline-flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg)]/80 text-[var(--color-text)] transition-all duration-200 hover:border-[var(--color-primary)]/35 hover:bg-[var(--color-surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
+                        >
+                          <ChevronLeft className="h-4 w-4" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={goToNextImage}
+                          aria-label="Next image"
+                          className="absolute right-4 top-1/2 inline-flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg)]/80 text-[var(--color-text)] transition-all duration-200 hover:border-[var(--color-primary)]/35 hover:bg-[var(--color-surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
+                        >
+                          <ChevronRight className="h-4 w-4" />
+                        </button>
+                      </>
+                    ) : null}
+                  </div>
                 </div>
 
                 <div className="relative p-6 sm:p-8">
@@ -366,21 +315,21 @@ export function DesignGallery({ items }: DesignGalleryProps) {
                     type="button"
                     onClick={closeModal}
                     aria-label="Close modal"
-                    className="absolute right-4 top-4 inline-flex size-11 items-center justify-center rounded-full border border-slate-700 bg-slate-950/60 text-slate-100 transition-all duration-200 hover:border-slate-500 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                    className="absolute right-4 top-4 inline-flex size-11 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg)]/80 text-[var(--color-text)] transition-all duration-200 hover:border-[var(--color-primary)]/35 hover:bg-[var(--color-surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
                   >
                     <X className="h-4 w-4" />
                   </button>
 
-                  <p className="text-[0.65rem] tracking-[0.18em] uppercase text-slate-500">
+                  <p className="text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
                     {activeItem.type}
                   </p>
                   <h3
                     id="design-gallery-title"
-                    className="mt-2 text-2xl font-normal text-slate-50"
+                    className="mt-2 text-2xl font-normal text-[var(--color-text)]"
                   >
                     {activeItem.title}
                   </h3>
-                  <p className="mt-2 text-sm uppercase tracking-[0.18em] text-slate-500">
+                  <p className="mt-2 text-sm uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
                     {activeItem.clientOrEvent} • {activeItem.year}
                   </p>
 
@@ -388,7 +337,7 @@ export function DesignGallery({ items }: DesignGalleryProps) {
                     {activeItem.tags.map((tag) => (
                       <span
                         key={`${activeItem.id}-${tag}-modal`}
-                        className="rounded-full border border-slate-700 px-2 py-0.5 text-xs text-slate-400"
+                        className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface-2)] px-2.5 py-1 text-xs text-[var(--color-text-muted)]"
                       >
                         {tag}
                       </span>
@@ -396,14 +345,14 @@ export function DesignGallery({ items }: DesignGalleryProps) {
                   </div>
 
                   <div className="mt-6">
-                    <p className="text-[0.65rem] tracking-[0.18em] uppercase text-slate-500">
+                    <p className="text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
                       Tools
                     </p>
                     <div className="mt-2 flex flex-wrap gap-2">
                       {activeItem.tools.map((tool) => (
                         <span
                           key={`${activeItem.id}-${tool}`}
-                          className="rounded-full border border-slate-700 px-2 py-0.5 text-xs text-slate-400"
+                          className="rounded-full border border-[var(--color-border)] px-2.5 py-1 text-xs text-[var(--color-text-muted)]"
                         >
                           {tool}
                         </span>
@@ -413,7 +362,7 @@ export function DesignGallery({ items }: DesignGalleryProps) {
 
                   <p
                     id="design-gallery-description"
-                    className="mt-6 text-sm leading-6 text-slate-300"
+                    className="mt-6 text-sm leading-6 text-[var(--color-text-muted)]"
                   >
                     {activeItem.description}
                   </p>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 
 import DisplayHeading from "@/components/DisplayHeading";
 import Footer from "@/components/Footer";
@@ -9,67 +10,157 @@ import Navbar from "@/components/Navbar";
 import { DesignGallery } from "@/components/DesignGallery";
 import { designItems } from "@/lib/design-work";
 
-const heroPreviews = designItems.filter(item => item.featured).slice(0, 3);
+const heroPreviews = designItems.filter((item) => item.featured).slice(0, 3);
 
 export default function DesignPage() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
       <Navbar />
 
-      <main className="max-w-5xl mx-auto px-4">
-        <section className="pt-28 max-w-4xl">
-          <p className="text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
-            Visual Design Work
-          </p>
-          <DisplayHeading className="mt-3 text-[clamp(2.5rem,6vw,4.5rem)]">
-            Design as a second language.
-          </DisplayHeading>
-          <p className="mt-4 max-w-2xl text-sm md:text-base leading-6 text-[var(--color-text-muted)]">
-            I&apos;m a frontend developer who also designs. These are logos,
-            banners, invitations, and social media graphics made for real
-            clients, mostly in Canva.
-          </p>
-          <p className="mt-3 text-sm text-[var(--color-text-muted)]">
-            For my coding work, visit the{" "}
-            <Link href="/" className="underline-offset-4 hover:underline hover:text-[var(--color-text)]">
-              home page →
-            </Link>
-          </p>
-          
-          <div className="mt-8 flex gap-3">
-            {heroPreviews.map((item) => (
-              <div
-                key={item.id}
-                className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-[var(--color-border)]"
-              >
-                <Image
-                  src={item.thumbnail}
-                  alt={item.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 96px, 128px"
-                />
-              </div>
-            ))}
+      <main className="mx-auto max-w-6xl px-4">
+        <section className="relative overflow-hidden pt-28">
+          <div className="pointer-events-none absolute inset-0 -z-10">
+            <motion.div
+              aria-hidden="true"
+              className="absolute left-[-8rem] top-[4rem] h-72 w-72 rounded-full bg-[var(--color-primary)]/10 blur-3xl"
+              animate={shouldReduceMotion ? undefined : { y: [0, -18, 0], x: [0, 12, 0] }}
+              transition={shouldReduceMotion ? undefined : { duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              aria-hidden="true"
+              className="absolute right-[5%] top-[7rem] h-64 w-64 rounded-full bg-[var(--color-primary-highlight)]/35 blur-3xl"
+              animate={shouldReduceMotion ? undefined : { y: [0, 16, 0], x: [0, -10, 0] }}
+              transition={shouldReduceMotion ? undefined : { duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            />
           </div>
-        </section>
 
-        <section className="mt-10">
-          <div className="border border-[var(--color-border)] px-4 py-4 sm:grid sm:grid-cols-3">
-            <div className="py-2 sm:px-4 sm:border-r sm:border-[var(--color-border)]">
-              <p className="text-sm font-medium text-[var(--color-text)]">Real client work</p>
-              <p className="mt-1 text-xs text-[var(--color-text-muted)]">
-                Logos, Banners, Invitations
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+            <div className="max-w-3xl">
+              <p className="text-[0.65rem] uppercase tracking-[0.22em] text-[var(--color-text-muted)]">
+                Visual Design Work
               </p>
+              <DisplayHeading className="mt-3 text-[clamp(2.8rem,6.5vw,5rem)]">
+                Design as a second language.
+              </DisplayHeading>
+              <p className="mt-5 max-w-2xl text-sm leading-6 text-[var(--color-text-muted)] md:text-base">
+                I create logos, banners, invitations, and social graphics for real clients.
+                This page is laid out like a gallery wall, so each piece gets room to breathe.
+              </p>
+              <p className="mt-3 text-sm text-[var(--color-text-muted)]">
+                For my coding work, visit the{" "}
+                <Link href="/" className="underline-offset-4 hover:underline hover:text-[var(--color-text)]">
+                  home page →
+                </Link>
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                {[
+                  "Canva",
+                  "Brand Systems",
+                  "Social Graphics",
+                  "Print Layouts",
+                ].map((item, index) => (
+                  <motion.span
+                    key={item}
+                    className={`rounded-full border px-3 py-1 text-[0.62rem] uppercase tracking-[0.12em] ${
+                      index === 0
+                        ? "border-[var(--color-primary)]/20 bg-[var(--color-primary-highlight)] text-[var(--color-primary)]"
+                        : "border-[var(--color-border)] bg-[var(--color-surface-2)] text-[var(--color-text-muted)]"
+                    }`}
+                    animate={shouldReduceMotion ? undefined : { y: [0, -2, 0] }}
+                    transition={shouldReduceMotion ? undefined : { duration: 4 + index, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    {item}
+                  </motion.span>
+                ))}
+              </div>
+
+              <div className="mt-10 grid gap-3 rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 sm:grid-cols-3">
+                {[
+                  ["Native proportions", "No crop, no squeeze"],
+                  ["Gallery wall", "Curated like an exhibition"],
+                  ["Full-screen view", "Open any piece to inspect"],
+                ].map(([title, copy], index) => (
+                  <motion.div
+                    key={title}
+                    className={`rounded-[22px] border border-[var(--color-border)] p-4 ${
+                      index === 1 ? "bg-[var(--color-primary-highlight)]/15" : "bg-[var(--color-surface-2)]"
+                    }`}
+                    whileHover={shouldReduceMotion ? undefined : { y: -4, scale: 1.01 }}
+                    transition={shouldReduceMotion ? undefined : { duration: 0.2, ease: "easeOut" }}
+                  >
+                    <p className="text-sm font-medium text-[var(--color-text)]">{title}</p>
+                    <p className="mt-1 text-xs text-[var(--color-text-muted)]">{copy}</p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-            <div className="py-2 sm:px-4 sm:border-r sm:border-[var(--color-border)]">
-              <p className="text-sm font-medium text-[var(--color-text)]">Canva</p>
-              <p className="mt-1 text-xs text-[var(--color-text-muted)]">Primary tool</p>
-            </div>
-            <div className="py-2 sm:px-4">
-              <p className="text-sm font-medium text-[var(--color-text)]">Mumbai</p>
-              <p className="mt-1 text-xs text-[var(--color-text-muted)]">Based in</p>
-            </div>
+
+            <motion.div
+              className="relative isolate rounded-[34px] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-lg)]"
+              whileHover={shouldReduceMotion ? undefined : { rotateX: 2, rotateY: -4, y: -4 }}
+              transition={shouldReduceMotion ? undefined : { type: "spring", stiffness: 120, damping: 18 }}
+              style={{ transformStyle: "preserve-3d", perspective: 1200 }}
+            >
+              <div className="pointer-events-none absolute inset-0 rounded-[34px] bg-[radial-gradient(circle_at_top_left,var(--color-primary-highlight)_0%,transparent_42%),radial-gradient(circle_at_bottom_right,var(--color-primary)_0%,transparent_28%)] opacity-60" />
+              <div className="relative overflow-hidden rounded-[28px] border border-[var(--color-border)] bg-[var(--color-bg)]/60 p-4">
+                <div className="grid gap-3 sm:grid-cols-[1.05fr_0.95fr]">
+                  <motion.div
+                    className="relative overflow-hidden rounded-[24px] border border-[var(--color-border)] bg-[var(--color-primary-highlight)]/15"
+                    style={{ aspectRatio: heroPreviews[0]?.aspectRatio ?? "1 / 1" }}
+                    animate={shouldReduceMotion ? undefined : { y: [0, -10, 0], rotate: [-1, 1, -1] }}
+                    transition={shouldReduceMotion ? undefined : { duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    {heroPreviews[0] ? (
+                      <Image
+                        src={heroPreviews[0].thumbnail}
+                        alt={heroPreviews[0].title}
+                        fill
+                        priority
+                        className="object-contain p-4"
+                        sizes="(max-width: 1024px) 100vw, 40vw"
+                      />
+                    ) : null}
+                  </motion.div>
+
+                  <div className="grid gap-3">
+                    {heroPreviews.slice(1).map((item, index) => (
+                      <motion.div
+                        key={item.id}
+                        className="relative overflow-hidden rounded-[24px] border border-[var(--color-border)] bg-[var(--color-primary-highlight)]/12"
+                        style={{ aspectRatio: item.aspectRatio }}
+                        animate={shouldReduceMotion ? undefined : { y: [0, -8 - index * 2, 0], rotate: index === 0 ? [1.5, -1.5, 1.5] : [-1.5, 1.5, -1.5] }}
+                        transition={shouldReduceMotion ? undefined : { duration: 7 + index, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        <Image
+                          src={item.thumbnail}
+                          alt={item.title}
+                          fill
+                          className="object-contain p-4"
+                          sizes="(max-width: 1024px) 100vw, 20vw"
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-3 flex flex-wrap items-center justify-between gap-3 rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3">
+                  <div>
+                    <p className="text-[0.62rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+                      Gallery mode
+                    </p>
+                    <p className="mt-1 text-sm text-[var(--color-text)]">
+                      Hover to float, click to inspect, no cropping anywhere.
+                    </p>
+                  </div>
+                  <div className="rounded-full border border-[var(--color-primary)]/25 bg-[var(--color-primary-highlight)] px-3 py-1 text-[0.62rem] uppercase tracking-[0.12em] text-[var(--color-primary)]">
+                    Scroll to browse
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
