@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+import CountUp from "@/components/CountUp";
 import DisplayHeading from "@/components/DisplayHeading";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -63,15 +64,15 @@ export default function DesignPage() {
 
               <div className="mt-5 flex flex-wrap gap-4 text-sm text-[var(--color-text-muted)]">
                 <div>
-                  <span className="font-[var(--font-display)] text-[1.8rem] leading-none text-[var(--color-text)]">15+</span>
+                  <span className="font-[var(--font-display)] text-[1.8rem] leading-none text-[var(--color-text)]"><CountUp value="15+" /></span>
                   <p className="mt-1 text-xs uppercase tracking-[0.12em]">Projects delivered</p>
                 </div>
                 <div>
-                  <span className="font-[var(--font-display)] text-[1.8rem] leading-none text-[var(--color-text)]">8+</span>
+                  <span className="font-[var(--font-display)] text-[1.8rem] leading-none text-[var(--color-text)]"><CountUp value="8+" /></span>
                   <p className="mt-1 text-xs uppercase tracking-[0.12em]">Real clients</p>
                 </div>
                 <div>
-                  <span className="font-[var(--font-display)] text-[1.8rem] leading-none text-[var(--color-text)]">3</span>
+                  <span className="font-[var(--font-display)] text-[1.8rem] leading-none text-[var(--color-text)]"><CountUp value="3" /></span>
                   <p className="mt-1 text-xs uppercase tracking-[0.12em]">Design disciplines</p>
                 </div>
               </div>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import CountUp from "@/components/CountUp";
 import DisplayHeading from "@/components/DisplayHeading";
 import RevealOnScroll from "@/components/RevealOnScroll";
 
@@ -47,9 +48,10 @@ export default function About() {
                   key={label}
                   className="group rounded-[20px] border border-[var(--color-border)] bg-[var(--color-surface)] p-3 text-center transition-all duration-200 motion-safe:hover:-translate-y-0.5 motion-safe:hover:border-[var(--color-primary)]/40 motion-safe:hover:shadow-[0_0_0_1px_color-mix(in_oklab,var(--color-primary)_18%,transparent),0_10px_24px_color-mix(in_oklab,var(--color-primary)_10%,transparent)]"
                 >
-                  <div className="text-[1.35rem] font-semibold leading-none text-[var(--color-primary)] [font-family:var(--font-display)] transition-colors duration-200 group-hover:text-[var(--color-primary-hover)]">
-                    {value}
-                  </div>
+                  <CountUp
+                    value={value}
+                    className="text-[1.35rem] font-semibold leading-none text-[var(--color-primary)] [font-family:var(--font-display)] transition-colors duration-200 group-hover:text-[var(--color-primary-hover)]"
+                  />
                   <div className="mt-1 text-[0.62rem] uppercase tracking-[0.1em] text-[var(--color-text-muted)]">
                     {label}
                   </div>
@@ -85,7 +87,7 @@ export default function About() {
                     priority={false}
                   />
                   <div className="absolute right-3 top-3 rounded-full border border-[var(--color-primary)]/30 bg-[var(--color-bg)]/90 px-2.5 py-1 text-[0.56rem] font-semibold uppercase tracking-[0.12em] text-[var(--color-primary)] shadow-[0_8px_18px_color-mix(in_oklab,var(--color-primary)_14%,transparent)] transition-transform duration-200 motion-safe:group-hover:-translate-y-0.5">
-                    2+ Years
+                    <CountUp value="2+" className="inline-block" /> Years
                   </div>
                 </div>
                 <div>

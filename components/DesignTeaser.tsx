@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import CountUp from "@/components/CountUp";
 import { designItems } from "@/lib/design-work";
 
 const marqueeItems = [
@@ -292,7 +293,7 @@ export default function DesignTeaser() {
                 className="text-[clamp(1.4rem,3vw,2rem)] leading-none text-[var(--color-text)]"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                {stat.value}
+                <CountUp value={stat.value} />
               </span>
               <span className="text-[0.7rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
                 {stat.label}
