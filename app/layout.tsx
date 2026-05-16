@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import { MotionConfig } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -60,10 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com"
-        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
@@ -78,6 +76,43 @@ export default function RootLayout({
           href="https://api.fontshare.com/v2/css?f=satoshi@400,500,700&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="/favicon-light.ico"
+          media="(prefers-color-scheme: light)"
+        />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="/favicon-dark.ico"
+          media="(prefers-color-scheme: dark)"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Subrat Jena",
+              url: "https://mysjportfolio.vercel.app",
+              jobTitle: "Frontend Developer",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Mumbai",
+                addressCountry: "IN",
+              },
+              worksFor: {
+                "@type": "Organization",
+                name: "Freelance",
+              },
+              sameAs: [
+                "https://linkedin.com/in/subratjena",
+                "https://github.com/subratjena",
+              ],
+            }),
+          }}
+        />
       </head>
       <body
         className={`${inter.variable} ${poppins.variable} app-shell font-inter antialiased`}
@@ -85,6 +120,7 @@ export default function RootLayout({
         <MotionConfig reducedMotion="never">
           <div className="page-shell">{children}</div>
         </MotionConfig>
+        <Analytics />
       </body>
     </html>
   );

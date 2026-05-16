@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: "https://mysjportfolio.vercel.app/design",
     images: [
       {
-        url: "/og-design.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Visual Design Work — Subrat Jena",
@@ -24,8 +24,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Visual Design Work — Subrat Jena",
-    description: "Logos, banners, invitations, and social graphics for real clients.",
-    images: ["https://mysjportfolio.vercel.app/og-design.png"],
+    description:
+      "Logos, banners, invitations, and social graphics for real clients.",
+    images: ["https://mysjportfolio.vercel.app/og-image.png"],
   },
 };
 
