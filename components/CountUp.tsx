@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 type CountUpProps = {
   value: string;
   className?: string;
+  start?: boolean;
   durationMs?: number;
   delayMs?: number;
 };
@@ -22,6 +23,7 @@ function easeOutExpo(t: number): number {
 export default function CountUp({
   value,
   className,
+  start = true,
   durationMs = 2000,
   delayMs = 0,
 }: CountUpProps) {
@@ -40,6 +42,11 @@ export default function CountUp({
   const [displayValue, setDisplayValue] = useState(`${prefix}0${suffix}`);
 
   useEffect(() => {
+    if (!start) {
+      setDisplayValue(`${prefix}0${suffix}`);
+      return;
+    }
+
     if (!match || isNaN(target)) {
       setDisplayValue(value);
       return;
