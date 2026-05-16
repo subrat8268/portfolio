@@ -12,6 +12,7 @@ import {
   Smartphone,
 } from "lucide-react";
 import HeroMockups from "@/components/hero/HeroMockups";
+import DisplayHeading from "@/components/DisplayHeading";
 
 export default function Hero() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -79,14 +80,9 @@ export default function Hero() {
               }
             }
           >
-            <h1 className="text-[clamp(2.75rem,6vw,4.5rem)] font-semibold leading-none -mb-6">
-              <span
-                style={{ fontFamily: "var(--font-display)" }}
-                className="text-[var(--text-primary)]"
-              >
-                Subrat Jena
-              </span>
-            </h1>
+            <DisplayHeading className="text-[clamp(2.75rem,6vw,4.5rem)] font-semibold leading-none -mb-6">
+              Subrat Jena
+            </DisplayHeading>
           </motion.div>
 
           <motion.div
@@ -100,7 +96,7 @@ export default function Hero() {
               }
             }
           >
-            <p className="mt-1 inline-flex items-center gap-2 text-[clamp(1.4rem,2.8vw,2.25rem)] font-bold text-[var(--color-primary)] [font-family:var(--font-body)]">
+            <p className="mt-1 inline-flex items-center gap-2 text-[clamp(1.4rem,2.8vw,2.25rem)] font-bold text-white [font-family:var(--font-body)]">
               Frontend Developer
               <Code2 className="h-4 w-4 opacity-80" aria-hidden="true" />
             </p>

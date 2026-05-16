@@ -6,7 +6,21 @@ type Props = {
 };
 
 export default function DisplayHeading({ children, className }: Props) {
-  const text = String(children);
+  const isString = typeof children === "string";
+  const text = isString ? children : undefined;
+  const content = isString
+    ? String(children)
+        .split(" ")
+        .map((word, wi) => (
+          <span key={wi} className="inline-block mr-[0.2em]">
+            {word.split("").map((char, ci) => (
+              <span key={ci} className="inline-block">
+                {char}
+              </span>
+            ))}
+          </span>
+        ))
+    : children;
   
   return (
     <h2 
@@ -18,13 +32,7 @@ export default function DisplayHeading({ children, className }: Props) {
         className="inline text-[1.15em] text-[var(--color-accent)]"
         aria-hidden="true"
       >
-        {text.split(' ').map((word, wi) => (
-          <span key={wi} className="inline-block mr-[0.2em]">
-            {word.split('').map((char, ci) => (
-              <span key={ci} className="inline-block">{char}</span>
-            ))}
-          </span>
-        ))}
+        {content}
       </span>
     </h2>
   );

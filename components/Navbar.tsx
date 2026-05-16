@@ -78,6 +78,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [scrollProgress, setScrollProgress] = useState(0);
   const drawerRef = useRef<HTMLDivElement>(null);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
   const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -123,17 +124,58 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isMobileOpen) closeDrawer();
-    };
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [isMobileOpen]);
+    const focusableSelector =
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-  useEffect(() => {
-    document.body.style.overflow = isMobileOpen ? "hidden" : "";
+    if (!isMobileOpen) {
+      document.body.style.overflow = "";
+      hamburgerRef.current?.focus();
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+
+    const drawer = drawerRef.current;
+    const focusables = drawer
+      ? Array.from(drawer.querySelectorAll<HTMLElement>(focusableSelector)).filter(
+          (el) => !el.hasAttribute("disabled") && el.offsetParent !== null,
+        )
+      : [];
+
+    focusables[0]?.focus();
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeDrawer();
+        return;
+      }
+
+      if (event.key !== "Tab" || focusables.length === 0) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey) {
+        if (!active || !drawer?.contains(active) || active === first) {
+          event.preventDefault();
+          last.focus();
+        }
+        return;
+      }
+
+      if (!active || !drawer?.contains(active) || active === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+
     return () => {
       document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKeyDown);
     };
   }, [isMobileOpen]);
 
@@ -334,6 +376,7 @@ export default function Navbar() {
             </button>
             <button
               type="button"
+              ref={hamburgerRef}
               aria-label={
                 isMobileOpen ? "Close navigation menu" : "Open navigation menu"
               }

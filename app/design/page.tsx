@@ -20,7 +20,7 @@ export default function DesignPage() {
       <Navbar />
 
       <main className="mx-auto max-w-6xl px-4">
-        <section className="relative overflow-hidden pt-28">
+        <section className="relative flex min-h-[calc(100dvh-4rem)] items-center overflow-hidden py-0">
           <div className="pointer-events-none absolute inset-0 -z-10">
             <motion.div
               aria-hidden="true"
@@ -36,24 +36,45 @@ export default function DesignPage() {
             />
           </div>
 
-          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-            <div className="max-w-3xl">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div className="mx-auto max-w-3xl text-center lg:mx-0 lg:text-left">
               <p className="text-[0.65rem] uppercase tracking-[0.22em] text-[var(--color-text-muted)]">
-                Visual Design Work
+                Design Portfolio
               </p>
-              <DisplayHeading className="mt-3 text-[clamp(2.8rem,6.5vw,5rem)]">
-                Design as a second language.
+              <DisplayHeading className="mt-3 text-[clamp(2.8rem,6.5vw,5rem)] leading-[1.08] tracking-[-0.02em] text-[var(--color-text)]">
+                Crafted for{" "}
+                <em
+                  className="not-italic"
+                  style={{ fontStyle: "italic", color: "var(--color-primary)" }}
+                >
+                  real clients.
+                </em>
               </DisplayHeading>
               <p className="mt-5 max-w-2xl text-sm leading-6 text-[var(--color-text-muted)] md:text-base">
-                I create logos, banners, invitations, and social graphics for real clients.
-                This page is laid out like a gallery wall, so each piece gets room to breathe.
+                Logos, banners, invitations, and social graphics — made in Canva
+                for businesses and events across Mumbai.
               </p>
-              <p className="mt-3 text-sm text-[var(--color-text-muted)]">
-                For my coding work, visit the{" "}
-                <Link href="/" className="underline-offset-4 hover:underline hover:text-[var(--color-text)]">
-                  home page →
-                </Link>
-              </p>
+              <Link
+                href="/"
+                className="mt-3 block text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-200"
+              >
+                ← Back to frontend work
+              </Link>
+
+              <div className="mt-5 flex flex-wrap gap-4 text-sm text-[var(--color-text-muted)]">
+                <div>
+                  <span className="font-[var(--font-display)] text-[1.8rem] leading-none text-[var(--color-text)]">15+</span>
+                  <p className="mt-1 text-xs uppercase tracking-[0.12em]">Projects delivered</p>
+                </div>
+                <div>
+                  <span className="font-[var(--font-display)] text-[1.8rem] leading-none text-[var(--color-text)]">8+</span>
+                  <p className="mt-1 text-xs uppercase tracking-[0.12em]">Real clients</p>
+                </div>
+                <div>
+                  <span className="font-[var(--font-display)] text-[1.8rem] leading-none text-[var(--color-text)]">3</span>
+                  <p className="mt-1 text-xs uppercase tracking-[0.12em]">Design disciplines</p>
+                </div>
+              </div>
 
               <div className="mt-8 flex flex-wrap gap-3">
                 {[
@@ -77,29 +98,10 @@ export default function DesignPage() {
                 ))}
               </div>
 
-              <div className="mt-10 grid gap-3 rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 sm:grid-cols-3">
-                {[
-                  ["Native proportions", "No crop, no squeeze"],
-                  ["Gallery wall", "Curated like an exhibition"],
-                  ["Full-screen view", "Open any piece to inspect"],
-                ].map(([title, copy], index) => (
-                  <motion.div
-                    key={title}
-                    className={`rounded-[22px] border border-[var(--color-border)] p-4 ${
-                      index === 1 ? "bg-[var(--color-primary-highlight)]/15" : "bg-[var(--color-surface-2)]"
-                    }`}
-                    whileHover={shouldReduceMotion ? undefined : { y: -4, scale: 1.01 }}
-                    transition={shouldReduceMotion ? undefined : { duration: 0.2, ease: "easeOut" }}
-                  >
-                    <p className="text-sm font-medium text-[var(--color-text)]">{title}</p>
-                    <p className="mt-1 text-xs text-[var(--color-text-muted)]">{copy}</p>
-                  </motion.div>
-                ))}
-              </div>
             </div>
 
             <motion.div
-              className="relative isolate rounded-[34px] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-lg)]"
+              className="relative isolate mx-auto rounded-[34px] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-lg)] lg:mx-0"
               whileHover={shouldReduceMotion ? undefined : { rotateX: 2, rotateY: -4, y: -4 }}
               transition={shouldReduceMotion ? undefined : { type: "spring", stiffness: 120, damping: 18 }}
               style={{ transformStyle: "preserve-3d", perspective: 1200 }}
@@ -152,11 +154,11 @@ export default function DesignPage() {
                       Gallery mode
                     </p>
                     <p className="mt-1 text-sm text-[var(--color-text)]">
-                      Hover to float, click to inspect, no cropping anywhere.
+                      Hover to explore, click to inspect.
                     </p>
                   </div>
                   <div className="rounded-full border border-[var(--color-primary)]/25 bg-[var(--color-primary-highlight)] px-3 py-1 text-[0.62rem] uppercase tracking-[0.12em] text-[var(--color-primary)]">
-                    Scroll to browse
+                    6 pieces
                   </div>
                 </div>
               </div>
@@ -170,10 +172,14 @@ export default function DesignPage() {
 
         <section className="pb-20 pt-8">
           <div className="border border-[var(--color-border)] bg-[var(--color-surface)] p-6 md:p-8">
-            <h2 className="text-2xl font-semibold">Need a developer who can also design?</h2>
+            <h2 className="text-2xl font-semibold">
+              Let&apos;s make something{" "}
+              <em className="italic not-italic [font-style:italic] [color:var(--color-primary)]">
+                together.
+              </em>
+            </h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--color-text-muted)]">
-              I design and build — logos, launch graphics, and full UI components.
-              One person, zero handoff.
+              One person. Design + code. No handoff, no agency fees.
             </p>
             <div className="mt-6 flex flex-wrap gap-3 text-sm">
               <Link
@@ -186,7 +192,7 @@ export default function DesignPage() {
                 href="/"
                 className="inline-flex items-center rounded-full border border-[var(--color-border)] px-4 py-2 font-medium text-[var(--color-text)] transition-all duration-200 hover:border-white/40 hover:text-[var(--color-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
               >
-                View frontend projects
+                View frontend work
               </Link>
             </div>
           </div>
