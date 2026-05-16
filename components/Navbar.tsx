@@ -2,14 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Download, ArrowRight } from "lucide-react";
+import { Download } from "lucide-react";
 
 const navItems = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "/design", label: "Design Work" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", sectionId: "about", label: "About" },
+  { href: "/#projects", sectionId: "projects", label: "Projects" },
+  { href: "/#skills", sectionId: "skills", label: "Skills" },
+  { href: "/design", sectionId: "design", label: "Design Work" },
+  { href: "/#contact", sectionId: "contact", label: "Contact" },
 ];
 
 // ── Inline SVGs to avoid hydration mismatch with dynamic icon swap ──
@@ -55,9 +55,10 @@ export default function Navbar() {
     // Scroll: navbar shadow + scroll-spy
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      const sectionIds = navItems.map((i) => i.href.replace("#", "")).filter((h) => h.startsWith("") && !h.startsWith("/"));
       let current = "";
-      sectionIds.forEach((id) => {
+      navItems.forEach((item) => {
+        if (!item.sectionId || item.href === "/design") return;
+        const id = item.sectionId;
         const el = document.getElementById(id);
         if (el && window.scrollY >= el.offsetTop - 120) current = id;
       });
@@ -92,7 +93,7 @@ export default function Navbar() {
   const openDrawer = () => setIsMobileOpen(true);
   const closeDrawer = () => setIsMobileOpen(false);
 
-  const isActive = (href: string) => href === `#${activeSection}`;
+  const isActive = (sectionId: string) => sectionId === activeSection;
 
   return (
     <>
@@ -127,7 +128,7 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={`relative text-[0.72rem] font-medium uppercase tracking-[0.13em] [font-family:var(--font-body)] transition-colors duration-200 after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-[var(--accent)] after:transition-all after:duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70 ${
-                  isActive(item.href)
+                  isActive(item.sectionId)
                     ? "[color:var(--text-primary)] after:w-full"
                     : "[color:var(--text-muted)] after:w-0 hover:[color:var(--text-primary)] hover:after:w-full"
                 }`}
@@ -234,7 +235,7 @@ export default function Navbar() {
                 href={item.href}
                 onClick={closeDrawer}
                 className={`group flex items-center justify-between border-b py-4 [font-family:var(--font-display)] text-[1.6rem] tracking-[-0.01em] transition-all duration-200 last:border-none hover:pl-1 ${
-                  isActive(item.href)
+                  isActive(item.sectionId)
                     ? "[color:var(--accent)] border-[color-mix(in_oklab,var(--border-subtle)_50%,transparent)]"
                     : "[color:var(--text-primary)] border-[color-mix(in_oklab,var(--border-subtle)_50%,transparent)] hover:[color:var(--accent)]"
                 }`}
