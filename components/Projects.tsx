@@ -42,10 +42,7 @@ function ImpactPill({ children }: { children: React.ReactNode }) {
 
 export default function Projects() {
   return (
-    <section
-      id="projects"
-      className="bg-[var(--color-bg)] py-[clamp(5.5rem,9vw,10rem)]"
-    >
+    <section id="projects" className="bg-[var(--color-bg)] pb-12 lg:pb-28">
       <div className="mx-auto max-w-6xl px-4">
         <RevealOnScroll>
           <p className="section-label mb-3 text-[0.65rem] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
@@ -464,7 +461,7 @@ export default function Projects() {
                 <motion.div
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
-                className="overflow-hidden rounded-[28px] border border-[var(--color-border)] bg-[var(--color-primary-highlight)]/20"
+                  className="overflow-hidden rounded-[28px] border border-[var(--color-border)] bg-[var(--color-primary-highlight)]/20"
                 >
                   <div className="flex items-center justify-between gap-3 border-b border-[var(--color-border)] bg-[var(--color-surface-offset)] px-4 py-3">
                     <div className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface-2)] text-[0.58rem] font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
@@ -501,7 +498,7 @@ export default function Projects() {
                 <motion.div
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
-                className="overflow-hidden rounded-[28px] border border-[var(--color-border)] bg-[var(--color-primary-highlight)]/20"
+                  className="overflow-hidden rounded-[28px] border border-[var(--color-border)] bg-[var(--color-primary-highlight)]/20"
                 >
                   <div className="flex items-center justify-between gap-3 border-b border-[var(--color-border)] bg-[var(--color-surface-offset)] px-4 py-3">
                     <div className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface-2)] text-[0.58rem] font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">

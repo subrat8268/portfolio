@@ -106,8 +106,7 @@ export default function DesignTeaser() {
           observer.disconnect();
         }
       },
-      // Fix 1: lowered threshold from 0.24 → 0.10 so animation triggers reliably
-      { threshold: 0.10 }
+      { threshold: 0.1 },
     );
     observer.observe(node);
     return () => observer.disconnect();
@@ -117,10 +116,9 @@ export default function DesignTeaser() {
     <section
       ref={sectionRef}
       aria-labelledby="design-teaser-heading"
-      // Fix 2: removed hardcoded teaserTheme inline style — now uses global CSS tokens
       className={[
-        "mx-auto my-8 max-w-6xl overflow-hidden",
-        "rounded-[1.5rem] border border-[var(--color-border)]",
+        "mx-auto my-12 lg:my-28 max-w-6xl overflow-hidden",
+        "rounded-none lg:rounded-[1.5rem] border-y lg:border border-[var(--color-border)]",
         "bg-[var(--color-surface)] transition-all duration-700",
         "[transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
@@ -131,7 +129,6 @@ export default function DesignTeaser() {
         <div className="pointer-events-none absolute right-[-60px] top-[-60px] h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--color-accent)_10%,transparent)_0%,transparent_70%)]" />
 
         <div className="grid gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:gap-16 lg:px-14 lg:py-16">
-
           {/* ── Left copy ── */}
           <div className="max-w-xl">
             <p className="mb-3 text-[0.625rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-text-faint)]">
@@ -149,10 +146,9 @@ export default function DesignTeaser() {
 
             {/* Fix 3: hyphen → proper em-dash */}
             <p className="mt-3 max-w-[44ch] text-[0.9rem] leading-[1.65] text-[var(--color-text-muted)]">
-              Logos, event banners, brand identity systems, and social graphics
-              {" "}&#8212;{" "}
-              crafted for real clients in Canva. Clean, considered, and built
-              to leave an impression.
+              Logos, event banners, brand identity systems, and social graphics{" "}
+              &#8212; crafted for real clients in Canva. Clean, considered, and
+              built to leave an impression.
             </p>
 
             {/* Thumbnail strip */}
@@ -220,9 +216,30 @@ export default function DesignTeaser() {
             <div className="group relative h-full w-full">
               {featuredItems.map((item, index) => {
                 const positions = [
-                  { left: "0px",  top: "0px",   width: "140px", height: "140px", rotate: "-6deg",  translateX: "-8px" },
-                  { left: "55px", top: "50px",  width: "155px", height: "155px", rotate: "2deg",   translateX: "0px" },
-                  { left: "10px", top: "130px", width: "125px", height: "125px", rotate: "-2deg",  translateX: "0px" },
+                  {
+                    left: "0px",
+                    top: "0px",
+                    width: "140px",
+                    height: "140px",
+                    rotate: "-6deg",
+                    translateX: "-8px",
+                  },
+                  {
+                    left: "55px",
+                    top: "50px",
+                    width: "155px",
+                    height: "155px",
+                    rotate: "2deg",
+                    translateX: "0px",
+                  },
+                  {
+                    left: "10px",
+                    top: "130px",
+                    width: "125px",
+                    height: "125px",
+                    rotate: "-2deg",
+                    translateX: "0px",
+                  },
                 ];
                 const hoverClasses = [
                   "group-hover:-translate-x-4 group-hover:-translate-y-2 group-hover:rotate-[-10deg]",
@@ -266,7 +283,9 @@ export default function DesignTeaser() {
               className={[
                 "flex flex-col gap-0.5 px-4 py-5 sm:px-5",
                 index < 3 ? "border-r border-[var(--color-border)]" : "",
-                index >= 2 ? "border-t border-[var(--color-border)] sm:border-t-0" : "",
+                index >= 2
+                  ? "border-t border-[var(--color-border)] sm:border-t-0"
+                  : "",
               ].join(" ")}
             >
               <span
