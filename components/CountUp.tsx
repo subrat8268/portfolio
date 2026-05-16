@@ -10,10 +10,6 @@ type CountUpProps = {
   delayMs?: number;
 };
 
-// Matches: optional prefix (e.g. "$"), digits, optional decimal, optional suffix (e.g. "M+", "+", "%")
-// For "10M+" → prefix="", digits="10", suffix="M+"
-// For "92+"  → prefix="", digits="92", suffix="+"
-// For "2+"   → prefix="", digits="2",  suffix="+"
 const pattern = /^([^\d]*)(\d+(?:\.\d+)?)([^\d]*)$/;
 
 function easeOutExpo(t: number): number {
@@ -24,7 +20,7 @@ export default function CountUp({
   value,
   className,
   start = true,
-  durationMs = 2000,
+  durationMs = 10000,
   delayMs = 0,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -59,13 +55,7 @@ export default function CountUp({
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    // Duration scaled only on the visible digit count (max ~100 scale)
-    // e.g. "10M+" → target=10 → scaledDuration ≈ 2000*(10/100)=200 → clamped to 800
-    // e.g. "92+"  → target=92 → scaledDuration ≈ 2000*(92/100)=1840
-    const scaledDuration = Math.min(
-      Math.max(durationMs * (target / 100), 800),
-      durationMs,
-    );
+    const scaledDuration = durationMs;
 
     const runAnimation = () => {
       if (prefersReducedMotion) {
@@ -89,7 +79,10 @@ export default function CountUp({
           setDisplayValue(value);
           if (ref.current) {
             ref.current.classList.add("countup-done");
-            setTimeout(() => ref.current?.classList.remove("countup-done"), 700);
+            setTimeout(
+              () => ref.current?.classList.remove("countup-done"),
+              700,
+            );
           }
         }
       };
@@ -109,7 +102,7 @@ export default function CountUp({
           }
         }
       },
-      { threshold: 0.3 },
+      { threshold: 0 },
     );
 
     observer.observe(node);
@@ -119,9 +112,7 @@ export default function CountUp({
       if (timeoutRef.current !== null) clearTimeout(timeoutRef.current);
       if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
     };
-  // value string is the only real dep — everything else derives from it
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value, durationMs, delayMs]);
+  }, [value, durationMs, delayMs, start]);
 
   return (
     <span ref={ref} className={className} aria-label={value}>
