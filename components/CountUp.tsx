@@ -18,13 +18,15 @@ function easeOutCubic(t: number) {
 export default function CountUp({
   value,
   className,
-  durationMs = 1400,
-  delayMs = 120,
+  durationMs = 2200,
+  delayMs = 0,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const frameRef = useRef<number | null>(null);
   const timeoutRef = useRef<number | null>(null);
-  const [displayValue, setDisplayValue] = useState("0");
+  const [displayValue, setDisplayValue] = useState(
+    `0${value.replace(/^\d+(\.\d+)?/, "")}`,
+  );
 
   useEffect(() => {
     const match = value.match(numberPattern);
@@ -59,10 +61,12 @@ export default function CountUp({
         return;
       }
 
+      const scaledDuration = Math.max(durationMs * (target / 100), 600);
+
       const start = performance.now();
 
       const tick = (now: number) => {
-        const progress = Math.min((now - start) / durationMs, 1);
+        const progress = Math.min((now - start) / scaledDuration, 1);
         const eased = easeOutCubic(progress);
         const current = Math.round(target * eased);
         setDisplayValue(`${current}${suffix}`);
@@ -71,6 +75,10 @@ export default function CountUp({
           frameRef.current = window.requestAnimationFrame(tick);
         } else {
           setDisplayValue(value);
+          if (ref.current) {
+            ref.current.classList.add("countup-done");
+            window.setTimeout(() => ref.current?.classList.remove("countup-done"), 600);
+          }
         }
       };
 

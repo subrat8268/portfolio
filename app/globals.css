@@ -290,6 +290,22 @@ textarea {
   }
 }
 
+@keyframes countupPulse {
+  0% {
+    text-shadow: 0 0 0px transparent;
+  }
+  40% {
+    text-shadow: 0 0 18px color-mix(in oklab, var(--accent) 55%, transparent);
+  }
+  100% {
+    text-shadow: 0 0 0px transparent;
+  }
+}
+
+.countup-done {
+  animation: countupPulse 600ms ease-out forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .code-cursor {
     animation: none;
