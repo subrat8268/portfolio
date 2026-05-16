@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Teaser — Redesigned</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --font-display:'Instrument Serif',Georgia,serif;
+  --font-body:'DM Sans','Helvetica Neue',sans-serif;
+  --color-bg:#171614;
+  --color-surface:#1c1b19;
+  --color-surface-2:#201f1d;
+  --color-border:#393836;
+  --color-text:#cdccca;
+  --color-text-muted:#797876;
+  --color-text-faint:#5a5957;
+  --color-accent:#e8540e;
+  --color-accent-hover:#c94200;
+  --radius-sm:0.375rem;
+  --radius-md:0.5rem;
+  --radius-lg:0.75rem;
+  --radius-xl:1rem;
+  --radius-2xl:1.5rem;
+  --radius-full:9999px;
+}
+html{font-family:var(--font-body);background:var(--color-bg);color:var(--color-text);-webkit-font-smoothing:antialiased}
+body{min-height:100dvh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:2rem 1rem;gap:3rem}
+
+/* ─── MARQUEE ─── */
+.marquee-wrapper{
+  width:100%;
+  overflow:hidden;
+  border-top:1px solid var(--color-border);
+  border-bottom:1px solid var(--color-border);
+  background:var(--color-accent);
+  padding:0.6rem 0;
+}
+.marquee-track{
+  display:flex;
+  width:max-content;
+  gap:2.5rem;
+  animation:marqueeRoll 24s linear infinite;
+  white-space:nowrap;
+}
+.marquee-track span{
+  font-size:0.625rem;
+  font-weight:500;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:#fff;
+  display:inline-flex;
+  align-items:center;
+  gap:2rem;
+}
+.marquee-track span::after{content:"✦";opacity:.3;font-size:.7em}
+@keyframes marqueeRoll{to{transform:translateX(-50%)}}
+
+/* ─── SECTION ─── */
+.design-section{
+  width:100%;
+  max-width:72rem;
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-2xl);
+  overflow:hidden;
+  background:var(--color-surface);
+  position:relative;
+}
+
+/* Subtle radial glow top-right */
+.design-section::before{
+  content:'';
+  position:absolute;
+  top:-60px;right:-60px;
+  width:320px;height:320px;
+  background:radial-gradient(circle,oklch(0.55 0.18 40 / 0.10) 0%,transparent 70%);
+  pointer-events:none;
+  border-radius:50%;
+}
+
+.section-inner{
+  padding:3.5rem clamp(1.5rem,5vw,3.5rem);
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:clamp(2rem,4vw,4rem);
+}
+@media(max-width:640px){.section-inner{grid-template-columns:1fr;gap:2rem}}
+
+/* ─── LEFT COPY ─── */
+.label{
+  font-size:0.625rem;
+  font-weight:600;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--color-text-faint);
+  margin-bottom:0.75rem;
+}
+.headline{
+  font-family:var(--font-display);
+  font-size:clamp(2rem,4.5vw,3.25rem);
+  line-height:1.1;
+  color:var(--color-text);
+  margin-bottom:0.75rem;
+}
+.headline em{
+  font-style:italic;
+  color:var(--color-accent);
+}
+.sub{
+  font-size:0.9rem;
+  line-height:1.65;
+  color:var(--color-text-muted);
+  max-width:44ch;
+  margin-bottom:2rem;
+}
+
+/* ─── THUMBNAIL STRIP ─── */
+.thumb-strip{
+  display:flex;
+  gap:0.75rem;
+  margin-bottom:2rem;
+}
+.thumb{
+  position:relative;
+  width:72px;height:72px;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  border:1px solid var(--color-border);
+  background:var(--color-surface-2);
+  flex-shrink:0;
+  cursor:pointer;
+  transition:transform 200ms cubic-bezier(0.16,1,0.3,1),
+             box-shadow 200ms cubic-bezier(0.16,1,0.3,1);
+}
+.thumb img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform 300ms cubic-bezier(0.16,1,0.3,1);
+}
+.thumb:hover{
+  transform:translateY(-4px) scale(1.04);
+  box-shadow:0 12px 28px oklch(0 0 0 / .4);
+}
+.thumb:hover img{transform:scale(1.08)}
+
+/* ─── TAG CHIPS ─── */
+.chip-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.5rem;
+  margin-bottom:2rem;
+}
+.chip{
+  font-size:0.7rem;
+  font-weight:500;
+  letter-spacing:0.04em;
+  padding:0.3rem 0.85rem;
+  border-radius:var(--radius-full);
+  border:1px solid var(--color-border);
+  color:var(--color-text-muted);
+  background:var(--color-surface-2);
+  transition:background 180ms,color 180ms,border-color 180ms;
+  cursor:default;
+}
+.chip:hover{
+  background:oklch(from var(--color-accent) l c h / 0.12);
+  border-color:oklch(from var(--color-accent) l c h / 0.35);
+  color:var(--color-text);
+}
+
+/* ─── CTA BUTTON ─── */
+.cta-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:0.55rem;
+  background:var(--color-accent);
+  color:#fff;
+  font-family:var(--font-body);
+  font-size:0.875rem;
+  font-weight:600;
+  padding:0.8rem 1.6rem;
+  border-radius:var(--radius-full);
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  position:relative;
+  overflow:hidden;
+  transition:background 200ms cubic-bezier(0.16,1,0.3,1),
+             transform 200ms cubic-bezier(0.16,1,0.3,1),
+             box-shadow 200ms cubic-bezier(0.16,1,0.3,1);
+  box-shadow:0 4px 16px oklch(from var(--color-accent) l c h / 0.25);
+}
+.cta-btn::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent 0%,oklch(1 0 0 / .1) 50%,transparent 100%);
+  transform:translateX(-100%);
+  transition:transform 500ms cubic-bezier(0.16,1,0.3,1);
+}
+.cta-btn:hover{
+  background:var(--color-accent-hover);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px oklch(from var(--color-accent) l c h / 0.35);
+}
+.cta-btn:hover::before{transform:translateX(100%)}
+.cta-btn:active{transform:translateY(0);box-shadow:0 2px 8px oklch(from var(--color-accent) l c h / 0.2)}
+
+/* Arrow icon animates right on hover */
+.cta-btn .arrow{
+  display:inline-block;
+  transition:transform 200ms cubic-bezier(0.16,1,0.3,1);
+}
+.cta-btn:hover .arrow{transform:translateX(3px)}
+
+/* ─── RIGHT SIDE — big image stack ─── */
+.image-stack{
+  position:relative;
+  width:clamp(180px,24vw,260px);
+  height:clamp(200px,26vw,290px);
+  flex-shrink:0;
+}
+.stack-card{
+  position:absolute;
+  border-radius:var(--radius-xl);
+  overflow:hidden;
+  border:1px solid var(--color-border);
+  background:var(--color-surface-2);
+  box-shadow:0 8px 24px oklch(0 0 0 / .35);
+  transition:transform 400ms cubic-bezier(0.16,1,0.3,1);
+}
+.stack-card img{width:100%;height:100%;object-fit:cover;display:block}
+.card-1{width:140px;height:140px;top:0;left:0;transform:rotate(-6deg) translateX(-8px);z-index:1}
+.card-2{width:155px;height:155px;top:50px;left:55px;transform:rotate(2deg);z-index:2}
+.card-3{width:125px;height:125px;top:130px;left:10px;transform:rotate(-2deg);z-index:3}
+.image-stack:hover .card-1{transform:rotate(-10deg) translateX(-16px) translateY(-8px)}
+.image-stack:hover .card-2{transform:rotate(4deg) translateY(-6px)}
+.image-stack:hover .card-3{transform:rotate(0deg) translateX(6px) translateY(6px)}
+@media(max-width:640px){.image-stack{display:none}}
+
+/* ─── SCROLL FADE-IN ─── */
+@supports (animation-timeline: scroll()){
+  .fade-in-section{
+    opacity:0;
+    animation:fadeUp linear both;
+    animation-timeline:view();
+    animation-range:entry 0% entry 60%;
+  }
+  @keyframes fadeUp{to{opacity:1}}
+}
+
+/* ─── STAT ROW ─── */
+.stat-row{
+  border-top:1px solid var(--color-border);
+  display:flex;
+  gap:0;
+  overflow:hidden;
+}
+.stat{
+  flex:1;
+  padding:1.25rem clamp(1rem,3vw,2rem);
+  border-right:1px solid var(--color-border);
+  display:flex;
+  flex-direction:column;
+  gap:0.2rem;
+}
+.stat:last-child{border-right:none}
+.stat-num{
+  font-family:var(--font-display);
+  font-size:clamp(1.4rem,3vw,2rem);
+  line-height:1;
+  color:var(--color-text);
+}
+.stat-label{font-size:0.7rem;letter-spacing:0.08em;color:var(--color-text-muted);text-transform:uppercase}
+@media(max-width:480px){.stat-row{flex-wrap:wrap}.stat{flex:1 1 50%}.stat:nth-child(2){border-right:none}.stat:nth-child(3){border-top:1px solid var(--color-border)}.stat:nth-child(4){border-top:1px solid var(--color-border);border-right:none}}
+</style>
+</head>
+<body>
+
+<!-- MARQUEE STRIP -->
+<div class="marquee-wrapper" role="region" aria-label="Design services">
+  <div class="marquee-track" aria-hidden="true">
+    <span>Logo Design</span>
+    <span>Festival Banners</span>
+    <span>Brand Identity</span>
+    <span>Social Media Graphics</span>
+    <span>Invitations</span>
+    <span>Print Design</span>
+    <span>Canva Expert</span>
+    <span>Real Client Work</span>
+    <span>Logo Design</span>
+    <span>Festival Banners</span>
+    <span>Brand Identity</span>
+    <span>Social Media Graphics</span>
+    <span>Invitations</span>
+    <span>Print Design</span>
+    <span>Canva Expert</span>
+    <span>Real Client Work</span>
+  </div>
+</div>
+
+<!-- MAIN SECTION -->
+<section class="design-section fade-in-section" aria-labelledby="design-heading">
+  <div class="section-inner">
+
+    <!-- LEFT: Copy + thumbnails + CTA -->
+    <div>
+      <p class="label">Beyond the code</p>
+      <h2 class="headline" id="design-heading">
+        Pixels with<br><em>purpose.</em>
+      </h2>
+      <p class="sub">
+        Logos, event banners, brand identity systems, and social graphics — crafted for real clients in Canva. Clean, considered, and built to leave an impression.
+      </p>
+
+      <!-- Small thumbnail row -->
+      <div class="thumb-strip" role="list" aria-label="Design samples">
+        <div class="thumb" role="listitem" title="Education Programme Emblem">
+          <img
+            src="https://res.cloudinary.com/drmgqakwr/image/upload/v1778689052/Untitled_design_2_srqusw.png"
+            alt="USSEPP Education Programme Logo"
+            width="72" height="72" loading="lazy"
+          >
+        </div>
+        <div class="thumb" role="listitem" title="Festival Mandal Banner">
+          <img
+            src="https://res.cloudinary.com/drmgqakwr/image/upload/v1778689107/Ekdant_diwali_23_cvewav.png"
+            alt="Ekadant Diwali Festival Banner"
+            width="72" height="72" loading="lazy"
+          >
+        </div>
+        <div class="thumb" role="listitem" title="Corporate Identity">
+          <img
+            src="https://res.cloudinary.com/drmgqakwr/image/upload/v1778688838/LGI_Variation_Logo_fcr5ac.png"
+            alt="Laxmi Global Impex Logo"
+            width="72" height="72" loading="lazy"
+          >
+        </div>
+      </div>
+
+      <!-- Discipline chips -->
+      <div class="chip-row" aria-label="Design disciplines">
+        <span class="chip">Logos</span>
+        <span class="chip">Branding</span>
+        <span class="chip">Banners</span>
+        <span class="chip">Social Graphics</span>
+        <span class="chip">Print</span>
+        <span class="chip">Invitations</span>
+      </div>
+
+      <!-- CTA -->
+      <a href="/design" class="cta-btn">
+        Explore Design Work
+        <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- RIGHT: Stacked image cards -->
+    <div class="image-stack" aria-hidden="true">
+      <div class="stack-card card-1">
+        <img
+          src="https://res.cloudinary.com/drmgqakwr/image/upload/v1778688838/LGI_Variation_Logo_fcr5ac.png"
+          alt="" width="140" height="140" loading="lazy"
+        >
+      </div>
+      <div class="stack-card card-2">
+        <img
+          src="https://res.cloudinary.com/drmgqakwr/image/upload/v1778689107/Ekdant_diwali_23_cvewav.png"
+          alt="" width="155" height="155" loading="lazy"
+        >
+      </div>
+      <div class="stack-card card-3">
+        <img
+          src="https://res.cloudinary.com/drmgqakwr/image/upload/v1778689052/Untitled_design_2_srqusw.png"
+          alt="" width="125" height="125" loading="lazy"
+        >
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STAT ROW -->
+  <div class="stat-row" aria-label="Design statistics">
+    <div class="stat">
+      <span class="stat-num">15+</span>
+      <span class="stat-label">Projects</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">8+</span>
+      <span class="stat-label">Real Clients</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">3</span>
+      <span class="stat-label">Categories</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Canva Built</span>
+    </div>
+  </div>
+</section>
+
+<p style="font-size:.75rem;color:#5a5957;text-align:center">Preview — DesignTeaser redesign for subrat8268/portfolio</p>
+
+</body>
+</html>
