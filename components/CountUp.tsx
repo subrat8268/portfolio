@@ -5,55 +5,51 @@ import { useEffect, useRef, useState } from "react";
 type CountUpProps = {
   value: string;
   className?: string;
+  /** Total animation duration in ms — scales down automatically for small numbers */
   durationMs?: number;
+  /** Delay before animation starts (use for stagger) */
   delayMs?: number;
 };
 
 const numberPattern = /^(\d+(?:\.\d+)?)(.*)$/;
 
-function easeOutCubic(t: number) {
-  return 1 - Math.pow(1 - t, 3);
+function easeOutExpo(t: number): number {
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
 }
 
 export default function CountUp({
   value,
   className,
-  durationMs = 2200,
+  durationMs = 2400,
   delayMs = 0,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const frameRef = useRef<number | null>(null);
-  const timeoutRef = useRef<number | null>(null);
-  const [displayValue, setDisplayValue] = useState(
-    `0${value.replace(/^\d+(\.\d+)?/, "")}`,
-  );
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const match = value.match(numberPattern);
+  const suffix = match ? (match[2] ?? "") : "";
+  // suffix visible from frame 0: "0+" not "0"
+  const [displayValue, setDisplayValue] = useState(`0${suffix}`);
 
   useEffect(() => {
-    const match = value.match(numberPattern);
-
     if (!match) {
       setDisplayValue(value);
       return;
     }
 
-    const target = Number(match[1]);
-    const suffix = match[2] ?? "";
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const target = parseFloat(match[1]);
+    const isDecimal = match[1].includes(".");
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     const node = ref.current;
-
     if (!node) return;
 
-    const run = () => {
-      if (delayMs > 0) {
-        timeoutRef.current = window.setTimeout(() => {
-          timeoutRef.current = null;
-          runAnimation();
-        }, delayMs);
-        return;
-      }
-
-      runAnimation();
-    };
+    // Scale duration so "3" still feels deliberate, not instant
+    const scaledDuration = prefersReducedMotion
+      ? 0
+      : Math.max(durationMs * Math.sqrt(target / 100), 900);
 
     const runAnimation = () => {
       if (prefersReducedMotion) {
@@ -66,47 +62,54 @@ export default function CountUp({
       const start = performance.now();
 
       const tick = (now: number) => {
-        const progress = Math.min((now - start) / scaledDuration, 1);
-        const eased = easeOutCubic(progress);
-        const current = Math.round(target * eased);
+        const raw = Math.min((now - start) / scaledDuration, 1);
+        const eased = easeOutExpo(raw);
+        const current = isDecimal
+          ? (target * eased).toFixed(1)
+          : String(Math.round(target * eased));
         setDisplayValue(`${current}${suffix}`);
 
-        if (progress < 1) {
-          frameRef.current = window.requestAnimationFrame(tick);
+        if (raw < 1) {
+          frameRef.current = requestAnimationFrame(tick);
         } else {
           setDisplayValue(value);
+          // glow pulse on finish
           if (ref.current) {
             ref.current.classList.add("countup-done");
-            window.setTimeout(() => ref.current?.classList.remove("countup-done"), 600);
+            setTimeout(
+              () => ref.current?.classList.remove("countup-done"),
+              700,
+            );
           }
         }
       };
 
-      frameRef.current = window.requestAnimationFrame(tick);
+      frameRef.current = requestAnimationFrame(tick);
     };
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           observer.disconnect();
-          run();
+          if (delayMs > 0) {
+            timeoutRef.current = setTimeout(runAnimation, delayMs);
+          } else {
+            runAnimation();
+          }
         }
       },
-      { threshold: 0.45 },
+      { threshold: 0.35 },
     );
 
     observer.observe(node);
 
     return () => {
       observer.disconnect();
-      if (timeoutRef.current !== null) {
-        window.clearTimeout(timeoutRef.current);
-      }
-      if (frameRef.current !== null) {
-        window.cancelAnimationFrame(frameRef.current);
-      }
+      if (timeoutRef.current !== null) clearTimeout(timeoutRef.current);
+      if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
     };
-  }, [delayMs, durationMs, value]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value, durationMs, delayMs]);
 
   return (
     <span ref={ref} className={className} aria-label={value}>
