@@ -96,7 +96,7 @@ export default function About() {
                     width={520}
                     height={640}
                     className="h-[220px] w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-[1.03] md:h-[248px]"
-                    priority={false}
+                    priority
                   />
                   <div className="absolute right-3 top-3 rounded-full border border-[var(--color-primary)]/30 bg-[var(--color-bg)]/90 px-2.5 py-1 text-[0.56rem] font-semibold uppercase tracking-[0.12em] text-[var(--color-primary)] shadow-[0_8px_18px_color-mix(in_oklab,var(--color-primary)_14%,transparent)] transition-transform duration-200 motion-safe:group-hover:-translate-y-0.5">
                     <CountUp value="2+" delayMs={0} durationMs={2400} className="inline-block" /> Years

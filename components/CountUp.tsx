@@ -20,7 +20,7 @@ export default function CountUp({
   value,
   className,
   start = true,
-  durationMs = 10000,
+  durationMs = 5000,
   delayMs = 0,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);

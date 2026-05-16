@@ -137,7 +137,9 @@ export default function Navbar() {
 
     const drawer = drawerRef.current;
     const focusables = drawer
-      ? Array.from(drawer.querySelectorAll<HTMLElement>(focusableSelector)).filter(
+      ? Array.from(
+          drawer.querySelectorAll<HTMLElement>(focusableSelector),
+        ).filter(
           (el) => !el.hasAttribute("disabled") && el.offsetParent !== null,
         )
       : [];
@@ -220,7 +222,7 @@ export default function Navbar() {
         type="button"
         aria-label={`Back to top — ${pct}% read`}
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="group fixed bottom-6 right-6 z-[60] h-12 w-12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
+        className="group fixed bottom-6 right-6 z-[60] h-12 w-12 rounded-full bg-[var(--color-bg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
         style={{
           opacity: ringVisible ? 1 : 0,
           transform: ringVisible
