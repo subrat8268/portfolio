@@ -46,7 +46,6 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [scrollProgress, setScrollProgress] = useState(0);
   const drawerRef = useRef<HTMLDivElement>(null);
-  // rAF ref so we never queue more than one frame
   const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -58,7 +57,6 @@ export default function Navbar() {
     setIsMounted(true);
 
     const handleScroll = () => {
-      // Throttle to one rAF per frame for silky 60fps updates
       if (rafRef.current !== null) return;
       rafRef.current = requestAnimationFrame(() => {
         rafRef.current = null;
@@ -116,7 +114,11 @@ export default function Navbar() {
     <>
       {/* ── SCROLL PROGRESS LINE ── */}
       <div
-        aria-hidden="true"
+        role="progressbar"
+        aria-label="Page scroll progress"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={pct}
         className="fixed left-0 top-16 z-[51] h-[2px] origin-left will-change-[width]"
         style={{
           width: `${scrollProgress * 100}%`,
@@ -125,7 +127,6 @@ export default function Navbar() {
             "0 0 10px 2px color-mix(in oklab, var(--accent) 60%, transparent)," +
             "0 0 22px 4px color-mix(in oklab, var(--accent) 22%, transparent)",
           borderRadius: "0 2px 2px 0",
-          // 120ms ease-out feels instant on fast scroll, smooth on slow scroll
           transition: "width 120ms cubic-bezier(0.25, 1, 0.5, 1)",
         }}
       />
@@ -140,7 +141,6 @@ export default function Navbar() {
           opacity: ringVisible ? 1 : 0,
           transform: ringVisible ? "scale(1) translateY(0)" : "scale(0.82) translateY(10px)",
           pointerEvents: ringVisible ? "all" : "none",
-          // Spring-in / spring-out
           transition:
             "opacity 400ms cubic-bezier(0.16, 1, 0.3, 1)," +
             "transform 400ms cubic-bezier(0.16, 1, 0.3, 1)",
@@ -152,11 +152,8 @@ export default function Navbar() {
           viewBox="0 0 48 48"
           className="rotate-[-90deg]"
           aria-hidden="true"
-          style={{ transition: "transform 200ms cubic-bezier(0.16,1,0.3,1)" }}
         >
-          {/* Track */}
           <circle cx="24" cy="24" r={RING_R} fill="none" stroke="var(--border-subtle)" strokeWidth="3" />
-          {/* Animated fill */}
           <circle
             cx="24" cy="24" r={RING_R}
             fill="none"
@@ -166,15 +163,12 @@ export default function Navbar() {
             strokeDasharray={CIRCUMFERENCE}
             strokeDashoffset={ringOffset}
             style={{
-              // Match line: 120ms ease-out so ring + line feel in sync
               transition: "stroke-dashoffset 120ms cubic-bezier(0.25, 1, 0.5, 1)",
               filter: "drop-shadow(0 0 5px color-mix(in oklab, var(--accent) 50%, transparent))",
               willChange: "stroke-dashoffset",
             }}
           />
         </svg>
-
-        {/* Arrow — fades out on hover */}
         <span
           className="absolute inset-0 flex items-center justify-center [color:var(--text-muted)] transition-opacity duration-200 group-hover:opacity-0"
           aria-hidden="true"
@@ -183,8 +177,6 @@ export default function Navbar() {
             <path d="M8 13V3M3 8l5-5 5 5" />
           </svg>
         </span>
-
-        {/* Percentage — fades in on hover */}
         <span
           className="absolute inset-0 flex items-center justify-center text-[0.58rem] font-semibold [color:var(--text-primary)] opacity-0 transition-opacity duration-200 group-hover:opacity-100"
           aria-hidden="true"
