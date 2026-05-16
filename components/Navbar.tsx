@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Download, ArrowRight } from "lucide-react";
+import { Download } from "lucide-react";
 
 const navItems = [
   { href: "#about", label: "About" },
@@ -12,7 +12,9 @@ const navItems = [
   { href: "#contact", label: "Contact" },
 ];
 
-// ── Inline SVGs to avoid hydration mismatch with dynamic icon swap ──
+const RING_R = 22;
+const CIRCUMFERENCE = 2 * Math.PI * RING_R; // 138.23
+
 function SunIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -42,6 +44,7 @@ export default function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [activeSection, setActiveSection] = useState("");
+  const [scrollProgress, setScrollProgress] = useState(0); // 0–1
   const drawerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -52,31 +55,36 @@ export default function Navbar() {
     document.documentElement.setAttribute("data-theme", nextTheme);
     setIsMounted(true);
 
-    // Scroll: navbar shadow + scroll-spy
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-      const sectionIds = navItems.map((i) => i.href.replace("#", "")).filter((h) => h.startsWith("") && !h.startsWith("/"));
+      const sy = window.scrollY;
+      // Navbar shadow
+      setIsScrolled(sy > 50);
+      // Scroll progress (0–1)
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(docH > 0 ? Math.min(sy / docH, 1) : 0);
+      // Scroll-spy
+      const sectionIds = navItems
+        .map((i) => i.href.replace("#", ""))
+        .filter((h) => !h.startsWith("/"));
       let current = "";
       sectionIds.forEach((id) => {
         const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 120) current = id;
+        if (el && sy >= el.offsetTop - 120) current = id;
       });
       setActiveSection(current);
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close drawer on Escape
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape" && isMobileOpen) closeDrawer(); };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [isMobileOpen]);
 
-  // Lock body scroll when drawer open
   useEffect(() => {
     document.body.style.overflow = isMobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -91,11 +99,89 @@ export default function Navbar() {
 
   const openDrawer = () => setIsMobileOpen(true);
   const closeDrawer = () => setIsMobileOpen(false);
-
   const isActive = (href: string) => href === `#${activeSection}`;
+
+  const ringOffset = CIRCUMFERENCE * (1 - scrollProgress);
+  const ringVisible = scrollProgress > 0.05;
+  const pct = Math.round(scrollProgress * 100);
 
   return (
     <>
+      {/* ── SCROLL PROGRESS LINE — sits flush under sticky header ── */}
+      <div
+        aria-hidden="true"
+        className="fixed left-0 top-16 z-[51] h-[2px] origin-left"
+        style={{
+          width: `${scrollProgress * 100}%`,
+          background: "linear-gradient(90deg, var(--accent) 0%, #ff9a8b 100%)",
+          boxShadow: "0 0 8px 1px color-mix(in oklab, var(--accent) 65%, transparent), 0 0 18px 2px color-mix(in oklab, var(--accent) 28%, transparent)",
+          borderRadius: "0 2px 2px 0",
+          transition: "width 80ms linear",
+        }}
+      />
+
+      {/* ── RING FAB — back-to-top, visible after 5% scroll ── */}
+      <button
+        type="button"
+        aria-label={`Back to top — ${pct}% read`}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="group fixed bottom-6 right-6 z-[60] h-12 w-12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
+        style={{
+          opacity: ringVisible ? 1 : 0,
+          transform: ringVisible ? "scale(1) translateY(0)" : "scale(0.88) translateY(8px)",
+          pointerEvents: ringVisible ? "all" : "none",
+          transition: "opacity 300ms cubic-bezier(0.16,1,0.3,1), transform 300ms cubic-bezier(0.16,1,0.3,1)",
+        }}
+      >
+        {/* SVG ring */}
+        <svg
+          width="48" height="48"
+          viewBox="0 0 48 48"
+          className="rotate-[-90deg] transition-transform duration-200 group-hover:scale-105"
+          aria-hidden="true"
+        >
+          {/* Track */}
+          <circle
+            cx="24" cy="24" r={RING_R}
+            fill="none"
+            stroke="var(--border-subtle)"
+            strokeWidth="3"
+          />
+          {/* Fill */}
+          <circle
+            cx="24" cy="24" r={RING_R}
+            fill="none"
+            stroke="var(--accent)"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeDasharray={CIRCUMFERENCE}
+            strokeDashoffset={ringOffset}
+            style={{
+              transition: "stroke-dashoffset 80ms linear",
+              filter: "drop-shadow(0 0 4px color-mix(in oklab, var(--accent) 55%, transparent))",
+            }}
+          />
+        </svg>
+
+        {/* Up arrow — hidden on hover, replaced by % */}
+        <span
+          className="absolute inset-0 flex items-center justify-center [color:var(--text-muted)] transition-opacity duration-150 group-hover:opacity-0"
+          aria-hidden="true"
+        >
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M8 13V3M3 8l5-5 5 5" />
+          </svg>
+        </span>
+
+        {/* Percentage — visible on hover */}
+        <span
+          className="absolute inset-0 flex items-center justify-center text-[0.58rem] font-semibold [color:var(--text-primary)] opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+          aria-hidden="true"
+        >
+          {pct}%
+        </span>
+      </button>
+
       {/* ── HEADER ── */}
       <header
         className={`sticky top-0 z-50 border-b backdrop-blur-md transition-all duration-300 ${
@@ -112,7 +198,6 @@ export default function Navbar() {
       >
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 lg:px-5">
 
-          {/* Logo */}
           <Link
             href="/"
             className="text-[1.03rem] tracking-[-0.01em] [color:var(--text-primary)] [font-family:var(--font-display)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
@@ -120,7 +205,6 @@ export default function Navbar() {
             Subrat Jena
           </Link>
 
-          {/* Desktop nav links */}
           <nav className="hidden items-center gap-7 md:flex" aria-label="Main navigation">
             {navItems.map((item) => (
               <Link
@@ -137,7 +221,6 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop right actions */}
           <div className="hidden items-center gap-2.5 md:flex">
             <button
               type="button"
@@ -157,7 +240,6 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile: theme toggle + hamburger — always visible */}
           <div className="flex items-center gap-2 md:hidden">
             <button
               type="button"
@@ -167,7 +249,6 @@ export default function Navbar() {
             >
               {isMounted && (theme === "dark" ? <SunIcon /> : <MoonIcon />)}
             </button>
-
             <button
               type="button"
               aria-label={isMobileOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -176,20 +257,10 @@ export default function Navbar() {
               onClick={isMobileOpen ? closeDrawer : openDrawer}
               className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-subtle)] [color:var(--text-primary)] transition-colors duration-200 hover:border-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
             >
-              {/* Animated hamburger → X lines */}
               <div className="flex flex-col gap-[5px] w-[18px]">
-                <span
-                  className="block h-[1.5px] w-full rounded-sm bg-current origin-center transition-transform duration-300"
-                  style={{ transform: isMobileOpen ? "translateY(6.5px) rotate(45deg)" : "none" }}
-                />
-                <span
-                  className="block h-[1.5px] w-full rounded-sm bg-current transition-all duration-200"
-                  style={{ opacity: isMobileOpen ? 0 : 1, transform: isMobileOpen ? "scaleX(0)" : "none" }}
-                />
-                <span
-                  className="block h-[1.5px] w-full rounded-sm bg-current origin-center transition-transform duration-300"
-                  style={{ transform: isMobileOpen ? "translateY(-6.5px) rotate(-45deg)" : "none" }}
-                />
+                <span className="block h-[1.5px] w-full rounded-sm bg-current origin-center transition-transform duration-300" style={{ transform: isMobileOpen ? "translateY(6.5px) rotate(45deg)" : "none" }} />
+                <span className="block h-[1.5px] w-full rounded-sm bg-current transition-all duration-200" style={{ opacity: isMobileOpen ? 0 : 1, transform: isMobileOpen ? "scaleX(0)" : "none" }} />
+                <span className="block h-[1.5px] w-full rounded-sm bg-current origin-center transition-transform duration-300" style={{ transform: isMobileOpen ? "translateY(-6.5px) rotate(-45deg)" : "none" }} />
               </div>
             </button>
           </div>
@@ -251,8 +322,6 @@ export default function Navbar() {
               </Link>
             ))}
           </nav>
-
-          {/* CV button at bottom of drawer */}
           <a
             href="/subrat-cv.pdf"
             download
