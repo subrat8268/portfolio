@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 type CountUpProps = {
   value: string;
   className?: string;
+  start?: boolean;
   /** Total animation duration in ms — scales down automatically for small numbers */
   durationMs?: number;
   /** Delay before animation starts (use for stagger) */
@@ -22,10 +23,11 @@ export default function CountUp({
   className,
   durationMs = 2400,
   delayMs = 0,
+  start = true,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const frameRef = useRef<number | null>(null);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const timeoutRef = useRef<number | null>(null);
 
   const match = value.match(numberPattern);
   const suffix = match ? (match[2] ?? "") : "";
@@ -38,18 +40,16 @@ export default function CountUp({
       return;
     }
 
+    if (!start) {
+      setDisplayValue(`0${suffix}`);
+      return;
+    }
+
     const target = parseFloat(match[1]);
     const isDecimal = match[1].includes(".");
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    const node = ref.current;
-    if (!node) return;
-
-    // Scale duration so "3" still feels deliberate, not instant
-    const scaledDuration = prefersReducedMotion
-      ? 0
-      : Math.max(durationMs * Math.sqrt(target / 100), 900);
 
     const runAnimation = () => {
       if (prefersReducedMotion) {
@@ -70,13 +70,13 @@ export default function CountUp({
         setDisplayValue(`${current}${suffix}`);
 
         if (raw < 1) {
-          frameRef.current = requestAnimationFrame(tick);
+          frameRef.current = window.requestAnimationFrame(tick);
         } else {
           setDisplayValue(value);
           // glow pulse on finish
           if (ref.current) {
             ref.current.classList.add("countup-done");
-            setTimeout(
+            window.setTimeout(
               () => ref.current?.classList.remove("countup-done"),
               700,
             );
@@ -84,32 +84,20 @@ export default function CountUp({
         }
       };
 
-      frameRef.current = requestAnimationFrame(tick);
+      frameRef.current = window.requestAnimationFrame(tick);
     };
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          observer.disconnect();
-          if (delayMs > 0) {
-            timeoutRef.current = setTimeout(runAnimation, delayMs);
-          } else {
-            runAnimation();
-          }
-        }
-      },
-      { threshold: 0.35 },
-    );
-
-    observer.observe(node);
+    if (delayMs > 0) {
+      timeoutRef.current = window.setTimeout(runAnimation, delayMs);
+    } else {
+      runAnimation();
+    }
 
     return () => {
-      observer.disconnect();
-      if (timeoutRef.current !== null) clearTimeout(timeoutRef.current);
-      if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
+      if (timeoutRef.current !== null) window.clearTimeout(timeoutRef.current);
+      if (frameRef.current !== null) window.cancelAnimationFrame(frameRef.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value, durationMs, delayMs]);
+  }, [delayMs, durationMs, match, start, suffix, value]);
 
   return (
     <span ref={ref} className={className} aria-label={value}>

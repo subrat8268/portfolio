@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -80,8 +81,10 @@ export function DesignMarquee() {
 
 export default function DesignTeaser() {
   const sectionRef = useRef<HTMLElement | null>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const statsInView = useInView(statsRef, { once: true, margin: "-80px" });
 
   const featuredItems = designItems.filter((item) => item.featured).slice(0, 3);
 
@@ -277,7 +280,7 @@ export default function DesignTeaser() {
         </div>
 
         {/* Stats row */}
-        <div className="grid grid-cols-2 border-t border-[var(--color-border)] sm:grid-cols-4">
+        <div ref={statsRef} className="grid grid-cols-2 border-t border-[var(--color-border)] sm:grid-cols-4">
           {stats.map((stat, index) => (
             <div
               key={stat.label}
@@ -293,7 +296,7 @@ export default function DesignTeaser() {
                 className="text-[clamp(1.4rem,3vw,2rem)] leading-none text-[var(--color-text)]"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                <CountUp value={stat.value} />
+                <CountUp value={stat.value} start={statsInView} />
               </span>
               <span className="text-[0.7rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
                 {stat.label}

@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 import CountUp from "@/components/CountUp";
 import DisplayHeading from "@/components/DisplayHeading";
@@ -15,6 +17,8 @@ const heroPreviews = designItems.filter((item) => item.featured).slice(0, 3);
 
 export default function DesignPage() {
   const shouldReduceMotion = false;
+  const statsRef = useRef<HTMLDivElement>(null);
+  const statsInView = useInView(statsRef, { once: true, margin: "-80px" });
 
   return (
     <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
@@ -62,17 +66,17 @@ export default function DesignPage() {
                 ← Back to frontend work
               </Link>
 
-              <div className="mt-5 flex flex-wrap gap-4 text-sm text-[var(--color-text-muted)]">
+              <div ref={statsRef} className="mt-5 flex flex-wrap gap-4 text-sm text-[var(--color-text-muted)]">
                 <div>
-                  <span className="font-[var(--font-display)] text-[1.8rem] leading-none text-[var(--color-text)]"><CountUp value="15+" /></span>
+                  <span className="font-[var(--font-display)] text-[1.8rem] leading-none text-[var(--color-text)]"><CountUp value="15+" start={statsInView} /></span>
                   <p className="mt-1 text-xs uppercase tracking-[0.12em]">Projects delivered</p>
                 </div>
                 <div>
-                  <span className="font-[var(--font-display)] text-[1.8rem] leading-none text-[var(--color-text)]"><CountUp value="8+" /></span>
+                  <span className="font-[var(--font-display)] text-[1.8rem] leading-none text-[var(--color-text)]"><CountUp value="8+" start={statsInView} /></span>
                   <p className="mt-1 text-xs uppercase tracking-[0.12em]">Real clients</p>
                 </div>
                 <div>
-                  <span className="font-[var(--font-display)] text-[1.8rem] leading-none text-[var(--color-text)]"><CountUp value="3" /></span>
+                  <span className="font-[var(--font-display)] text-[1.8rem] leading-none text-[var(--color-text)]"><CountUp value="3" start={statsInView} /></span>
                   <p className="mt-1 text-xs uppercase tracking-[0.12em]">Design disciplines</p>
                 </div>
               </div>

@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 import CountUp from "@/components/CountUp";
 import DisplayHeading from "@/components/DisplayHeading";
@@ -12,6 +16,9 @@ const stats: [string, string, number][] = [
 ];
 
 export default function About() {
+  const statsRef = useRef<HTMLDivElement>(null);
+  const statsInView = useInView(statsRef, { once: true, margin: "-80px" });
+
   return (
     <section
       id="about"
@@ -44,7 +51,7 @@ export default function About() {
           </div>
 
           <RevealOnScroll delay={0.35}>
-            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <div ref={statsRef} className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {stats.map(([value, label, delay]) => (
                 <div
                   key={label}
@@ -54,6 +61,7 @@ export default function About() {
                     value={value}
                     delayMs={delay}
                     durationMs={2400}
+                    start={statsInView}
                     className="text-[1.35rem] font-semibold leading-none text-[var(--color-primary)] [font-family:var(--font-display)] transition-colors duration-200 group-hover:text-[var(--color-primary-hover)]"
                   />
                   <div className="mt-1 text-[0.62rem] uppercase tracking-[0.1em] text-[var(--color-text-muted)]">
