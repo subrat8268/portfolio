@@ -17,17 +17,7 @@ const CIRCUMFERENCE = 2 * Math.PI * RING_R;
 
 function SunIcon() {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <circle cx="12" cy="12" r="5" />
       <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
     </svg>
@@ -35,37 +25,15 @@ function SunIcon() {
 }
 function MoonIcon() {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
     </svg>
   );
 }
 function ArrowRightSmIcon() {
   return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 20 20"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M4 10h12M11 5l5 5-5 5"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -83,14 +51,8 @@ export default function Navbar() {
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem("theme");
-    const preferredTheme = window.matchMedia("(prefers-color-scheme: light)")
-      .matches
-      ? "light"
-      : "dark";
-    const nextTheme =
-      savedTheme === "light" || savedTheme === "dark"
-        ? savedTheme
-        : preferredTheme;
+    const preferredTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    const nextTheme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : preferredTheme;
     setTheme(nextTheme);
     document.documentElement.setAttribute("data-theme", nextTheme);
     setIsMounted(true);
@@ -103,9 +65,7 @@ export default function Navbar() {
         setIsScrolled(sy > 50);
         const docH = document.documentElement.scrollHeight - window.innerHeight;
         setScrollProgress(docH > 0 ? Math.min(sy / docH, 1) : 0);
-        const sectionIds = navItems
-          .map((i) => i.href.replace("#", ""))
-          .filter((h) => !h.startsWith("/"));
+        const sectionIds = navItems.map((i) => i.href.replace("#", "")).filter((h) => !h.startsWith("/"));
         let current = "";
         sectionIds.forEach((id) => {
           const el = document.getElementById(id);
@@ -124,17 +84,13 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const focusableSelector =
-      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
-
+    const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
     if (!isMobileOpen) {
       document.body.style.overflow = "";
       hamburgerRef.current?.focus();
       return;
     }
-
     document.body.style.overflow = "hidden";
-
     const drawer = drawerRef.current;
     const focusables = drawer
       ? Array.from(
@@ -143,38 +99,20 @@ export default function Navbar() {
           (el) => !el.hasAttribute("disabled") && el.offsetParent !== null,
         )
       : [];
-
     focusables[0]?.focus();
-
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        closeDrawer();
-        return;
-      }
-
+      if (event.key === "Escape") { event.preventDefault(); closeDrawer(); return; }
       if (event.key !== "Tab" || focusables.length === 0) return;
-
       const first = focusables[0];
       const last = focusables[focusables.length - 1];
       const active = document.activeElement;
-
       if (event.shiftKey) {
-        if (!active || !drawer?.contains(active) || active === first) {
-          event.preventDefault();
-          last.focus();
-        }
+        if (!active || !drawer?.contains(active) || active === first) { event.preventDefault(); last.focus(); }
         return;
       }
-
-      if (!active || !drawer?.contains(active) || active === last) {
-        event.preventDefault();
-        first.focus();
-      }
+      if (!active || !drawer?.contains(active) || active === last) { event.preventDefault(); first.focus(); }
     };
-
     document.addEventListener("keydown", onKeyDown);
-
     return () => {
       document.body.style.overflow = "";
       document.removeEventListener("keydown", onKeyDown);
@@ -195,6 +133,8 @@ export default function Navbar() {
   const ringOffset = CIRCUMFERENCE * (1 - scrollProgress);
   const ringVisible = scrollProgress > 0.05;
   const pct = Math.round(scrollProgress * 100);
+  // glow intensity scales with scroll progress: subtle at start, stronger near end
+  const glowAlpha = Math.round(scrollProgress * 38 + 8);
 
   return (
     <>
@@ -225,71 +165,36 @@ export default function Navbar() {
         className="group fixed bottom-6 right-6 z-[60] h-12 w-12 rounded-full bg-[var(--color-bg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
         style={{
           opacity: ringVisible ? 1 : 0,
-          transform: ringVisible
-            ? "scale(1) translateY(0)"
-            : "scale(0.82) translateY(10px)",
+          transform: ringVisible ? "scale(1) translateY(0)" : "scale(0.82) translateY(10px)",
           pointerEvents: ringVisible ? "all" : "none",
+          // box-shadow on rounded-full = always circular, never a box
+          boxShadow: `0 0 ${8 + scrollProgress * 10}px ${scrollProgress * 4}px color-mix(in oklab, var(--accent) ${glowAlpha}%, transparent)`,
           transition:
             "opacity 400ms cubic-bezier(0.16, 1, 0.3, 1)," +
-            "transform 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+            "transform 400ms cubic-bezier(0.16, 1, 0.3, 1)," +
+            "box-shadow 120ms cubic-bezier(0.25, 1, 0.5, 1)",
           willChange: "transform, opacity",
         }}
       >
-        <svg
-          width="48"
-          height="48"
-          viewBox="0 0 48 48"
-          className="rotate-[-90deg]"
-          aria-hidden="true"
-        >
+        <svg width="48" height="48" viewBox="0 0 48 48" className="rotate-[-90deg]" aria-hidden="true">
+          <circle cx="24" cy="24" r={RING_R} fill="none" stroke="var(--border-subtle)" strokeWidth="3" />
           <circle
-            cx="24"
-            cy="24"
-            r={RING_R}
-            fill="none"
-            stroke="var(--border-subtle)"
-            strokeWidth="3"
-          />
-          <circle
-            cx="24"
-            cy="24"
-            r={RING_R}
+            cx="24" cy="24" r={RING_R}
             fill="none"
             stroke="var(--accent)"
             strokeWidth="3"
             strokeLinecap="round"
             strokeDasharray={CIRCUMFERENCE}
             strokeDashoffset={ringOffset}
-            style={{
-              transition:
-                "stroke-dashoffset 120ms cubic-bezier(0.25, 1, 0.5, 1)",
-              filter:
-                "drop-shadow(0 0 5px color-mix(in oklab, var(--accent) 50%, transparent))",
-              willChange: "stroke-dashoffset",
-            }}
+            style={{ transition: "stroke-dashoffset 120ms cubic-bezier(0.25, 1, 0.5, 1)", willChange: "stroke-dashoffset" }}
           />
         </svg>
-        <span
-          className="absolute inset-0 flex items-center justify-center [color:var(--text-muted)] transition-opacity duration-200 group-hover:opacity-0"
-          aria-hidden="true"
-        >
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 16 16"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
+        <span className="absolute inset-0 flex items-center justify-center [color:var(--text-muted)] transition-opacity duration-200 group-hover:opacity-0" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M8 13V3M3 8l5-5 5 5" />
           </svg>
         </span>
-        <span
-          className="absolute inset-0 flex items-center justify-center text-[0.58rem] font-semibold [color:var(--text-primary)] opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-          aria-hidden="true"
-        >
+        <span className="absolute inset-0 flex items-center justify-center text-[0.58rem] font-semibold [color:var(--text-primary)] opacity-0 transition-opacity duration-200 group-hover:opacity-100" aria-hidden="true">
           {pct}%
         </span>
       </button>
@@ -302,25 +207,18 @@ export default function Navbar() {
             : ""
         }`}
         style={{
-          borderColor:
-            "color-mix(in oklab, var(--border-subtle) 70%, var(--text-faint) 30%)",
+          borderColor: "color-mix(in oklab, var(--border-subtle) 70%, var(--text-faint) 30%)",
           backgroundColor: isScrolled
             ? "color-mix(in oklab, var(--bg-page) 90%, transparent)"
             : "color-mix(in oklab, var(--bg-page) 84%, transparent)",
         }}
       >
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 lg:px-5">
-          <Link
-            href="/"
-            className="text-[1.03rem] tracking-[-0.01em] [color:var(--text-primary)] [font-family:var(--font-display)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
-          >
+          <Link href="/" className="text-[1.03rem] tracking-[-0.01em] [color:var(--text-primary)] [font-family:var(--font-display)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70">
             Subrat Jena
           </Link>
 
-          <nav
-            className="hidden items-center gap-7 md:flex"
-            aria-label="Main navigation"
-          >
+          <nav className="hidden items-center gap-7 md:flex" aria-label="Main navigation">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -340,13 +238,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={toggleTheme}
-              aria-label={
-                isMounted
-                  ? theme === "dark"
-                    ? "Switch to light theme"
-                    : "Switch to dark theme"
-                  : "Toggle theme"
-              }
+              aria-label={isMounted ? theme === "dark" ? "Switch to light theme" : "Switch to dark theme" : "Toggle theme"}
               className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-subtle)] bg-[var(--bg-elevated)] [color:var(--text-muted)] transition-all duration-200 hover:border-[var(--accent)] hover:[color:var(--text-primary)] active:scale-90"
             >
               {isMounted && (theme === "dark" ? <SunIcon /> : <MoonIcon />)}
@@ -365,13 +257,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={toggleTheme}
-              aria-label={
-                isMounted
-                  ? theme === "dark"
-                    ? "Switch to light theme"
-                    : "Switch to dark theme"
-                  : "Toggle theme"
-              }
+              aria-label={isMounted ? theme === "dark" ? "Switch to light theme" : "Switch to dark theme" : "Toggle theme"}
               className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-subtle)] bg-[var(--bg-elevated)] [color:var(--text-muted)] transition-all duration-200 hover:border-[var(--accent)] hover:[color:var(--text-primary)] active:scale-90"
             >
               {isMounted && (theme === "dark" ? <SunIcon /> : <MoonIcon />)}
@@ -379,38 +265,16 @@ export default function Navbar() {
             <button
               type="button"
               ref={hamburgerRef}
-              aria-label={
-                isMobileOpen ? "Close navigation menu" : "Open navigation menu"
-              }
+              aria-label={isMobileOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={isMobileOpen}
               aria-controls="mobile-drawer"
               onClick={isMobileOpen ? closeDrawer : openDrawer}
               className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-subtle)] [color:var(--text-primary)] transition-colors duration-200 hover:border-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
             >
               <div className="flex flex-col gap-[5px] w-[18px]">
-                <span
-                  className="block h-[1.5px] w-full rounded-sm bg-current origin-center transition-transform duration-300"
-                  style={{
-                    transform: isMobileOpen
-                      ? "translateY(6.5px) rotate(45deg)"
-                      : "none",
-                  }}
-                />
-                <span
-                  className="block h-[1.5px] w-full rounded-sm bg-current transition-all duration-200"
-                  style={{
-                    opacity: isMobileOpen ? 0 : 1,
-                    transform: isMobileOpen ? "scaleX(0)" : "none",
-                  }}
-                />
-                <span
-                  className="block h-[1.5px] w-full rounded-sm bg-current origin-center transition-transform duration-300"
-                  style={{
-                    transform: isMobileOpen
-                      ? "translateY(-6.5px) rotate(-45deg)"
-                      : "none",
-                  }}
-                />
+                <span className="block h-[1.5px] w-full rounded-sm bg-current origin-center transition-transform duration-300" style={{ transform: isMobileOpen ? "translateY(6.5px) rotate(45deg)" : "none" }} />
+                <span className="block h-[1.5px] w-full rounded-sm bg-current transition-all duration-200" style={{ opacity: isMobileOpen ? 0 : 1, transform: isMobileOpen ? "scaleX(0)" : "none" }} />
+                <span className="block h-[1.5px] w-full rounded-sm bg-current origin-center transition-transform duration-300" style={{ transform: isMobileOpen ? "translateY(-6.5px) rotate(-45deg)" : "none" }} />
               </div>
             </button>
           </div>
@@ -422,11 +286,7 @@ export default function Navbar() {
         aria-hidden="true"
         onClick={closeDrawer}
         className="fixed inset-0 top-16 z-[48] transition-opacity duration-300 md:hidden"
-        style={{
-          background: "oklch(0 0 0 / 0.45)",
-          opacity: isMobileOpen ? 1 : 0,
-          pointerEvents: isMobileOpen ? "all" : "none",
-        }}
+        style={{ background: "oklch(0 0 0 / 0.45)", opacity: isMobileOpen ? 1 : 0, pointerEvents: isMobileOpen ? "all" : "none" }}
       />
 
       {/* ── MOBILE SLIDE-DOWN DRAWER ── */}
@@ -438,8 +298,7 @@ export default function Navbar() {
         aria-label="Navigation menu"
         className="fixed left-0 right-0 top-16 z-[49] border-b border-[var(--border-subtle)] backdrop-blur-xl transition-[transform,opacity] duration-[320ms] ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden"
         style={{
-          backgroundColor:
-            "color-mix(in oklab, var(--bg-page) 97%, transparent)",
+          backgroundColor: "color-mix(in oklab, var(--bg-page) 97%, transparent)",
           transform: isMobileOpen ? "translateY(0)" : "translateY(-8px)",
           opacity: isMobileOpen ? 1 : 0,
           pointerEvents: isMobileOpen ? "all" : "none",
