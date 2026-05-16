@@ -220,7 +220,7 @@ export default function Navbar() {
         type="button"
         aria-label={`Back to top — ${pct}% read`}
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="group fixed bottom-6 right-6 z-[60] h-12 w-12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
+        className="group fixed bottom-6 right-6 z-[60] h-12 w-12 rounded-full bg-[var(--color-bg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/70"
         style={{
           opacity: ringVisible ? 1 : 0,
           transform: ringVisible
@@ -261,8 +261,6 @@ export default function Navbar() {
             style={{
               transition:
                 "stroke-dashoffset 120ms cubic-bezier(0.25, 1, 0.5, 1)",
-              filter:
-                "drop-shadow(0 0 5px color-mix(in oklab, var(--accent) 50%, transparent))",
               willChange: "stroke-dashoffset",
             }}
           />
