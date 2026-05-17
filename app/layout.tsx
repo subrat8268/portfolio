@@ -79,6 +79,7 @@ export default function RootLayout({
         <link
           rel="apple-touch-icon"
           href="/apple-touch-icon.svg"
+          title="Subrat Jena Portfolio"
         />
         <link
           rel="manifest"
