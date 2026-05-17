@@ -1,6 +1,6 @@
 {
-  "name": "Subrat Jena - Frontend Developer",
-  "short_name": "Subrat Jena",
+  "name": "Subrat Jena Portfolio",
+  "short_name": "Subrat",
   "description": "Portfolio of Subrat Jena, Frontend Developer based in Mumbai",
   "start_url": "/",
   "display": "standalone",
@@ -10,7 +10,8 @@
     {
       "src": "/icon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     },
     {
       "src": "/apple-touch-icon.svg",

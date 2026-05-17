@@ -82,6 +82,11 @@ export default function RootLayout({
           href="/icon.svg"
         />
         <link
+          rel="icon"
+          type="image/x-icon"
+          href="/favicon.ico"
+        />
+        <link
           rel="apple-touch-icon"
           href="/apple-touch-icon.svg"
         />
