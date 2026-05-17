@@ -9,10 +9,10 @@ import DisplayHeading from "@/components/DisplayHeading";
 import RevealOnScroll from "@/components/RevealOnScroll";
 
 const stats: [string, string, number][] = [
-  ["2+",  "Years of experience", 0],
-  ["10M+","Users on production", 150],
+  ["2+", "Years of experience", 0],
+  ["10M+", "Users on production", 150],
   ["20+", "Production bug fixes", 300],
-  ["92+", "Lighthouse score",    450],
+  ["92+", "Lighthouse score", 450],
 ];
 
 export default function About() {
@@ -51,7 +51,10 @@ export default function About() {
           </div>
 
           <RevealOnScroll delay={0.35}>
-            <div ref={statsRef} className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <div
+              ref={statsRef}
+              className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4"
+            >
               {stats.map(([value, label, delay]) => (
                 <div
                   key={label}
@@ -99,7 +102,13 @@ export default function About() {
                     priority
                   />
                   <div className="absolute right-3 top-3 rounded-full border border-[var(--color-primary)]/30 bg-[var(--color-bg)]/90 px-2.5 py-1 text-[0.56rem] font-semibold uppercase tracking-[0.12em] text-[var(--color-primary)] shadow-[0_8px_18px_color-mix(in_oklab,var(--color-primary)_14%,transparent)] transition-transform duration-200 motion-safe:group-hover:-translate-y-0.5">
-                    <CountUp value="2+" delayMs={0} durationMs={2400} className="inline-block" /> Years
+                    <CountUp
+                      value="2+"
+                      delayMs={0}
+                      durationMs={2400}
+                      className="inline-block"
+                    />{" "}
+                    Years
                   </div>
                 </div>
                 <div>
@@ -241,7 +250,7 @@ export default function About() {
                         KB
                       </div>
                       <p className="text-[0.8rem] font-semibold text-[var(--color-text)]">
-                        KreditBook
+                        kredBook
                       </p>
                     </div>
                     <span className="rounded-full border border-[var(--color-primary)]/35 bg-[var(--color-primary-highlight)] px-2 py-0.5 text-[0.56rem] font-medium uppercase tracking-[0.08em] text-[var(--color-primary)]">

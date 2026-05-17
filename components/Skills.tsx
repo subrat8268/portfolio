@@ -54,7 +54,7 @@ const skillCategories: SkillCategory[] = [
   {
     label: "Backend & Tools",
     skills: [
-      { name: "Node.js", icon: "https://cdn.simpleicons.org/nodejs/339933" },
+      { name: "Node.js", icon: "https://cdn.simpleicons.org/nodejs/5FA04E" },
       { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb/47A248" },
       { name: "Jest", icon: "https://cdn.simpleicons.org/jest/C21325" },
       { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032" },

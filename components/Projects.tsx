@@ -473,7 +473,7 @@ export default function Projects() {
                   </div>
                   <div className="p-6">
                     <h3 className="text-[1rem] leading-snug text-[var(--color-text)] [font-family:var(--font-display)]">
-                      KreditBook
+                      kredBook
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-muted)]">
                       Cross-platform ledger app with WhatsApp integration, Super

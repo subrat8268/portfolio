@@ -78,15 +78,16 @@ export default function RootLayout({
         />
         <link
           rel="icon"
-          type="image/x-icon"
-          href="/favicon-light.ico"
-          media="(prefers-color-scheme: light)"
+          type="image/svg+xml"
+          href="/icon.svg"
         />
         <link
-          rel="icon"
-          type="image/x-icon"
-          href="/favicon-dark.ico"
-          media="(prefers-color-scheme: dark)"
+          rel="apple-touch-icon"
+          href="/apple-touch-icon.svg"
+        />
+        <link
+          rel="manifest"
+          href="/manifest.json"
         />
         <script
           type="application/ld+json"

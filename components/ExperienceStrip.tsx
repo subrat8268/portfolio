@@ -1,20 +1,17 @@
+import Image from "next/image";
 import RevealOnScroll from "@/components/RevealOnScroll";
 
 const experiences = [
   {
     id: "dept",
-    initials: "D",
-    logoBg: "#000000",
-    logoColor: "#ffffff",
+    logoUrl: "/icons/dept-logo.png",
     company: "DEPT®",
     role: "AU Small Finance Bank · IndiaFirst Life KYC",
     detail: "Frontend delivery, AEM, WCAG",
   },
   {
     id: "rejolut",
-    initials: "RJT",
-    logoBg: "#1a1a2e",
-    logoColor: "#e94560",
+    logoUrl: "/icons/rejolut-logo.jfif",
     company: "Rejolut",
     role: "XPharms Xchange · Research Assist · Rejo AI",
     detail: "Next.js, React, product builds",
@@ -35,21 +32,21 @@ export default function ExperienceStrip() {
                 key={exp.id}
                 className="flex items-center gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-3"
               >
-                <div
-                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[var(--radius-md)] text-[11px] font-black tracking-tight"
-                  style={{
-                    background: exp.logoBg,
-                    color: exp.logoColor,
-                    fontFamily: "var(--font-display)",
-                  }}
-                >
-                  {exp.initials}
-                </div>
+                <Image
+                  src={exp.logoUrl}
+                  alt={`${exp.company} logo`}
+                  width={32}
+                  height={32}
+                  unoptimized
+                  className="h-8 w-8 shrink-0 rounded-[var(--radius-md)]"
+                />
                 <div>
                   <p className="mb-0.5 text-sm leading-none font-bold text-[var(--color-text)]">
                     {exp.company}
                   </p>
-                  <p className="text-[0.65rem] text-[var(--color-text-muted)]">{exp.role}</p>
+                  <p className="text-[0.65rem] text-[var(--color-text-muted)]">
+                    {exp.role}
+                  </p>
                   <p className="mt-0.5 text-[0.6rem] uppercase tracking-[0.1em] text-[var(--color-text-faint)]">
                     {exp.detail}
                   </p>
